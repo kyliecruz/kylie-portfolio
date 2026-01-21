@@ -544,3 +544,28 @@ h1{
   .btn{ width: 100%; justify-content: center; }
   .panel{ padding: 18px; }
 }
+
+/* =========================
+   Header brand styling
+   ========================= */
+
+.brand {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.brand:visited,
+.brand:hover,
+.brand:active {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* Nav links consistency */
+.nav a,
+.nav a:visited {
+  color: var(--text-primary);
+  text-decoration: none;
+}
