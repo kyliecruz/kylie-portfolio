@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- EDIT HERE: Browser tab title -->
+  <title>Projects • Kylie Cruz</title>
+
+  <!-- Styles (served from docs/static for GitHub Pages) -->
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+
+  <!-- Night-mode stars (only visible in dark mode) -->
+  <div class="stars" aria-hidden="true"></div>
+
+  <!-- Site header / nav -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <!-- EDIT HERE: Site name -->
+        <a class="brand" href="index.html">Kylie Cruz</a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="blog.html">Writing</a>
+
+          <!-- Dark mode toggle -->
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <span id="themeIcon">🌙</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- EDIT HERE: Page heading and intro text -->
+    <section class="page-head">
+      <h1>Projects</h1>
+      <p class="muted">A collection of my work in software, AI safety, and community-building.</p>
+    </section>
+
+    <!-- EDIT HERE: Project cards grid
+         This is now STATIC. To add projects, duplicate a project-card block below.
+         You can also change link/title/description/tags directly in this file. -->
+    <section class="grid-3">
+
+      <!-- EDIT HERE: Single project card -->
+      <a class="project-card" href="#" target="_blank" rel="noopener" data-wake="surf">
+        <div class="project-title">
+          <!-- EDIT HERE: Project title -->
+          Example Project One <span class="arrow">↗</span>
+        </div>
+        <!-- EDIT HERE: Short project description -->
+        <div class="muted">A short description of what you built and why it matters.</div>
+        <!-- EDIT HERE: Project tags / tech stack -->
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Web</span>
+        </div>
+      </a>
+
+      <!-- EDIT HERE: Single project card -->
+      <a class="project-card" href="#" target="_blank" rel="noopener" data-wake="dolphin">
+        <div class="project-title">
+          <!-- EDIT HERE: Project title -->
+          Example Project Two <span class="arrow">↗</span>
+        </div>
+        <!-- EDIT HERE: Short project description -->
+        <div class="muted">Another project description. Link it to GitHub or a demo.</div>
+        <!-- EDIT HERE: Project tags / tech stack -->
+        <div class="tag-row">
+          <span class="tag">AI Safety</span>
+          <span class="tag">Research</span>
+          <span class="tag">Writing</span>
+        </div>
+      </a>
+
+      <!-- EDIT HERE: Single project card -->
+      <a class="project-card" href="#" target="_blank" rel="noopener" data-wake="surf">
+        <div class="project-title">
+          <!-- EDIT HERE: Project title -->
+          Example Project Three <span class="arrow">↗</span>
+        </div>
+        <!-- EDIT HERE: Short project description -->
+        <div class="muted">Add as many cards as you want — just duplicate one block.</div>
+        <!-- EDIT HERE: Project tags / tech stack -->
+        <div class="tag-row">
+          <span class="tag">Community</span>
+          <span class="tag">Leadership</span>
+          <span class="tag">Waterloo</span>
+        </div>
+      </a>
+
+    </section>
+
+    <footer class="footer">
+      <!-- EDIT HERE: Footer text -->
+      <div class="muted">© 2026 • Kylie Cruz</div>
+    </footer>
+
+  </main>
+
+  <script src="static/site.js"></script>
+</body>
+</html>

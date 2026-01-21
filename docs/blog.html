@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- EDIT HERE: Browser tab title -->
+  <title>Writing • Kylie Cruz</title>
+
+  <!-- Styles (served from docs/static for GitHub Pages) -->
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+
+  <!-- Night-mode stars (only visible in dark mode) -->
+  <div class="stars" aria-hidden="true"></div>
+
+  <!-- Site header / nav -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <!-- EDIT HERE: Site name -->
+        <a class="brand" href="index.html">Kylie Cruz</a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html" class="active">Writing</a>
+
+          <!-- Dark mode toggle -->
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <span id="themeIcon">🌙</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- EDIT HERE: Blog page heading + intro text -->
+    <section class="page-head">
+      <h1>Writing</h1>
+      <p class="muted">Thoughts on AI safety, club updates, and governance frameworks.</p>
+    </section>
+
+    <!-- EDIT HERE: Blog post list
+         Each post links to a static HTML file (example: post.html).
+         You can duplicate <a class="post-row"> blocks to add more posts. -->
+    <section class="posts">
+
+      <!-- EDIT HERE: Single post -->
+      <a class="post-row" href="post.html">
+        <div class="meta-row">
+          <span class="meta-pill">🗓️ Jan 2026</span>
+        </div>
+        <div class="post-title">Why AI Safety Needs Student Builders</div>
+        <div class="muted">
+          Reflections on starting early, building community, and learning governance alongside technical work.
+        </div>
+      </a>
+
+      <!-- EDIT HERE: Another post (duplicate this block for more) -->
+      <a class="post-row" href="post.html">
+        <div class="meta-row">
+          <span class="meta-pill">🗓️ Dec 2025</span>
+        </div>
+        <div class="post-title">Launching the Waterloo AI Association</div>
+        <div class="muted">
+          What worked, what didn’t, and what I learned from organizing a student AI safety group.
+        </div>
+      </a>
+
+    </section>
+
+    <footer class="footer">
+      <!-- EDIT HERE: Footer text -->
+      <div class="muted">© 2026 • Kylie Cruz</div>
+    </footer>
+
+  </main>
+
+  <script src="static/site.js"></script>
+</body>
+</html>
