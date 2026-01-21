@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- EDIT HERE: Back navigation text -->
+<a class="back" href="/blog">← Back to writing</a>
+
+<section class="post">
+  <!-- EDIT HERE: Blog post metadata (date pill) -->
+  <div class="meta-row">
+    <span class="meta-pill">🗓️ {{ post.date }}</span>
+  </div>
+
+  <!-- EDIT HERE: Blog post title -->
+  <h1>{{ post.title }}</h1>
+
+  <!-- EDIT HERE: Blog post body content (comes from app.py POSTS) -->
+  <div class="post-body">
+    {% for para in post.content %}
+      <p>{{ para }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- EDIT HERE: Blog page heading + intro text -->
+<section class="page-head">
+  <h1>Writing</h1>
+  <p class="muted">Thoughts on AI safety, club updates, and governance frameworks.</p>
+</section>
+
+<!-- EDIT HERE: Post list (titles/excerpts come from app.py POSTS) -->
+<section class="posts">
+  {% for p in posts %}
+  <a class="post-row" href="/blog/{{ p.slug }}">
+    <div class="meta-row">
+      <span class="meta-pill">🗓️ {{ p.date }}</span>
+    </div>
+    <div class="post-title">{{ p.title }}</div>
+    <div class="muted">{{ p.excerpt }}</div>
+  </a>
+  {% endfor %}
+</section>
+
+{% endblock %}

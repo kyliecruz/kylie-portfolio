@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="page-head">
+  <h1>Projects</h1>
+  <p class="muted">A collection of my work in software, AI safety, and community-building.</p>
+</section>
+
+<section class="grid-3">
+  {% for p in projects %}
+  <a class="project-card" href="{{ p.link }}">
+    <div class="project-title">{{ p.title }} <span class="arrow">↗</span></div>
+    <div class="muted">{{ p.desc }}</div>
+    <div class="tag-row">
+      {% for t in p.tags %}
+      <span class="tag">{{ t }}</span>
+      {% endfor %}
+    </div>
+  </a>
+  {% endfor %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+  <!-- EDIT HERE: Small top pill text -->
+  <div class="pill">CS Student • Waterloo</div>
+
+  <!-- EDIT HERE: Main title (your name) -->
+  <h1>Kylie Cruz</h1>
+
+  <!-- EDIT HERE: Subtitle line under your name -->
+  <p class="subhead">
+    Building calm, responsible <span class="accent">AI safety &amp; governance.</span>
+  </p>
+
+  <!-- EDIT HERE: Short intro paragraph -->
+  <p class="lead">
+    Hi! I am a Computer Science student at Wilfrid Laurier University with a strong passion for AI safety and machine learning.
+    My goal is to work on developing trustworthy, safe, and reliable AI systems while gaining hands-on experience in applied machine learning.
+  </p>
+
+  <!-- EDIT HERE: Buttons + their labels (data-wake controls the surf/dolphin animation) -->
+  <div class="cta-row">
+    <a class="btn primary" href="/projects" data-wake="surf">View Projects →</a>
+    <a class="btn ghost" href="#waia" data-wake="dolphin">Learn about WAIA</a>
+  </div>
+</section>
+
+<!-- Wave divider (optional visual) -->
+<div class="wave-divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path d="M0,64 C120,80 240,48 360,64 C480,80 600,112 720,96 C840,80 960,16 1080,32 C1200,48 1320,96 1440,80 L1440,120 L0,120 Z"></path>
+  </svg>
+</div>
+
+<section id="waia" class="panel">
+  <!-- EDIT HERE: WAIA section title + description -->
+  <div class="panel-header">
+    <div class="panel-title">
+      <span class="icon">☀️</span>
+      <h2>Waterloo AI Association</h2>
+    </div>
+    <p class="muted">
+      A student community for responsible AI — bridging technical innovation and governance.
+    </p>
+  </div>
+
+  <!-- EDIT HERE: WAIA cards -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-top">
+        <div class="mini-icon">🧠</div>
+        <div>
+          <div class="card-title">Technical Research</div>
+          <div class="muted">Deep dives into interpretability, evaluation, and alignment.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="mini-icon">🫧</div>
+        <div>
+          <div class="card-title">Safety Governance</div>
+          <div class="muted">Understanding risk frameworks and real-world policy tradeoffs.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT HERE: WAIA link (data-wake triggers dolphins) -->
+  <a class="link-row" href="/blog/announcing-waia" data-wake="dolphin">Read the announcement post →</a>
+</section>
+
+{% endblock %}
