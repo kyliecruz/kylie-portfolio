@@ -1,22 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- EDIT HERE: Page heading and intro text -->
 <section class="page-head">
   <h1>Projects</h1>
   <p class="muted">A collection of my work in software, AI safety, and community-building.</p>
 </section>
 
+<!-- EDIT HERE: Project cards grid
+     Project content (title, description, tags, links)
+     comes from app.py → PROJECTS list -->
 <section class="grid-3">
   {% for p in projects %}
+
+  <!-- EDIT HERE: Single project card -->
   <a class="project-card" href="{{ p.link }}">
-    <div class="project-title">{{ p.title }} <span class="arrow">↗</span></div>
+
+    <!-- EDIT HERE: Project title -->
+    <div class="project-title">
+      {{ p.title }} <span class="arrow">↗</span>
+    </div>
+
+    <!-- EDIT HERE: Short project description -->
     <div class="muted">{{ p.desc }}</div>
+
+    <!-- EDIT HERE: Project tags / tech stack -->
     <div class="tag-row">
       {% for t in p.tags %}
       <span class="tag">{{ t }}</span>
       {% endfor %}
     </div>
+
   </a>
+  
   {% endfor %}
 </section>
 
