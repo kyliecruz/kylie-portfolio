@@ -121,16 +121,53 @@ function getStopsForTheme(){
   return [cssVar('--accent'), cssVar('--accent2'), '#F0D6A5'];
 }
 
+function getStops(opts){
+  // Allow explicit stops from site.js (similar to React props)
+  if (Array.isArray(opts?.colorStops) && opts.colorStops.length >= 3) {
+    return opts.colorStops.slice(0, 3);
+  }
+  return getStopsForTheme();
+}
+
 export function mountAurora(targetId = 'aurora', opts = {}){
   const ctn = document.getElementById(targetId);
   if (!ctn) return () => {};
 
-  const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: true });
-  const gl = renderer.gl;
+  // This shader uses `#version 300 es`, which requires WebGL2.
+  // Create an explicit WebGL2 context so it works consistently.
+  const canvas = document.createElement('canvas');
+  const gl = canvas.getContext('webgl2', {
+    alpha: true,
+    premultipliedAlpha: true,
+    antialias: true,
+    depth: false,
+    stencil: false,
+    preserveDrawingBuffer: false,
+  });
+
+  if (!gl) {
+    console.warn('[Aurora] WebGL2 not available on this browser/device.');
+    return () => {};
+  }
+
+  const renderer = new Renderer({
+    canvas,
+    context: gl,
+    alpha: true,
+    premultipliedAlpha: true,
+    antialias: true,
+    dpr: Math.min(2, window.devicePixelRatio || 1),
+  });
+
   gl.clearColor(0, 0, 0, 0);
   gl.enable(gl.BLEND);
   gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-  gl.canvas.style.backgroundColor = 'transparent';
+
+  // Ensure the canvas visually fills the container
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+  canvas.style.display = 'block';
+  canvas.style.backgroundColor = 'transparent';
 
   let program;
 
@@ -150,7 +187,7 @@ export function mountAurora(targetId = 'aurora', opts = {}){
   }
   window.addEventListener('resize', resize);
 
-  const stops = getStopsForTheme().map(toRGB);
+  const stops = getStops(opts).map(toRGB);
 
   program = new Program(gl, {
     vertex: VERT,
@@ -165,7 +202,7 @@ export function mountAurora(targetId = 'aurora', opts = {}){
   });
 
   const mesh = new Mesh(gl, { geometry, program });
-  ctn.appendChild(gl.canvas);
+  ctn.appendChild(canvas);
 
   let raf = 0;
   const speed = opts.speed ?? 1.0;
@@ -181,7 +218,7 @@ export function mountAurora(targetId = 'aurora', opts = {}){
 
   // Update colors when theme toggles
   const observer = new MutationObserver(() => {
-    program.uniforms.uColorStops.value = getStopsForTheme().map(toRGB);
+    program.uniforms.uColorStops.value = getStops(opts).map(toRGB);
   });
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
@@ -189,7 +226,9 @@ export function mountAurora(targetId = 'aurora', opts = {}){
     cancelAnimationFrame(raf);
     observer.disconnect();
     window.removeEventListener('resize', resize);
-    if (gl.canvas.parentNode === ctn) ctn.removeChild(gl.canvas);
+    if (ctn && canvas.parentNode === ctn) {
+      ctn.removeChild(canvas);
+    }
     gl.getExtension('WEBGL_lose_context')?.loseContext();
   };
 }
