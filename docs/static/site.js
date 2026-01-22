@@ -192,3 +192,35 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener("resize", () => requestAnimationFrame(updateWave));
   updateWave();
 });
+
+// =========================
+// AURORA MOUNT
+// =========================
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const mountPoint = document.querySelector('#aurora-bg');
+    if (!mountPoint) return;
+
+    // aurora.js should export a function like mountAurora or initAurora.
+    // If yours exports a different name, tell me the first ~20 lines of aurora.js and I’ll match it.
+    const mod = await import('./aurora.js');
+
+    const mountAurora =
+      mod.mountAurora || mod.initAurora || mod.default;
+
+    if (typeof mountAurora !== 'function') {
+      console.warn('Aurora module loaded but no mount function was found.');
+      return;
+    }
+
+    mountAurora(mountPoint, {
+      // your beachy light-mode colors (edit these)
+      colorStops: ['#CFEDE8', '#F2E7D6', '#BFD4F0'],
+      amplitude: 1.0,
+      blend: 0.6,
+      speed: 1.0
+    });
+  } catch (e) {
+    console.error('Aurora mount failed:', e);
+  }
+});

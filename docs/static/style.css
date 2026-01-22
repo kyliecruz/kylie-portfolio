@@ -604,34 +604,32 @@ h1{
   color: var(--text);
 }
 
-/* ========= Aurora background (must be visible) ========= */
-.hero { position: relative; }              /* make hero the positioning parent */
+/* =========================
+   AURORA BACKGROUND LAYER
+   ========================= */
 
-#aurora {
-  position: absolute;
+#aurora-bg {
+  position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
   pointer-events: none;
-
-  /* IMPORTANT: give it real height so the canvas has space */
-  min-height: 320px;
+  opacity: 0.9; /* bump this up if still subtle */
 }
 
-/* the class is added by site.js */
-.aurora-container {
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-
-  /* Start with less blur so you can actually see it */
-  filter: blur(25px) saturate(1.25);
+/* Make sure your site content is ABOVE the aurora */
+body > header,
+body > main,
+body > footer,
+.navbar,
+.container,
+.page {
+  position: relative;
+  z-index: 1;
 }
 
-/* Keep hero content above it */
-.hero > * { position: relative; z-index: 1; }
-
-/* Dark mode: still visible */
-.dark .aurora-container {
-  opacity: 0.85;
-  filter: blur(30px) saturate(1.1);
+/* If your body has an opaque background, the aurora will be hidden */
+body {
+  background: transparent;
 }

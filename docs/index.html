@@ -43,7 +43,7 @@
     <section class="hero">
       <!-- Aurora background (rendered by static/aurora.js via site.js) -->
       <!-- Keep this div simple — site.js adds the needed class + aria attributes automatically. -->
-      <div id="aurora"></div>
+      <div id="aurora-bg" aria-hidden="true"></div>
       <!-- EDIT HERE: Small top pill text -->
       <div class="pill">CS Student • Waterloo</div>
 
@@ -123,6 +123,6 @@
   </main>
 
   <!-- NOTE: Open this site via a server (e.g., http://localhost:8000/docs/) not file://, so ES modules + Aurora can load. -->
-  <script type="module" src="static/site.js"></script>
+  <script type="module" src="./static/site.js"></script>
 </body>
 </html>
