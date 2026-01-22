@@ -1,19 +1,27 @@
+/* Google Fonts (Fraunces for headings, Inter for body) */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
 :root{
-  --bg: #FBF7EF;          /* sand */
-  --panel: #FFFDF8;       /* lighter sand */
-  --text: #0B1B2A;        /* deep ocean/navy */
-  --muted: #5D6B78;       /* driftwood gray-blue */
-  --border: rgba(11,27,42,.16);
+  /* Minimal beach palette */
+  --bg: #FBF6EC;                 /* warm sand */
+  --panel: #FFFCF6;              /* sun-bleached sand */
+  --text: #0B1B2A;               /* deep navy */
+  --muted: #556270;              /* slate-blue */
+  --border: rgba(11,27,42,.12);
 
-  --accent: #1F5E7A;      /* ocean */
-  --accent2: #55B7A8;     /* seafoam */
-  --accent-soft: rgba(85,183,168,.18);
+  --accent: #1E6A7A;             /* ocean */
+  --accent2: #66C6B6;            /* seafoam */
+  --accent-soft: rgba(102,198,182,.16);
 
-  --shadow: 0 18px 45px rgba(11,27,42,.08);
+  /* Softer, more minimal depth */
+  --shadow: 0 14px 35px rgba(11,27,42,.06);
   --radius: 18px;
 
+  /* Alias used by header brand rules */
+  --text-primary: var(--text);
+
   /* Wave speed (light mode) */
-  --wave-speed: 5.5s;
+  --wave-speed: 6.2s;
 }
 
 *{ box-sizing: border-box; }
@@ -21,8 +29,9 @@ body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background:
-    radial-gradient(900px 500px at 15% 12%, rgba(85,183,168,.18), transparent 60%),
-    radial-gradient(900px 500px at 85% 18%, rgba(31,94,122,.12), transparent 55%),
+    radial-gradient(900px 520px at 18% 10%, rgba(102,198,182,.14), transparent 60%),
+    radial-gradient(920px 560px at 85% 18%, rgba(30,106,122,.10), transparent 58%),
+    radial-gradient(760px 520px at 50% 95%, rgba(240,214,165,.28), transparent 60%),
     var(--bg);
   color: var(--text);
 }
@@ -62,7 +71,7 @@ body{
 
 .nav-links a{
   text-decoration:none;
-  color: var(--muted);
+  color: rgba(11,27,42,.62);
   font-weight: 500;
   margin-left: 0;
 }
@@ -116,9 +125,10 @@ body{
 
 h1{
   margin: 18px 0 10px;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1.02;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 }
 .accent{
   color: var(--accent);
@@ -418,6 +428,7 @@ h1{
 .post h1{
   font-size: 48px;
   margin: 10px 0 14px;
+  font-family: 'Fraunces', Georgia, serif;
 }
 .post-body p{
   max-width: 70ch;
@@ -449,6 +460,8 @@ h1{
 
   /* Calmer night sea */
   --wave-speed: 7.2s;
+
+  --text-primary: var(--text);
 }
 
 /* ---------- Stars (night mode only) ---------- */
@@ -549,23 +562,27 @@ h1{
    Header brand styling
    ========================= */
 
-.brand {
-  font-weight: 600;
+.brand{
+  font-weight: 650;
   font-size: 1rem;
-  color: var(--text-primary);
+  color: var(--text);
   text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
 .brand:visited,
 .brand:hover,
-.brand:active {
-  color: var(--text-primary);
+.brand:active{
+  color: var(--text);
   text-decoration: none;
 }
 
-/* Nav links consistency */
 .nav a,
-.nav a:visited {
-  color: var(--text-primary);
+.nav a:visited{
+  color: rgba(11,27,42,.62);
   text-decoration: none;
+}
+
+.nav a:hover{
+  color: rgba(11,27,42,.86);
 }
