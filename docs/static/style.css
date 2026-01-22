@@ -34,6 +34,7 @@ body{
     radial-gradient(760px 520px at 50% 95%, rgba(240,214,165,.28), transparent 60%),
     var(--bg);
   color: var(--text);
+  min-height: 100vh;
 }
 
 .container{
@@ -76,7 +77,7 @@ body{
   font-weight: 500;
   margin-left: 0;
 }
-.nav-links a.active{ color: var(--text); }
+.nav-links a.active{ color: var(--text); font-weight: 600; }
 :root.dark .nav-links a{ color: rgba(248,250,255,.78); }
 :root.dark .nav-links a.active{ color: var(--text); }
 
@@ -469,8 +470,8 @@ h1{
 
 /* ---------- Stars (night mode only) ---------- */
 .stars{
-  position:fixed;
-  inset:0;
+  position: fixed;
+  inset: 0;
   pointer-events:none;
   z-index:0;
   display:none;
@@ -580,24 +581,28 @@ h1{
   text-decoration: none;
 }
 
+/* Header nav links (theme-aware) */
 .nav a,
-.nav a:visited{
+.nav a:visited,
+.nav-links a{
   color: rgba(11,27,42,.62);
   text-decoration: none;
 }
 
-.nav a:hover{
+.nav a:hover,
+.nav-links a:hover{
   color: rgba(11,27,42,.86);
 }
 
-/* Dark mode: ensure tabs are visible */
 :root.dark .nav a,
-:root.dark .nav a:visited{
-  color: rgba(248,250,255,.78);
+:root.dark .nav a:visited,
+:root.dark .nav-links a{
+  color: rgba(248,250,255,.82);
 }
 
-:root.dark .nav a:hover{
-  color: rgba(248,250,255,.92);
+:root.dark .nav a:hover,
+:root.dark .nav-links a:hover{
+  color: rgba(248,250,255,.96);
 }
 
 :root.dark .nav-links a.active{
@@ -608,28 +613,21 @@ h1{
    AURORA BACKGROUND LAYER
    ========================= */
 
-#aurora-bg {
+/* Aurora stays BEHIND all content. */
+#aurora-bg{
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: -2;
   pointer-events: none;
-  opacity: 0.9; /* bump this up if still subtle */
+  opacity: 0.85; /* raise/lower for strength */
 }
 
-/* Make sure your site content is ABOVE the aurora */
-body > header,
-body > main,
-body > footer,
-.navbar,
-.container,
-.page {
-  position: relative;
-  z-index: 1;
+/* Stars sit above aurora, but still behind content */
+.stars{
+  z-index: -1;
 }
 
-/* If your body has an opaque background, the aurora will be hidden */
-body {
-  background: transparent;
-}
+/* IMPORTANT: do NOT make body transparent.
+   If body is transparent, browsers default to white and it looks like dark mode is “broken”. */
