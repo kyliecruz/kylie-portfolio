@@ -1,4 +1,7 @@
 // docs/static/aurora.js
+// Aurora background effect (vanilla JS) — no React, no npm.
+// Uses OGL via CDN. Requires WebGL2 for the #version 300 es shaders.
+
 import { Renderer, Program, Mesh, Color, Triangle } from 'https://cdn.jsdelivr.net/npm/ogl@1.0.11/dist/ogl.mjs';
 
 const VERT = `#version 300 es
@@ -16,6 +19,7 @@ uniform float uAmplitude;
 uniform vec3 uColorStops[3];
 uniform vec2 uResolution;
 uniform float uBlend;
+uniform float uOpacity;
 
 out vec4 fragColor;
 
@@ -93,48 +97,48 @@ void main() {
   vec3 rampColor;
   COLOR_RAMP(colors, uv.x, rampColor);
 
+  // Base shape
   float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) * 0.5 * uAmplitude;
   height = exp(height);
   height = (uv.y * 2.0 - height + 0.2);
-  float intensity = 0.6 * height;
 
-  float midPoint = 0.20;
+  // More visible / "ReactBits-like" glow
+  float intensity = 1.25 * height;
+  float midPoint = 0.12;
   float auroraAlpha = smoothstep(midPoint - uBlend * 0.5, midPoint + uBlend * 0.5, intensity);
 
-  vec3 auroraColor = intensity * rampColor;
+  float glow = pow(clamp(intensity, 0.0, 1.2), 1.35);
+  vec3 auroraColor = glow * rampColor;
 
+  auroraAlpha *= uOpacity;
   fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha);
 }
 `;
 
-function cssVar(name){
+function cssVar(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
 
-function getStopsForTheme(){
-  // Match your light-mode palette from style.css:
-  // --accent (#1E6A7A ocean), --accent2 (#66C6B6 seafoam), and a sandy highlight
-  if (document.documentElement.classList.contains('dark')) {
-    // Optional: match your dark palette
-    return [cssVar('--accent'), cssVar('--accent2'), '#F8FAFF'];
-  }
-  return [cssVar('--accent'), cssVar('--accent2'), '#F0D6A5'];
+function stopsForTheme() {
+  // Match your beach palette via CSS vars
+  // Light: ocean + seafoam + sand
+  // Dark:  ocean + seafoam + moonlight
+  const isDark = document.documentElement.classList.contains('dark');
+  const a1 = cssVar('--accent') || '#0B5C6B';
+  const a2 = cssVar('--accent2') || '#73D7C6';
+  return isDark ? [a1, a2, '#F8FAFF'] : [a1, a2, '#F0D6A5'];
 }
 
-function getStops(opts){
-  // Allow explicit stops from site.js (similar to React props)
-  if (Array.isArray(opts?.colorStops) && opts.colorStops.length >= 3) {
-    return opts.colorStops.slice(0, 3);
-  }
-  return getStopsForTheme();
+function toRGB(hex) {
+  const c = new Color(hex);
+  return [c.r, c.g, c.b];
 }
 
-export function mountAurora(targetId = 'aurora', opts = {}){
+export function mountAurora(targetId = 'aurora', opts = {}) {
   const ctn = document.getElementById(targetId);
   if (!ctn) return () => {};
 
-  // This shader uses `#version 300 es`, which requires WebGL2.
-  // Create an explicit WebGL2 context so it works consistently.
+  // WebGL2 required because shader uses #version 300 es
   const canvas = document.createElement('canvas');
   const gl = canvas.getContext('webgl2', {
     alpha: true,
@@ -146,7 +150,7 @@ export function mountAurora(targetId = 'aurora', opts = {}){
   });
 
   if (!gl) {
-    console.warn('[Aurora] WebGL2 not available on this browser/device.');
+    console.warn('[Aurora] WebGL2 not available.');
     return () => {};
   }
 
@@ -163,23 +167,23 @@ export function mountAurora(targetId = 'aurora', opts = {}){
   gl.enable(gl.BLEND);
   gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
 
-  // Ensure the canvas visually fills the container
   canvas.style.width = '100%';
   canvas.style.height = '100%';
   canvas.style.display = 'block';
   canvas.style.backgroundColor = 'transparent';
 
-  let program;
-
   const geometry = new Triangle(gl);
   if (geometry.attributes.uv) delete geometry.attributes.uv;
 
-  function toRGB(hex){
-    const c = new Color(hex);
-    return [c.r, c.g, c.b];
+  let program;
+
+  function buildStops() {
+    const explicit = Array.isArray(opts.colorStops) && opts.colorStops.length >= 3;
+    const stops = explicit ? opts.colorStops.slice(0, 3) : stopsForTheme();
+    return stops.map(toRGB);
   }
 
-  function resize(){
+  function resize() {
     const width = ctn.clientWidth;
     const height = ctn.clientHeight;
     renderer.setSize(width, height);
@@ -187,25 +191,24 @@ export function mountAurora(targetId = 'aurora', opts = {}){
   }
   window.addEventListener('resize', resize);
 
-  const stops = getStops(opts).map(toRGB);
-
   program = new Program(gl, {
     vertex: VERT,
     fragment: FRAG,
     uniforms: {
       uTime: { value: 0 },
-      uAmplitude: { value: opts.amplitude ?? 1.05 },
-      uColorStops: { value: stops },
+      uAmplitude: { value: opts.amplitude ?? 1.35 },
+      uColorStops: { value: buildStops() },
       uResolution: { value: [ctn.clientWidth, ctn.clientHeight] },
-      uBlend: { value: opts.blend ?? 0.55 }
-    }
+      uBlend: { value: opts.blend ?? 0.75 },
+      uOpacity: { value: opts.opacity ?? 0.85 },
+    },
   });
 
   const mesh = new Mesh(gl, { geometry, program });
   ctn.appendChild(canvas);
 
+  const speed = opts.speed ?? 0.85;
   let raf = 0;
-  const speed = opts.speed ?? 1.0;
 
   const tick = (t) => {
     raf = requestAnimationFrame(tick);
@@ -216,9 +219,9 @@ export function mountAurora(targetId = 'aurora', opts = {}){
 
   resize();
 
-  // Update colors when theme toggles
+  // If your theme toggle flips the `dark` class, update colors automatically
   const observer = new MutationObserver(() => {
-    program.uniforms.uColorStops.value = getStops(opts).map(toRGB);
+    program.uniforms.uColorStops.value = buildStops();
   });
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
@@ -226,9 +229,7 @@ export function mountAurora(targetId = 'aurora', opts = {}){
     cancelAnimationFrame(raf);
     observer.disconnect();
     window.removeEventListener('resize', resize);
-    if (ctn && canvas.parentNode === ctn) {
-      ctn.removeChild(canvas);
-    }
+    if (ctn && canvas.parentNode === ctn) ctn.removeChild(canvas);
     gl.getExtension('WEBGL_lose_context')?.loseContext();
   };
 }

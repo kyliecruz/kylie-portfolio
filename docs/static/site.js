@@ -26,8 +26,9 @@ window.addEventListener('DOMContentLoaded', () => {
   //   <script type="module" src="static/site.js"></script>
   //
   // Where it renders:
-  // - Add <div id="aurora" class="aurora-container" aria-hidden="true"></div>
+  // - Add <div id="aurora"></div>
   //   inside your .hero section (usually near the top).
+  // - DO NOT add class="aurora-container" in HTML — site.js adds it automatically.
 
   let unmountAurora = null;
 
@@ -54,6 +55,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const ctn = document.getElementById('aurora');
     if (!ctn) return; // only mount on pages that include the container
 
+    // Ensure the container has the right class for the glow/blur CSS.
+    // (aurora.js appends a canvas inside this div.)
+    ctn.classList.add('aurora-container');
+    ctn.setAttribute('aria-hidden', 'true');
+
     // Unmount existing instance if any
     if (typeof unmountAurora === 'function') {
       unmountAurora();
@@ -68,10 +74,14 @@ window.addEventListener('DOMContentLoaded', () => {
       // Equivalent to the React props they showed you:
       // <Aurora colorStops={[...]} blend={0.5} amplitude={1.0} speed={1} />
       unmountAurora = mod.mountAurora('aurora', {
+        // Match your site palette (light vs dark)
         colorStops: getAuroraStops(),
-        blend: 0.5,
-        amplitude: 1.0,
-        speed: 1.0,
+
+        // Stronger / more "ReactBits-like" presence
+        blend: 0.75,
+        amplitude: 1.35,
+        speed: 0.9,
+        opacity: 0.85,
       });
     } catch (err) {
       // If aurora.js isn't there yet, don't break the site.
