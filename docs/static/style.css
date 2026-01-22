@@ -76,6 +76,8 @@ body{
   margin-left: 0;
 }
 .nav-links a.active{ color: var(--text); }
+:root.dark .nav-links a{ color: rgba(248,250,255,.78); }
+:root.dark .nav-links a.active{ color: var(--text); }
 
 .hero{
   padding: 64px 0 26px;
@@ -585,4 +587,18 @@ h1{
 
 .nav a:hover{
   color: rgba(11,27,42,.86);
+}
+
+/* Dark mode: ensure tabs are visible */
+:root.dark .nav a,
+:root.dark .nav a:visited{
+  color: rgba(248,250,255,.78);
+}
+
+:root.dark .nav a:hover{
+  color: rgba(248,250,255,.92);
+}
+
+:root.dark .nav-links a.active{
+  color: var(--text);
 }
