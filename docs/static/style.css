@@ -603,3 +603,28 @@ h1{
 :root.dark .nav-links a.active{
   color: var(--text);
 }
+
+/* Aurora background layer */
+.aurora-container{
+  position: absolute;
+  inset: -40px -20px auto -20px; /* a bit oversized so it spills nicely */
+  height: 320px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .55;
+  filter: blur(0px);
+}
+
+/* Make hero content sit above aurora */
+.hero{ position: relative; }
+.hero > *{ position: relative; z-index: 1; }
+
+/* Optional: slightly stronger on larger screens */
+@media (min-width: 900px){
+  .aurora-container{ height: 380px; opacity: .6; }
+}
+
+/* Dark mode: dim it a bit so text stays crisp */
+:root.dark .aurora-container{
+  opacity: .35;
+}

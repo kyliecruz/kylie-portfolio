@@ -1,4 +1,5 @@
-(() => {
+// Run after the DOM is fully loaded
+window.addEventListener('DOMContentLoaded', () => {
   // ---------- Theme toggle ----------
   const root = document.documentElement;
   const toggle = document.getElementById("themeToggle");
@@ -14,6 +15,73 @@
     icon.textContent = root.classList.contains("dark") ? "☀️" : "🌙";
   }
   updateIcon();
+
+  // ---------- Aurora (shader background) ----------
+  // NOTE: The code snippet you found is a React component. This site is plain HTML/CSS/JS.
+  // We integrate the same effect by mounting it via `aurora.js`.
+  //
+  // Required files:
+  // - docs/static/aurora.js (exports mountAurora)
+  // - In your HTML pages, your site.js script tag should be:
+  //   <script type="module" src="static/site.js"></script>
+  //
+  // Where it renders:
+  // - Add <div id="aurora" class="aurora-container" aria-hidden="true"></div>
+  //   inside your .hero section (usually near the top).
+
+  let unmountAurora = null;
+
+  // Pull colors from your CSS variables so it always matches your light-mode palette
+  function cssVar(name, fallback) {
+    const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return v || fallback;
+  }
+
+  function getAuroraStops() {
+    // Light mode beach palette from style.css
+    const ocean = cssVar('--accent', '#1E6A7A');
+    const seafoam = cssVar('--accent2', '#66C6B6');
+    const sand = '#F0D6A5';
+
+    // If you want dark mode to also be “night beach”, you can tweak these later.
+    if (root.classList.contains('dark')) {
+      return [ocean, seafoam, '#F8FAFF'];
+    }
+    return [ocean, seafoam, sand];
+  }
+
+  async function mountOrUpdateAurora() {
+    const ctn = document.getElementById('aurora');
+    if (!ctn) return; // only mount on pages that include the container
+
+    // Unmount existing instance if any
+    if (typeof unmountAurora === 'function') {
+      unmountAurora();
+      unmountAurora = null;
+    }
+
+    try {
+      // Dynamic import so your site still loads even if aurora.js isn't present yet
+      const mod = await import('./aurora.js');
+      if (typeof mod.mountAurora !== 'function') return;
+
+      // Equivalent to the React props they showed you:
+      // <Aurora colorStops={[...]} blend={0.5} amplitude={1.0} speed={1} />
+      unmountAurora = mod.mountAurora('aurora', {
+        colorStops: getAuroraStops(),
+        blend: 0.5,
+        amplitude: 1.0,
+        speed: 1.0,
+      });
+    } catch (err) {
+      // If aurora.js isn't there yet, don't break the site.
+      // You can check the Console for this message while setting it up.
+      console.warn('[Aurora] Not mounted:', err);
+    }
+  }
+
+  // Mount once on load
+  mountOrUpdateAurora();
 
   // ---------- Stars (night mode only) ----------
   const starsWrap = document.querySelector(".stars");
@@ -46,7 +114,7 @@
   makeStars();
 
   // Toggle theme
-  toggle?.addEventListener("click", () => {
+  toggle?.addEventListener("click", async () => {
     root.classList.toggle("dark");
     localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
     updateIcon();
@@ -57,6 +125,9 @@
     } else {
       clearStars();
     }
+
+    // Update aurora colors for the theme
+    await mountOrUpdateAurora();
   });
 
   // ---------- Surf / dolphin click animation ----------
@@ -95,7 +166,6 @@
     const loop = 140; // px
 
     // Scroll -> horizontal offset. Higher = more movement per scroll.
-    // (Increased for a more noticeable “scroll-coupled” wave.)
     const speed = root.classList.contains("dark") ? 0.45 : 0.65;
 
     const x = -((window.scrollY * speed) % loop);
@@ -111,4 +181,4 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", () => requestAnimationFrame(updateWave));
   updateWave();
-})();
+});
