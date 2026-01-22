@@ -2,7 +2,7 @@
 // Aurora background effect (vanilla JS) — no React, no npm.
 // Uses OGL via CDN. Requires WebGL2 for the #version 300 es shaders.
 
-import { Renderer, Program, Mesh, Color, Triangle } from 'https://cdn.jsdelivr.net/npm/ogl@1.0.11/dist/ogl.mjs';
+import { Renderer, Program, Mesh, Color, Triangle } from './ogl.mjs';
 
 const VERT = `#version 300 es
 in vec2 position;
