@@ -30,29 +30,92 @@
   </header>
 
   <main class="container">
-    <section class="panel" style="margin-top: 28px;">
+    <!-- Page hero (matches Projects/Blog layout: big title + short subtitle) -->
+    <section class="page-hero">
+      <h1 class="page-title">WAIA</h1>
+      <p class="page-subtitle">
+        Waterloo AI Association — a student-led community in the Waterloo region focused on AI safety, governance, and responsible AI.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">Visit WAIA Website →</a>
+        <a class="btn ghost" href="blog.html">Read WAIA posts →</a>
+      </div>
+
+      <div class="stats-row" aria-label="WAIA highlights">
+        <div class="stat">
+          <div class="stat-k">Focus</div>
+          <div class="stat-v">AI Safety + Governance</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">Format</div>
+          <div class="stat-v">Talks • Reading groups • Projects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-k">Region</div>
+          <div class="stat-v">Waterloo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main content panel -->
+    <section class="panel waia-panel">
       <div class="panel-header">
         <div class="panel-title">
           <span class="icon">☀️</span>
-          <h1 style="margin: 0;">Waterloo AI Association (WAIA)</h1>
+          <h2 class="section-title">What WAIA is</h2>
         </div>
-        <p class="muted" style="max-width: 72ch;">
-          WAIA is a student-led community in the Waterloo region focused on AI safety, governance, and responsible AI.
-          We host discussions, speaker events, reading groups, and resources for students who want to build real skills
-          and contribute thoughtfully.
+        <p class="muted">
+          WAIA connects students and community members who want to learn about, discuss, and advocate for responsible AI. We’re building a local home
+          for people interested in AI risk, safety engineering, governance, and the real-world tradeoffs that shape how AI gets deployed.
         </p>
       </div>
 
-      <div class="grid-2" style="margin-top: 14px;">
+      <div class="grid-3 waia-grid">
         <div class="card">
           <div class="card-top">
-            <div class="mini-icon">📚</div>
+            <div class="mini-icon">🧠</div>
+            <div>
+              <div class="card-title">Learning</div>
+              <p class="muted">Intro sessions, reading groups, and discussion nights that make AI safety & governance feel approachable.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="mini-icon">🎤</div>
+            <div>
+              <div class="card-title">Community + Events</div>
+              <p class="muted">Guest speakers, workshops, and meetups that connect Waterloo students with the wider AI safety ecosystem.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="mini-icon">🛠️</div>
+            <div>
+              <div class="card-title">Projects</div>
+              <p class="muted">Hands-on, beginner-friendly projects (evaluation, audits, demos) to build real skills and portfolio proof.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="grid-2 waia-grid">
+        <div class="card">
+          <div class="card-top">
+            <div class="mini-icon">📌</div>
             <div>
               <div class="card-title">What we do</div>
-              <ul class="muted" style="margin-top:10px; line-height:1.8; padding-left: 18px;">
+              <ul class="muted waia-list">
                 <li>Intro sessions + reading groups (AI safety + governance)</li>
                 <li>Guest speakers + community events</li>
                 <li>Opportunities + resources for students</li>
+                <li>Beginner-friendly technical projects (demos, audits, evals)</li>
               </ul>
             </div>
           </div>
@@ -60,20 +123,34 @@
 
         <div class="card">
           <div class="card-top">
-            <div class="mini-icon">🔗</div>
+            <div class="mini-icon">🚀</div>
             <div>
-              <div class="card-title">Links</div>
-              <p class="muted" style="margin-top:10px; max-width: 56ch;">Visit the live WAIA site, or read posts you’ve written about the club.</p>
+              <div class="card-title">How to get involved</div>
+              <p class="muted">If you’re curious (even if you’re new), WAIA is designed to be welcoming. Start with an intro event, then join a reading group or project.</p>
+              <div class="pill-row" aria-label="Ways to join">
+                <span class="pill">Attend an intro</span>
+                <span class="pill">Join a reading group</span>
+                <span class="pill">Help with events</span>
+                <span class="pill">Build a project</span>
+              </div>
             </div>
           </div>
-
-          <div class="cta-row" style="margin-top: 12px;">
-            <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">
-              Visit WAIA Website →
-            </a>
-            <a class="btn ghost" href="blog.html">Read my WAIA posts →</a>
-          </div>
         </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="icon">🔗</span>
+          <h2 class="section-title">Links</h2>
+        </div>
+        <p class="muted">Explore WAIA’s live site for updates and resources, or read posts I’ve written about building the club.</p>
+      </div>
+
+      <div class="cta-row waia-cta">
+        <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">Visit WAIA Website →</a>
+        <a class="btn ghost" href="blog.html">Read my WAIA posts →</a>
       </div>
     </section>
 
