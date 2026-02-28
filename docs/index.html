@@ -4,34 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- EDIT HERE: Browser tab title -->
   <title>Kylie Cruz</title>
 
-  <!-- IMPORTANT: For GitHub Pages, copy your repo /static folder into /docs/static
-       so these paths work (see instructions in chat). -->
   <link rel="stylesheet" href="static/style.css" />
 </head>
 <body>
 
-  <!-- Night-mode stars layer (JS populates this only in dark mode) -->
   <div class="stars" aria-hidden="true"></div>
 
-  <!-- Site header / nav (shows on every page) -->
   <header class="site-header">
     <div class="container">
       <div class="nav">
-        <!-- EDIT HERE: Header / site name shown on every page -->
         <a class="brand" href="index.html">Kylie Cruz</a>
 
-        <!-- EDIT HERE: Navigation labels + destinations -->
         <nav class="nav-links" aria-label="Primary">
           <a href="index.html" class="active">Home</a>
-          <a href="aboutme.html">About Me</a>
+          <a href="about-me.html">About Me</a>
           <a href="projects.html">Projects</a>
           <a href="waia.html">WAIA</a>
           <a href="blog.html">Blog</a>
 
-          <!-- Dark mode toggle -->
           <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
             <span id="themeIcon">🌙</span>
           </button>
@@ -43,34 +35,26 @@
   <main class="container">
 
     <section class="hero">
-      <!-- Aurora background (rendered by static/aurora.js via site.js) -->
-      <!-- Keep this div simple — site.js adds the needed class + aria attributes automatically. -->
       <div id="aurora-bg" aria-hidden="true"></div>
-      <!-- EDIT HERE: Small top pill text -->
       <div class="pill">CS Student • Waterloo</div>
 
-      <!-- EDIT HERE: Main title (your name) -->
       <h1>Kylie Cruz</h1>
 
-      <!-- EDIT HERE: Subtitle line under your name -->
       <p class="subhead">
         Building calm, responsible <span class="accent">AI safety &amp; governance.</span>
       </p>
 
-      <!-- EDIT HERE: Short intro paragraph -->
       <p class="lead">
         Hi! I am a Computer Science student at Wilfrid Laurier University with a strong passion for AI safety and machine learning.
         My goal is to work on developing trustworthy, safe, and reliable AI systems while gaining hands-on experience in applied machine learning.
       </p>
 
-      <!-- EDIT HERE: Buttons + their labels (data-wake controls the surf/dolphin animation) -->
       <div class="cta-row">
         <a class="btn primary" href="projects.html" data-wake="surf">View Projects →</a>
         <a class="btn ghost" href="#waia" data-wake="dolphin">Learn about WAIA</a>
       </div>
     </section>
 
-    <!-- Wave divider (scroll-linked motion via JS) -->
     <div class="wave-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
         <path d="M0,64 C120,80 240,48 360,64 C480,80 600,112 720,96 C840,80 960,16 1080,32 C1200,48 1320,96 1440,80 L1440,120 L0,120 Z"></path>
@@ -78,7 +62,6 @@
     </div>
 
     <section id="waia" class="panel">
-      <!-- EDIT HERE: WAIA section title + description -->
       <div class="panel-header">
         <div class="panel-title">
           <span class="icon">☀️</span>
@@ -89,7 +72,6 @@
         </p>
       </div>
 
-      <!-- EDIT HERE: WAIA cards -->
       <div class="grid-2">
         <div class="card">
           <div class="card-top">
@@ -100,19 +82,6 @@
             </div>
           </div>
         </div>
-
-        <div class="cta-row" style="margin-top: 12px;">
-          <a class="btn primary"
-          href="https://v0-waterloo-ai-association.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Visit WAIA Website →
-        </a>
-
-  <a class="btn ghost" href="waia.html">
-    About WAIA
-  </a>
-</div>
 
         <div class="card">
           <div class="card-top">
@@ -125,19 +94,20 @@
         </div>
       </div>
 
-      <!-- EDIT HERE: WAIA link -->
-      <!-- NOTE: For static sites, this must point to a real file (example: post.html). -->
-      <a class="link-row" href="waia.html" data-wake="dolphin">Read the announcement post →</a>
+      <div class="cta-row" style="margin-top: 12px;">
+        <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">Visit WAIA Website →</a>
+        <a class="btn ghost" href="waia.html">About WAIA</a>
+      </div>
+
+      <a class="link-row" href="waia.html" data-wake="dolphin">More about WAIA →</a>
     </section>
 
     <footer class="footer">
-      <!-- EDIT HERE: Footer text -->
       <div class="muted">© 2026 • Kylie Cruz</div>
     </footer>
 
   </main>
 
-  <!-- NOTE: Open this site via a server (e.g., http://localhost:8000/docs/) not file://, so ES modules + Aurora can load. -->
   <script type="module" src="./static/site.js"></script>
 </body>
 </html>

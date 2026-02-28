@@ -1,27 +1,87 @@
-<h1>Waterloo AI Association (WAIA)</h1>
-<p class="lead">
-  WAIA is a student-led community in the Waterloo region focused on AI safety, governance, and responsible AI.
-  We host discussions, speaker events, reading groups, and resources for students who want to build real skills
-  and contribute thoughtfully.
-</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WAIA • Kylie Cruz</title>
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+  <!-- Night-mode stars layer (JS populates this only in dark mode) -->
+  <div class="stars" aria-hidden="true"></div>
 
-<div class="grid-2">
-  <div class="card">
-    <div class="card-title">What we do</div>
-    <ul class="muted" style="margin-top:10px; line-height:1.8;">
-      <li>Intro sessions + reading groups (AI safety + governance)</li>
-      <li>Guest speakers + community events</li>
-      <li>Opportunities + resources for students</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Links</div>
-    <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-      <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">
-        WAIA Website →
-      </a>
-      <a class="btn ghost" href="blog.html">Read my WAIA posts</a>
+  <!-- Site header / nav -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">Kylie Cruz</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="about-me.html">About Me</a>
+          <a href="projects.html">Projects</a>
+          <a href="waia.html" class="active">WAIA</a>
+          <a href="blog.html">Blog</a>
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <span id="themeIcon">🌙</span>
+          </button>
+        </nav>
+      </div>
     </div>
-  </div>
-</div>
+  </header>
+
+  <main class="container">
+    <section class="panel" style="margin-top: 28px;">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="icon">☀️</span>
+          <h1 style="margin: 0;">Waterloo AI Association (WAIA)</h1>
+        </div>
+        <p class="muted" style="max-width: 72ch;">
+          WAIA is a student-led community in the Waterloo region focused on AI safety, governance, and responsible AI.
+          We host discussions, speaker events, reading groups, and resources for students who want to build real skills
+          and contribute thoughtfully.
+        </p>
+      </div>
+
+      <div class="grid-2" style="margin-top: 14px;">
+        <div class="card">
+          <div class="card-top">
+            <div class="mini-icon">📚</div>
+            <div>
+              <div class="card-title">What we do</div>
+              <ul class="muted" style="margin-top:10px; line-height:1.8; padding-left: 18px;">
+                <li>Intro sessions + reading groups (AI safety + governance)</li>
+                <li>Guest speakers + community events</li>
+                <li>Opportunities + resources for students</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="mini-icon">🔗</div>
+            <div>
+              <div class="card-title">Links</div>
+              <p class="muted" style="margin-top:10px; max-width: 56ch;">Visit the live WAIA site, or read posts you’ve written about the club.</p>
+            </div>
+          </div>
+
+          <div class="cta-row" style="margin-top: 12px;">
+            <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">
+              Visit WAIA Website →
+            </a>
+            <a class="btn ghost" href="blog.html">Read my WAIA posts →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="muted">© 2026 • Kylie Cruz</div>
+    </footer>
+  </main>
+
+  <script type="module" src="./static/site.js"></script>
+</body>
+</html>
