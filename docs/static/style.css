@@ -275,12 +275,12 @@ h1{
 
 /* Dark mode: WAIA cards on home page (Technical Research / Safety Governance) */
 :root.dark .panel .card{
-  background: rgba(255,255,255,.10);
-  border-color: rgba(248,250,255,.24);
+  background: rgba(255,255,255,.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,.22);
 }
 
 :root.dark .panel .card:hover{
-  background: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.09);
 }
 
 :root.dark .panel .card-title{
