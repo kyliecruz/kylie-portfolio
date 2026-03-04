@@ -55,7 +55,7 @@ body::before{
     radial-gradient(920px 560px at 85% 18%, rgba(138,180,255,.10), transparent 58%),
     radial-gradient(760px 520px at 50% 95%, rgba(0,0,0,.20), transparent 60%),
     /* translucent night wash */
-    rgba(6,17,30,.50);
+    rgba(6,17,30,.75);
 }
 
 .container{
