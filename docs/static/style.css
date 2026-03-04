@@ -653,10 +653,10 @@ h1{
   display:block;
 }
 
-/* Avatar bubble (matches the WAIA logo bubble style) */
+/* Avatar bubble*/
 .avatar-bubble{
-  width: 96px;
-  height: 96px;
+  width: 128px;
+  height: 128px;
   border-radius: 999px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -677,10 +677,14 @@ h1{
   display: block;
 }
 
-@media (max-width: 520px){
+@media (max-width: 820px){
+  .about-hero{
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .avatar-bubble{
-    width: 72px;
-    height: 72px;
+    width: 96px;
+    height: 96px;
   }
 }
 .avatar{
@@ -694,8 +698,8 @@ h1{
 }
 
 /* Give the Quick Timeline card a little breathing room from the cards above */
-.quick-timeline{
-  margin-top: 16px;
+.card--spaced {
+  margin-top: 18px;
 }
 
 /* Slightly smaller avatar on small screens */
