@@ -630,19 +630,7 @@ h1{
   color: var(--text);
 }
 
-/* =========================
-   Scroll reveal (About + WAIA)
-   ========================= */
-.reveal{
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 600ms ease, transform 600ms ease;
-}
-.reveal.is-visible{
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* WAIA bubble */
 .avatar{
   width: 96px;
   height: 96px;
@@ -653,7 +641,7 @@ h1{
   display:block;
 }
 
-/* Avatar bubble*/
+/* Headshot bubble*/
 .avatar-bubble{
   width: 128px;
   height: 128px;
@@ -754,25 +742,20 @@ h1{
   margin-top: 0;
 }
 
-/* =========================
-   AURORA BACKGROUND LAYER
-   ========================= */
-
-/* Aurora stays BEHIND all content. */
+/* AURORA BACKGROUND LAYER */
 #aurora-bg{
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+
+  /* force it behind everything */
+  z-index: -10;
   pointer-events: none;
-  opacity: 0.85; /* raise/lower for strength */
-}
 
-/* Stars sit above aurora, but still behind content */
-.stars{
-  z-index: -1;
-}
+  /* reduce the “grey film” */
+  opacity: 0.35;
 
-/* IMPORTANT: do NOT make body transparent.
-   If body is transparent, browsers default to white and it looks like dark mode is “broken”. */
+  /* makes aurora feel like light, not fog */
+  mix-blend-mode: screen;
+}
