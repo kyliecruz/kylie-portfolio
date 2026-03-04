@@ -634,6 +634,20 @@ h1{
   box-shadow: var(--shadow);
   display:block;
 }
+
+/* Give the Quick Timeline card a little breathing room from the cards above */
+.quick-timeline{
+  margin-top: 16px;
+}
+
+/* Slightly smaller avatar on small screens */
+@media (max-width: 520px){
+  .avatar{
+    width: 72px;
+    height: 72px;
+  }
+}
+
 :root.dark .avatar{
   border-color: rgba(248,250,255,.24);
 }
