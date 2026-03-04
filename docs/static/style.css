@@ -28,13 +28,34 @@
 body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  /* Make the body itself transparent so the aurora canvas can show through */
+  background: transparent;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Background overlay layer (keeps your current aesthetic while letting aurora show) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(900px 520px at 18% 10%, rgba(102,198,182,.14), transparent 60%),
     radial-gradient(920px 560px at 85% 18%, rgba(30,106,122,.10), transparent 58%),
-    radial-gradient(760px 520px at 50% 95%, rgba(240,214,165,.28), transparent 60%),
-    var(--bg);
-  color: var(--text);
-  min-height: 100vh;
+    radial-gradient(760px 520px at 50% 95%, rgba(240,214,165,.22), transparent 60%),
+    /* translucent base wash so content stays readable */
+    rgba(251,246,236,.70);
+}
+
+:root.dark body::before{
+  background:
+    radial-gradient(900px 520px at 18% 10%, rgba(121,226,210,.10), transparent 60%),
+    radial-gradient(920px 560px at 85% 18%, rgba(138,180,255,.10), transparent 58%),
+    radial-gradient(760px 520px at 50% 95%, rgba(0,0,0,.20), transparent 60%),
+    /* translucent night wash */
+    rgba(6,17,30,.72);
 }
 
 .container{
@@ -622,9 +643,46 @@ h1{
   transform: translateY(0);
 }
 
-/* =========================
-   Avatar + logo helpers
-   ========================= */
+.avatar{
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display:block;
+}
+
+/* Avatar bubble (matches the WAIA logo bubble style) */
+.avatar-bubble{
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.55);
+  box-shadow: var(--shadow);
+  flex: 0 0 auto;
+}
+
+:root.dark .avatar-bubble{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(248,250,255,.24);
+}
+
+.avatar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 520px){
+  .avatar-bubble{
+    width: 72px;
+    height: 72px;
+  }
+}
 .avatar{
   width: 96px;
   height: 96px;
