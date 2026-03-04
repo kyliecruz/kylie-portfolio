@@ -610,6 +610,75 @@ h1{
 }
 
 /* =========================
+   Scroll reveal (About + WAIA)
+   ========================= */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   Avatar + logo helpers
+   ========================= */
+.avatar{
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display:block;
+}
+:root.dark .avatar{
+  border-color: rgba(248,250,255,.24);
+}
+
+.logo-bubble{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+}
+:root.dark .logo-bubble{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(248,250,255,.22);
+}
+
+.logo-bubble img{
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.panel-head{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.panel-head-left{
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.panel-head h1,
+.panel-head h2{
+  margin-top: 0;
+}
+
+/* =========================
    AURORA BACKGROUND LAYER
    ========================= */
 

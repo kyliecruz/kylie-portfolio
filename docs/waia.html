@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="static/style.css" />
 </head>
 <body>
+  <div id="aurora-bg"></div>
   <!-- Night-mode stars layer (JS populates this only in dark mode) -->
   <div class="stars" aria-hidden="true"></div>
 
@@ -30,49 +31,101 @@
   </header>
 
   <main class="container">
-    <!-- Page hero (matches Projects/Blog layout: big title + short subtitle) -->
-    <section class="page-hero">
-      <h1 class="page-title">WAIA</h1>
-      <p class="page-subtitle">
-        Waterloo AI Association — a student-led community in the Waterloo region focused on AI safety, governance, and responsible AI.
-      </p>
+    <!-- Page hero (full + spaced like your other pages) -->
+    <section class="page-hero reveal">
+      <div class="panel" style="margin-top:0;">
+        <div class="panel-head">
+          <div class="panel-head-left">
+            <!-- WAIA logo (uses your existing filename with a space) -->
+            <div class="logo-bubble" aria-hidden="true">
+              <img src="static/WAIA%20Logo.png" alt="" />
+            </div>
+            <div>
+              <h1 class="page-title" style="margin:0;">WAIA</h1>
+              <p class="page-subtitle" style="margin-top:10px; max-width: 75ch;">
+                Waterloo AI Association — a student-led community in the Waterloo region focused on AI safety, governance, and responsible AI.
+              </p>
 
-      <div class="hero-cta">
-        <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">Visit WAIA Website →</a>
-        <a class="btn ghost" href="blog.html">Read WAIA posts →</a>
-      </div>
+              <div class="hero-cta" style="margin-top:16px;">
+                <a class="btn primary" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer">Visit WAIA Website →</a>
+                <a class="btn ghost" href="blog.html">Read WAIA posts →</a>
+              </div>
 
-      <div class="stats-row" aria-label="WAIA highlights">
-        <div class="stat">
-          <div class="stat-k">Focus</div>
-          <div class="stat-v">AI Safety + Governance</div>
+              <div class="tag-row" aria-label="WAIA themes" style="margin-top:16px;">
+                <span class="tag">AI Safety</span>
+                <span class="tag">Governance</span>
+                <span class="tag">Student Builders</span>
+                <span class="tag">Waterloo Region</span>
+              </div>
+            </div>
+          </div>
+
+          <span class="pill">Student-led • Community-first</span>
         </div>
-        <div class="stat">
-          <div class="stat-k">Format</div>
-          <div class="stat-v">Talks • Reading groups • Projects</div>
+
+        <div class="wave-divider" aria-hidden="true">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,64 C200,110 360,0 600,48 C840,96 980,18 1200,58 L1200,120 L0,120 Z"></path>
+          </svg>
         </div>
-        <div class="stat">
-          <div class="stat-k">Region</div>
-          <div class="stat-v">Waterloo</div>
+
+        <div class="grid-2" style="margin-top: 0;">
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="mini-icon">🎯</div>
+              <div>
+                <div class="card-title">Mission</div>
+                <div class="muted">Make AI safety + governance approachable in Waterloo, and help students build the skills + clarity to contribute responsibly.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="mini-icon">🧭</div>
+              <div>
+                <div class="card-title">Approach</div>
+                <div class="muted">Beginner-friendly entry points, real projects, and honest discussions about tradeoffs — bridging technical work and policy realities.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-row" aria-label="WAIA highlights" style="margin-top: 18px;">
+          <div class="stat">
+            <div class="stat-k">Focus</div>
+            <div class="stat-v">AI Safety + Governance</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">Format</div>
+            <div class="stat-v">Talks • Reading groups • Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">Region</div>
+            <div class="stat-v">Waterloo</div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Main content panel -->
-    <section class="panel waia-panel">
+    <section class="panel waia-panel reveal">
       <div class="panel-header">
         <div class="panel-title">
           <span class="icon">☀️</span>
           <h2 class="section-title">What WAIA is</h2>
         </div>
         <p class="muted">
-          WAIA connects students and community members who want to learn about, discuss, and advocate for responsible AI. We’re building a local home
-          for people interested in AI risk, safety engineering, governance, and the real-world tradeoffs that shape how AI gets deployed.
+          WAIA connects students and community members who want to learn about, discuss, and advocate for responsible AI.
+          We’re building a local home in the Waterloo region for people interested in AI risk, safety engineering, governance,
+          and the real-world tradeoffs that shape how AI gets deployed.
+          <br /><br />
+          The vibe: welcoming for beginners, still serious about real skills — clear explanations, good questions, and practical projects.
         </p>
       </div>
 
       <div class="grid-3 waia-grid">
-        <div class="card">
+        <div class="card reveal">
           <div class="card-top">
             <div class="mini-icon">🧠</div>
             <div>
@@ -82,7 +135,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <div class="card-top">
             <div class="mini-icon">🎤</div>
             <div>
@@ -92,7 +145,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <div class="card-top">
             <div class="mini-icon">🛠️</div>
             <div>
@@ -106,7 +159,7 @@
       <div class="divider"></div>
 
       <div class="grid-2 waia-grid">
-        <div class="card">
+        <div class="card reveal">
           <div class="card-top">
             <div class="mini-icon">📌</div>
             <div>
@@ -121,7 +174,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <div class="card-top">
             <div class="mini-icon">🚀</div>
             <div>
@@ -140,7 +193,49 @@
 
       <div class="divider"></div>
 
-      <div class="panel-header">
+      <div class="panel-header reveal">
+        <div class="panel-title">
+          <span class="icon">✨</span>
+          <h2 class="section-title">How WAIA helps students</h2>
+        </div>
+        <p class="muted">A simple path from “curious” to “confident” — without being overwhelming.</p>
+      </div>
+
+      <div class="grid-3 waia-grid">
+        <div class="card reveal">
+          <div class="card-top">
+            <div class="mini-icon">👋</div>
+            <div>
+              <div class="card-title">Start</div>
+              <p class="muted">Intro sessions that explain AI safety + governance in plain language, plus what students can realistically do next.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top">
+            <div class="mini-icon">📚</div>
+            <div>
+              <div class="card-title">Learn</div>
+              <p class="muted">Reading groups with prompts and takeaways. We prioritize understanding and discussion over “trying to sound smart.”</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top">
+            <div class="mini-icon">🧪</div>
+            <div>
+              <div class="card-title">Build</div>
+              <p class="muted">Beginner-friendly projects that teach evaluation instincts and safety-first thinking — with portfolio proof.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="panel-header reveal">
         <div class="panel-title">
           <span class="icon">🔗</span>
           <h2 class="section-title">Links</h2>
@@ -159,6 +254,6 @@
     </footer>
   </main>
 
-  <script type="module" src="./static/site.js"></script>
+  <script type="module" src="static/site.js"></script>
 </body>
 </html>
