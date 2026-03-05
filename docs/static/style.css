@@ -274,25 +274,25 @@ h1{
 }
 
 /* Dark mode: WAIA cards on home page (Technical Research / Safety Governance) */
-:root.dark .panel .card{
+:root.dark .card{
   background: rgba(255,255,255,.06);
   box-shadow: 0 10px 30px rgba(0,0,0,.22);
 }
 
-:root.dark .panel .card:hover{
+:root.dark .card:hover{
   background: rgba(255,255,255,.09);
 }
 
-:root.dark .panel .card-title{
+:root.dark .card-title{
   color: var(--text);
 }
 
-:root.dark .panel .muted{
+:root.dark .muted{
   color: var(--muted);
 }
 
 /* Darker icon bubble behind emojis in WAIA cards */
-:root.dark .panel .mini-icon{
+:root.dark .mini-icon{
   background: rgba(255,255,255,.22);
 }
 

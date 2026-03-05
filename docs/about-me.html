@@ -32,70 +32,72 @@
 
   <main class="container">
 
-    <section class="about-panel">
-      <div class="panel-header about-header">
-        <div class="about-hero">
-        </div>
+  <section class="about-hero">
+    <div class="avatar-bubble" aria-hidden="false">
+      <img src="static/kylie-headshot.jpeg" alt="Headshot of Kylie Cruz" class="avatar-img" />
+    </div>
 
-          <div class="avatar-bubble" aria-hidden="false">
-            <img src="static/kylie-headshot.jpeg" alt="Headshot of Kylie Cruz" class="avatar-img" />
-          </div>
+    <div class="about-intro">
+      <div class="panel-title">
+        <span class="icon">🏝️</span>
+          <h1 class="page-title">About Me</h1>
+      </div>
+      
+      <p class="muted lead">
+        I’m a Computer Science (Honours) student at Wilfrid Laurier University focused on AI safety,
+        machine learning, and security-minded engineering. I started working toward an AI safety 
+        career in December 2025, and I’m particularily interested in building reliable systems
+        and understanding how technical decisions shape real-world risk.
+      </p>
 
-          <div class="about-intro">
-            <div class="panel-title">
-              <span class="icon">🏝️</span>
-              <h1 class="page-title">About Me</h1>
+      <div class="about-badges" aria-label="Quick highlights">
+        <span class="pill">BSc CS @ Laurier</span>
+        <span class="pill">WAIA Founder</span>
+        <span class="pill">EAG SF 2026 Volunteer</span>
+        <span class="pill">AI Safety Career-Building (Dec 2025 →)</span>
+      </div>
+
+      <div class="cta-row" style="margin-top: 12px;">
+        <a class="btn primary" href="projects.html">View Projects →</a>
+        <a class="btn ghost" href="waia.html">WAIA →</a>
+        <a class="btn ghost" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener">WAIA Website ↗</a>
+      </div>
+    </div>
+  </section>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,64 C120,80 240,48 360,64 C480,80 600,112 720,96 C840,80 960,16 1080,32 C1200,48 1320,96 1440,80 L1440,120 L0,120 Z"></path>
+      </svg>
+    </div>
+
+  <section class="hero">
+    <div class="grid-2 about-grid">
+      <div class="card">
+        <div class="card-top">
+          <div class="mini-icon">🧠</div>
+            <div>
+              <div class="card-title">Technical Interests</div>
+                <div class="muted">
+                  AI safety engineering, evaluation &amp; testing, reliability, and security-minded ML.
+                  I like work that’s practical, measurable, and grounded in real-world failure modes.
+                </div>
             </div>
-
-            <p class="muted about-lede">
-              I’m a Computer Science (Honours) student at Wilfrid Laurier University focused on AI safety,
-              machine learning, and security-minded engineering. I started working intentionally toward an AI safety
-              career in December 2025, and I’m especially interested in building calm, reliable systems and understanding
-              how technical decisions shape real-world risk.
-            </p>
-
-            <div class="about-badges" aria-label="Quick highlights">
-              <span class="pill">BSc CS @ Laurier</span>
-              <span class="pill">WAIA Founder</span>
-              <span class="pill">EAG SF 2026 Volunteer</span>
-              <span class="pill">AI Safety Career-Building (Dec 2025 →)</span>
-            </div>
-
-            <div class="cta-row">
-              <a class="btn primary" href="projects.html">View Projects →</a>
-              <a class="btn ghost" href="waia.html">WAIA →</a>
-              <a class="btn ghost" href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener">WAIA Website ↗</a>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div class="grid-2 about-grid">
-        <div class="card">
-          <div class="card-top">
-            <div class="mini-icon">🧠</div>
-            <div>
-              <div class="card-title">Technical Interests</div>
-              <div class="muted">
-                AI safety engineering, evaluation &amp; testing, reliability, and security-minded ML.
-                I like work that’s practical, measurable, and grounded in real-world failure modes.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <div class="mini-icon">🌊</div>
+      <div class="card">
+        <div class="card-top">
+          <div class="mini-icon">🌊</div>
             <div>
               <div class="card-title">Community &amp; Leadership</div>
-              <div class="muted">
-                I founded the Waterloo AI Association (WAIA) to build a Waterloo-region hub for students exploring AI safety,
-                governance, and responsible AI. I focus on community-building, outreach, and making it easy for beginners to get started.
-              </div>
+                <div class="muted">
+                  I founded the Waterloo AI Association (WAIA) to build a Waterloo-region hub for students exploring AI safety,
+                  governance, and responsible AI. I focus on community-building, outreach, and making it easy for beginners to get started.
+                </div>
             </div>
-          </div>
         </div>
+      </div>
 
         <div class="card">
           <div class="card-top">
@@ -117,7 +119,7 @@
               <div class="card-title">What I’m Building Toward</div>
               <div class="muted about-list">
                 <li><strong></strong>Long-term:</strong> Red-team/security + safety engineering roles.</li> 
-                <li><strong></strong>Short-term:</strong> stronger fundamentals, better projects,
+                <li><strong></strong>Short-term:</strong> Stronger fundamentals, better projects,
                   and more exposure to real-world evaluation + governance tradeoffs.</li>
               </div>
             </div>
@@ -125,7 +127,7 @@
         </div>
       </div>
 
-      <div class="about-notes">
+    <div class="about-notes">
         <div class="card card--spaced">
           <div class="card-top">
             <div class="mini-icon">📌</div>
@@ -138,10 +140,9 @@
               </ul>
             </div>
           </div>
-        </div>
       </div>
-
-    </section>
+    </div>
+  </section>
 
     <footer class="footer">
       <div class="muted">© 2026 • Kylie Cruz</div>
