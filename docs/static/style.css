@@ -155,9 +155,6 @@ h1{
   line-height: 1.02;
   letter-spacing: -0.02em;
 }
-.about-title h1{
-  margin-bottom: 8px;
-}
 .accent{
   color: var(--accent);
 }
