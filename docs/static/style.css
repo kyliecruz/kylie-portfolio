@@ -632,8 +632,8 @@ h1{
 
 /* Avatar bubble*/
 .avatar-bubble{
-  width: 128px;
-  height: 128px;
+  width: 180px;
+  height: 180px;
   border-radius: 999px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -662,8 +662,8 @@ h1{
     align-items: flex-start;
   }
   .avatar-bubble{
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
   }
 }
 .avatar{
@@ -716,7 +716,7 @@ h1{
 
 .panel-head{
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
