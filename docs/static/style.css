@@ -342,6 +342,9 @@ h1{
 .page-head{
   padding: 44px 0 20px;
 }
+.page-head.hero{
+  padding: 44px 0 20px;
+}
 .page-head h1{
   font-size: 44px;
   margin: 0 0 6px;
@@ -578,6 +581,7 @@ h1{
 
 @media (max-width: 520px){
   .hero{ padding: 44px 0 18px; }
+  .page-head.hero{ padding: 32px 0 18px;  }
   .cta-row{ gap: 10px; }
   .btn{ width: 100%; justify-content: center; }
   .panel{ padding: 18px; }
@@ -704,7 +708,7 @@ h1{
 
 .panel-head{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
