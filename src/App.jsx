@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { BEACH, SPACE } from "./themes";
 import { useGlobalStyles } from "./hooks";
 import { Stars, BeachDeco } from "./components/Stars";
+import ClickSpark from "./components/ClickSpark";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -32,7 +33,7 @@ export default function App() {
     setTimeout(() => window.scrollTo?.({ top: 0, behavior: "smooth" }), 10);
   };
 
-  return (
+  const pageContent = (
     <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: c.bg, color: c.text, minHeight: "100vh", transition: "background 0.5s, color 0.4s", position: "relative" }}>
       {isDark && <Stars />}
       {!isDark && <BeachDeco />}
@@ -47,4 +48,14 @@ export default function App() {
       </div>
     </div>
   );
+
+  if (isDark) {
+    return (
+      <ClickSpark sparkColor="#A78BFA" sparkSize={12} sparkRadius={20} sparkCount={10} duration={500} extraScale={1.2}>
+        {pageContent}
+      </ClickSpark>
+    );
+  }
+
+  return pageContent;
 }
