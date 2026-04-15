@@ -46,7 +46,7 @@ export function ShootingStars() {
     { x1: "92%", y1: "20%", x2: "70%", y2: "44%", delay: "8.0s", dur: "2.4s" },
   ];
   return (
-    <div style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}>
+    <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
       <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
         <defs>
           {shots.map((s, i) => (

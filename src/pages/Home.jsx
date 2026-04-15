@@ -25,7 +25,7 @@ export default function Home({ setPage, c, isDark }) {
         {isDark && (
           <>
             <ShootingStars />
-            <div style={{ position: "absolute", right: "10%", top: "8%", width: 140, height: 140, borderRadius: "50%", background: "radial-gradient(circle at 35% 35%, #6D5CE7, #2D1B4E)", boxShadow: "0 0 60px #6D5CE740", pointerEvents: "none", overflow: "hidden" }}>
+            <div style={{ position: "fixed", right: "10%", top: "8%", width: 140, height: 140, borderRadius: "50%", background: "radial-gradient(circle at 35% 35%, #6D5CE7, #2D1B4E)", boxShadow: "0 0 60px #6D5CE740", pointerEvents: "none", overflow: "hidden", zIndex: 0 }}>
               <div style={{ position: "absolute", top: "25%", left: "-10%", right: "-10%", height: 2, background: "#ffffff18", transform: "rotate(-15deg)" }} />
               <div style={{ position: "absolute", top: "45%", left: "-10%", right: "-10%", height: 1, background: "#ffffff10", transform: "rotate(-15deg)" }} />
               <div style={{ position: "absolute", top: "62%", left: "-10%", right: "-10%", height: 3, background: "#ffffff12", transform: "rotate(-15deg)" }} />
