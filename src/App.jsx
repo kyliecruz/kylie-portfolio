@@ -49,13 +49,17 @@ export default function App() {
     </div>
   );
 
-  if (isDark) {
-    return (
-      <ClickSpark sparkColor="#A78BFA" sparkSize={12} sparkRadius={20} sparkCount={10} duration={500} extraScale={1.2}>
-        {pageContent}
-      </ClickSpark>
-    );
-  }
-
-  return pageContent;
+  return (
+    <ClickSpark
+      variant={isDark ? "spark" : "splash"}
+      sparkColor="#A78BFA"
+      sparkSize={12}
+      sparkRadius={20}
+      sparkCount={10}
+      duration={500}
+      extraScale={1.2}
+    >
+      {pageContent}
+    </ClickSpark>
+  );
 }
