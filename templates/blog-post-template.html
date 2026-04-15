@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ✏️  Update the title -->
+  <title>Your Post Title • Kylie Cruz</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Colours (matches portfolio Beach theme) ── */
+    :root {
+      --bg:      #FDF8F0;
+      --bg-alt:  #F5EDD9;
+      --card:    #FFFCF5;
+      --text:    #2C1810;
+      --muted:   #7A6050;
+      --accent:  #1B7A6E;
+      --border:  #E8D8C0;
+      --coral:   #D4603A;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:      #060818;
+        --bg-alt:  #0D1230;
+        --card:    #0E1535;
+        --text:    #E8EEFF;
+        --muted:   #8898CC;
+        --accent:  #A78BFA;
+        --border:  #1E2A5A;
+        --coral:   #F472B6;
+      }
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      padding: 0;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav a { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 40px; transition: color 0.15s; }
+    .back-link:hover { color: var(--accent); }
+
+    /* ── Post layout ── */
+    .post-wrapper { max-width: 680px; margin: 0 auto; padding: 56px 24px 96px; }
+
+    /* ── Meta ── */
+    .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+    .pill {
+      display: inline-block; padding: 3px 12px; border-radius: 999px;
+      font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    }
+
+    /* ── Typography ── */
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .subtitle {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: var(--text); margin: 48px 0 16px; }
+    h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--text); margin: 32px 0 12px; }
+    p  { color: var(--muted); margin-bottom: 20px; font-size: 16px; }
+    a  { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    ul, ol { padding-left: 24px; margin-bottom: 20px; color: var(--muted); font-size: 16px; }
+    li { margin-bottom: 8px; }
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 12px 20px;
+      margin: 28px 0;
+      background: var(--bg-alt);
+      border-radius: 0 10px 10px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+    code {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 2px 6px;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="/">Kylie Cruz</a>
+  </div>
+
+  <div class="post-wrapper">
+    <a href="javascript:history.back()" class="back-link">← Back to Blog</a>
+
+    <!-- ✏️  Update the pills (date, topic tags) -->
+    <div class="meta">
+      <span class="pill">Jan 2026</span>
+      <span class="pill">AI Safety</span>
+    </div>
+
+    <!-- ✏️  Update the title and subtitle -->
+    <h1>Your Post Title Goes Here</h1>
+    <p class="subtitle">A one-sentence summary or pull quote that draws the reader in.</p>
+
+    <!-- ✏️  Write your post content below -->
+
+    <p>Start with your opening paragraph here. Set up the context and what the reader will get out of this post.</p>
+
+    <h2>Section Heading</h2>
+    <p>Your section content here.</p>
+
+    <blockquote>Use a blockquote for key takeaways or quotes worth highlighting.</blockquote>
+
+    <h2>Another Section</h2>
+    <p>Continue writing here. Use <code>code</code> for inline code or technical terms.</p>
+    <ul>
+      <li>Bullet point one</li>
+      <li>Bullet point two</li>
+      <li>Bullet point three</li>
+    </ul>
+
+    <h2>Closing Thoughts</h2>
+    <p>Wrap up with your conclusion and any next steps or calls to action.</p>
+    <p>— <a href="/">Kylie Cruz</a></p>
+
+  </div>
+
+</body>
+</html>
