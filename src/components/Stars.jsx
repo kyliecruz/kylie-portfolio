@@ -155,35 +155,33 @@ export function BeachScene() {
             keyTimes="0;0.12;0.28;0.40;0.55;0.68;0.84;1"
             dur="9s" repeatCount="indefinite" />
 
-          {/* Main body — torpedo-shaped, pointed at rostrum */}
-          <path d="M36,156 C28,147 10,144 -8,148 C-18,151 -24,153 -24,156 C-24,159 -18,162 -8,165 C10,169 28,166 36,156 Z"
+          {/* Dolphin silhouette — single unified path */}
+          <path d="
+            M 40,156
+            C 36,152 28,147 22,145
+            C 16,143 10,141 4,139
+            C 1,138 0,131 -1,128
+            C -1.5,127 -4,133 -8,140
+            C -14,142 -22,147 -30,151
+            C -32,151 -34,152 -36,153
+            C -38,152 -42,148 -44,146
+            C -45,150 -46,152 -46,154
+            C -46,157 -44,161 -44,164
+            C -42,165 -36,162 -28,158
+            C -20,162 -10,165 -2,165
+            C 0,165 4,169 8,172
+            C 10,173 14,167 16,162
+            C 20,161 26,161 32,160
+            C 36,159 38,158 40,156 Z"
             fill="url(#dolphinGrad)" />
 
-          {/* Belly highlight — lighter underside */}
-          <path d="M30,159 C20,163 4,165 -10,163 C-18,162 -22,159 -22,157 C-20,160 -16,163 -8,165 C8,168 26,165 30,159 Z"
-            fill="url(#dolphinBelly)" opacity="0.6" />
-
-          {/* Rostrum (beak) — clearly pointed forward */}
-          <path d="M32,154 L50,156 L32,159 Z" fill="url(#dolphinGrad)" />
-
-          {/* Dorsal fin — tall curved triangle on the back */}
-          <path d="M4,145 C2,134 8,126 14,136 C12,140 10,143 6,145 Z" fill="#4E9E98" opacity="0.95" />
-
-          {/* Pectoral fin — small flipper on belly side */}
-          <path d="M14,160 C18,166 10,170 4,164 Z" fill="#4E9E98" opacity="0.75" />
-
-          {/* Horizontal flukes — two lobes, key dolphin feature */}
-          <path d="M-24,153 C-30,146 -42,143 -36,154 Z" fill="#4E9E98" />
-          <path d="M-24,159 C-30,166 -42,169 -36,158 Z" fill="#4E9E98" />
-          {/* Fluke notch */}
-          <path d="M-36,154 C-38,155 -38,157 -36,158" stroke="#3A8880" strokeWidth="0.8" fill="none" />
+          {/* Belly highlight */}
+          <path d="M 34,158 C 24,161 12,163 2,163 C -6,163 -12,161 -16,159 C -10,163 0,166 12,164 C 22,162 30,160 34,158 Z"
+            fill="url(#dolphinBelly)" opacity="0.45" />
 
           {/* Eye */}
-          <circle cx="24" cy="152" r="1.8" fill="#1A3E3C" />
-          <circle cx="24.6" cy="151.4" r="0.6" fill="white" />
-
-          {/* Smile */}
-          <path d="M24,158 Q30,161 36,158" stroke="#1A3E3C" strokeWidth="0.9" fill="none" strokeLinecap="round" />
+          <circle cx="27" cy="150" r="1.8" fill="#1A3E3C" />
+          <circle cx="27.6" cy="149.4" r="0.6" fill="white" />
 
           {/* Water splash on entry */}
           <g opacity="0">
