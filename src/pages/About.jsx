@@ -1,7 +1,7 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, PageHeader, Icon } from "../components/Shared";
 import {
-  imgWave, imgSeashell, imgIsland, imgDolphin,
+  imgTealWave, imgTealSeashell, imgTealIsland, imgTealDolphin,
   imgPurpleRocket, imgPurpleStar, imgPurpleUfo, imgPurpleSparkle,
 } from "../assets";
 
@@ -49,10 +49,10 @@ export default function About({ c, isDark }) {
         {/* ── Cards ── */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 18, marginBottom: 72 }}>
           {[
-            { icon: isDark ? imgPurpleSparkle : imgDolphin,  title: "Technical Interests",   text: "AI safety engineering, evaluation & testing, reliability, and security-minded ML. Practical, measurable work grounded in real-world failure modes." },
-            { icon: isDark ? imgPurpleStar   : imgWave,     title: "Community & Leadership", text: "Founded WAIA to build a Waterloo-region hub for AI safety and governance. Focused on making it easy for beginners to get started." },
-            { icon: isDark ? imgPurpleRocket : imgSeashell, title: "Experience",             text: "ML data + research support (internship at AMX Research Lab), student leadership, and hands-on operations work at PhysioSage Rehab." },
-            { icon: isDark ? imgPurpleUfo    : imgIsland,   title: "Building Toward",        text: "Long-term: red-team/security + safety engineering roles. Short-term: stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
+            { icon: isDark ? imgPurpleSparkle : imgTealDolphin,  title: "Technical Interests",   text: "AI safety engineering, evaluation & testing, reliability, and security-minded ML. Practical, measurable work grounded in real-world failure modes." },
+            { icon: isDark ? imgPurpleStar   : imgTealWave,     title: "Community & Leadership", text: "Founded WAIA to build a Waterloo-region hub for AI safety and governance. Focused on making it easy for beginners to get started." },
+            { icon: isDark ? imgPurpleRocket : imgTealSeashell, title: "Experience",             text: "ML data + research support (internship at AMX Research Lab), student leadership, and hands-on operations work at PhysioSage Rehab." },
+            { icon: isDark ? imgPurpleUfo    : imgTealIsland,   title: "Building Toward",        text: "Long-term: red-team/security + safety engineering roles. Short-term: stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 16, padding: "26px", height: "100%", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>

@@ -3,7 +3,7 @@ import {
   imgTealEmail, imgPurpleEmail,
   imgTealLinkedin, imgPurpleLinkedin,
   imgTealGithub, imgPurpleGithub,
-  imgWave, imgPurpleStar,
+  imgTealWave, imgPurpleStar,
 } from "../assets";
 
 const ico = (src) => <img src={src} alt="" style={{ width: 15, height: 15, verticalAlign: "middle", flexShrink: 0 }} />;
@@ -67,7 +67,7 @@ export default function Footer({ c, setPage, isDark }) {
       <div style={{ maxWidth: 920, margin: "0 auto", paddingTop: 22, borderTop: `1px solid ${c.border}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
         <span style={{ fontFamily: FONT_BODY, fontSize: 12, color: c.muted }}>© 2026 · Kylie Cruz</span>
         <span style={{ fontFamily: FONT_BODY, fontSize: 12, color: c.muted, display: "flex", alignItems: "center", gap: 5 }}>
-          {ico(isDark ? imgPurpleStar : imgWave)} {isDark ? "Space Mode" : "Beach Mode"}
+          {ico(isDark ? imgPurpleStar : imgTealWave)} {isDark ? "Space Mode" : "Beach Mode"}
         </span>
       </div>
     </footer>

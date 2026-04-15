@@ -1,7 +1,7 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, Icon } from "../components/Shared";
 import {
-  imgWave, imgSeashell, imgIsland,
+  imgTealWave, imgTealSeashell, imgTealIsland,
   imgPurpleRocket, imgPurpleStar, imgPurpleUfo,
 } from "../assets";
 
@@ -87,9 +87,9 @@ export default function Waia({ c, isDark }) {
             <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, textAlign: "center", marginBottom: 36, position: "relative" }}>A simple path — without being overwhelming.</p>
             <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
               {[
-                { step: "01", icon: isDark ? imgPurpleRocket : imgWave,     label: "Start", text: "Intro sessions in plain language plus realistic next steps." },
-                { step: "02", icon: isDark ? imgPurpleStar   : imgSeashell, label: "Learn", text: "Reading groups focused on understanding over impressing." },
-                { step: "03", icon: isDark ? imgPurpleUfo    : imgIsland,   label: "Build", text: "Beginner-friendly projects that teach evaluation instincts." },
+                { step: "01", icon: isDark ? imgPurpleRocket : imgTealWave,     label: "Start", text: "Intro sessions in plain language plus realistic next steps." },
+                { step: "02", icon: isDark ? imgPurpleStar   : imgTealSeashell, label: "Learn", text: "Reading groups focused on understanding over impressing." },
+                { step: "03", icon: isDark ? imgPurpleUfo    : imgTealIsland,   label: "Build", text: "Beginner-friendly projects that teach evaluation instincts." },
               ].map((item, i) => (
                 <div key={i} style={{ flex: 1, minWidth: 140, textAlign: "center", padding: "0 18px" }}>
                   <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 500, color: c.accent, letterSpacing: "0.15em", marginBottom: 8, textTransform: "uppercase" }}>{item.step}</div>

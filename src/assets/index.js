@@ -5,12 +5,12 @@ export { default as imgSeashell }      from "./beach/seashell.png";
 export { default as imgIsland }        from "./beach/island.png";
 export { default as imgTurtle }        from "./beach/turtle.png";
 export { default as imgDolphin }       from "./beach/dolphin.png";
-export { default as imgWhiteHibiscus } from "./beach/white hibiscus.png";
-export { default as imgWhiteWave }     from "./beach/white wave.png";
-export { default as imgWhiteSeashell } from "./beach/white seashell.png";
-export { default as imgWhiteIsland }   from "./beach/white island.png";
-export { default as imgWhiteTurtle }   from "./beach/white turtle.png";
-export { default as imgWhiteDolphin }  from "./beach/white dolphin.png";
+export { default as imgTealHibiscus } from "./beach/teal hibiscus.png";
+export { default as imgTealWave }     from "./beach/teal wave.png";
+export { default as imgTealSeashell } from "./beach/teal seashell.png";
+export { default as imgTealIsland }   from "./beach/teal island.png";
+export { default as imgTealTurtle }   from "./beach/teal turtle.png";
+export { default as imgTealDolphin }  from "./beach/teal dolphin.png";
 
 // Space
 export { default as imgPlanet }             from "./space/planet.png";

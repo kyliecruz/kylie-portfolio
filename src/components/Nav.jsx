@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FONT_HEAD, FONT_BODY } from "../themes";
-import { imgHibiscus, imgPurpleSparkle } from "../assets";
+import { imgTealHibiscus, imgPurpleSparkle } from "../assets";
 
 const PAGES = [["home","Home"],["about","About"],["projects","Projects"],["waia","WAIA"],["blog","Blog"]];
 
@@ -15,7 +15,7 @@ export default function Nav({ page, setPage, isDark, setIsDark, c }) {
       <div style={{ padding: "0 24px", height: 60, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Brand */}
         <button onClick={() => navigate("home")} style={{ background: "none", border: "none", fontFamily: FONT_HEAD, fontSize: 20, fontWeight: 700, color: c.text, letterSpacing: "-0.3px", whiteSpace: "nowrap", flexShrink: 0, cursor: "pointer" }}>
-          <img src={isBeach ? imgHibiscus : imgPurpleSparkle} alt="" style={{ width: 22, height: 22, verticalAlign: "middle", marginRight: 4 }} /> Kylie Cruz
+          <img src={isBeach ? imgTealHibiscus : imgPurpleSparkle} alt="" style={{ width: 25, height: 25, verticalAlign: "middle", marginRight: 4 }} /> Kylie Cruz
         </button>
 
         {/* Desktop nav links */}
