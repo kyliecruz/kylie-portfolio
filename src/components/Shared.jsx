@@ -1,6 +1,18 @@
 // Shared UI components used across multiple pages
 import { useScrollReveal } from "../hooks";
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
+import {
+  imgTealEmail, imgPurpleEmail,
+  imgTealLinkedin, imgPurpleLinkedin,
+  imgTealGithub, imgPurpleGithub,
+} from "../assets";
+
+// ── Inline image icon helper ──────────────────────────────────────────────────
+export function Icon({ src, size = 20, style: extraStyle = {} }) {
+  return (
+    <img src={src} alt="" style={{ width: size, height: size, verticalAlign: "middle", display: "inline-block", flexShrink: 0, ...extraStyle }} />
+  );
+}
 
 // ── Scroll-reveal wrapper ─────────────────────────────────────────────────────
 export function Reveal({ children, delay = 0, style = {} }) {
@@ -53,18 +65,18 @@ export function PageHeader({ label, title, subtitle, c, isDark }) {
 }
 
 // ── Social link pills ─────────────────────────────────────────────────────────
-export function SocialLinks({ c, large }) {
+export function SocialLinks({ c, large, isDark = false }) {
   const links = [
-    { icon: "✉", label: "Email",    href: "mailto:kkylie.cruz@gmail.com" },
-    { icon: "in", label: "LinkedIn", href: "https://linkedin.com/in/kylie-cruz" },
-    { icon: "⌥", label: "GitHub",   href: "https://github.com/kyliecruz" },
+    { imgSrc: isDark ? imgPurpleEmail   : imgTealEmail,    label: "Email",    href: "mailto:kkylie.cruz@gmail.com" },
+    { imgSrc: isDark ? imgPurpleLinkedin : imgTealLinkedin, label: "LinkedIn", href: "https://linkedin.com/in/kylie-cruz" },
+    { imgSrc: isDark ? imgPurpleGithub  : imgTealGithub,   label: "GitHub",   href: "https://github.com/kyliecruz" },
   ];
   return (
     <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-      {links.map(({ icon, label, href }) => (
+      {links.map(({ imgSrc, label, href }) => (
         <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-pill"
           style={{ background: c.card, border: `1px solid ${c.border}`, color: c.muted, fontSize: large ? 14 : 13, padding: large ? "9px 18px" : "7px 14px" }}>
-          <span style={{ fontFamily: FONT_MONO, fontWeight: 500, fontSize: 12, color: c.accent }}>{icon}</span>
+          <img src={imgSrc} alt="" style={{ width: 15, height: 15, verticalAlign: "middle", flexShrink: 0 }} />
           {label}
         </a>
       ))}

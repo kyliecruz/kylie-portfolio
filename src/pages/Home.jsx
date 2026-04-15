@@ -1,6 +1,10 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal, Wave, SocialLinks } from "../components/Shared";
+import { Reveal, Wave, SocialLinks, Icon } from "../components/Shared";
 import { BeachScene, ShootingStars } from "../components/Stars";
+import {
+  imgWave, imgSeashell, imgDolphin, imgIsland,
+  imgPurpleSparkle, imgPurplePlanet, imgPurpleStar, imgPurpleUfo,
+} from "../assets";
 
 export default function Home({ setPage, c, isDark }) {
   return (
@@ -54,14 +58,14 @@ export default function Home({ setPage, c, isDark }) {
 
           <div className="hf3 hero-btns" style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginBottom: 36 }}>
             <button className="btn-fill" onClick={() => setPage("projects")} style={{ background: c.accent, color: "#fff", boxShadow: isDark ? `0 0 24px ${c.accent}50` : "none" }}>
-              {isDark ? "✦" : "🌊"} View Projects
+              <Icon src={isDark ? imgPurpleSparkle : imgWave} size={16} style={{ marginRight: 2 }} /> View Projects
             </button>
             <button className="btn-ghost" onClick={() => setPage("waia")} style={{ border: `1.5px solid ${c.border}`, color: c.text }}>About WAIA</button>
             <a href="mailto:kkylie.cruz@gmail.com" className="btn-ghost" style={{ border: `1.5px solid ${c.border}`, color: c.text }}>Say hi ✉</a>
           </div>
 
           <div className="hf4">
-            <SocialLinks c={c} />
+            <SocialLinks c={c} isDark={isDark} />
           </div>
         </div>
 
@@ -119,13 +123,13 @@ export default function Home({ setPage, c, isDark }) {
           </Reveal>
           <div className="cards-row" style={{ display: "flex", gap: 18, marginBottom: 40 }}>
             {[
-              { icon: isDark ? "🔭" : "🧠", title: "Technical Research", desc: "Deep dives into interpretability, evaluation, and alignment." },
-              { icon: isDark ? "🪐" : "🌊", title: "Safety Governance",  desc: "Understanding risk frameworks and real-world policy tradeoffs." },
-              { icon: isDark ? "🌌" : "🤝", title: "Community Building", desc: "Welcoming beginners and connecting students to the AI safety ecosystem." },
+              { icon: isDark ? imgPurpleSparkle : imgDolphin, title: "Technical Research", desc: "Deep dives into interpretability, evaluation, and alignment." },
+              { icon: isDark ? imgPurplePlanet : imgWave,    title: "Safety Governance",  desc: "Understanding risk frameworks and real-world policy tradeoffs." },
+              { icon: isDark ? imgPurpleStar   : imgSeashell, title: "Community Building", desc: "Welcoming beginners and connecting students to the AI safety ecosystem." },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="card-lift" style={{ flex: 1, minWidth: 200, background: c.card, border: `1px solid ${c.border}`, borderRadius: 18, padding: "28px 22px", boxShadow: isDark ? `0 4px 24px ${c.shadow}` : "none" }}>
-                  <div style={{ fontSize: 28, marginBottom: 12 }}>{item.icon}</div>
+                  <div style={{ marginBottom: 12 }}><Icon src={item.icon} size={30} /></div>
                   <h3 style={{ fontFamily: FONT_HEAD, fontSize: 18, color: c.text, marginBottom: 8 }}>{item.title}</h3>
                   <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, lineHeight: 1.68 }}>{item.desc}</p>
                 </div>
@@ -145,12 +149,12 @@ export default function Home({ setPage, c, isDark }) {
         <div style={{ maxWidth: 600, margin: "0 auto", textAlign: "center" }}>
           <Reveal>
             <h2 style={{ fontFamily: FONT_HEAD, fontSize: "clamp(26px,4vw,38px)", color: c.text, marginBottom: 10 }}>
-              {isDark ? "Transmit a signal 📡" : "Say hello 🐚"}
+              {isDark ? "Transmit a signal" : "Say hello"} <Icon src={isDark ? imgPurpleUfo : imgSeashell} size={26} style={{ marginLeft: 4 }} />
             </h2>
             <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, marginBottom: 28, lineHeight: 1.7 }}>
               {isDark ? "Always open to connect on AI safety, red-teaming, and research opportunities." : "Always happy to connect on AI safety, research, and opportunities."}
             </p>
-            <SocialLinks c={c} large />
+            <SocialLinks c={c} isDark={isDark} large />
           </Reveal>
         </div>
       </section>

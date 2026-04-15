@@ -1,6 +1,20 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
+import {
+  imgTealEmail, imgPurpleEmail,
+  imgTealLinkedin, imgPurpleLinkedin,
+  imgTealGithub, imgPurpleGithub,
+  imgWave, imgPurpleStar,
+} from "../assets";
+
+const ico = (src) => <img src={src} alt="" style={{ width: 15, height: 15, verticalAlign: "middle", flexShrink: 0 }} />;
 
 export default function Footer({ c, setPage, isDark }) {
+  const contacts = [
+    { img: isDark ? imgPurpleEmail   : imgTealEmail,   label: "kkylie.cruz@gmail.com",      href: "mailto:kkylie.cruz@gmail.com" },
+    { img: isDark ? imgPurpleLinkedin : imgTealLinkedin, label: "linkedin.com/in/kylie-cruz", href: "https://linkedin.com/in/kylie-cruz" },
+    { img: isDark ? imgPurpleGithub  : imgTealGithub,  label: "github.com/kyliecruz",        href: "https://github.com/kyliecruz" },
+  ];
+
   return (
     <footer style={{ background: c.bgAlt, borderTop: `1px solid ${c.border}`, padding: "52px 32px 32px", position: "relative" }}>
       <div className="footer-row" style={{ maxWidth: 920, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 40, flexWrap: "wrap", marginBottom: 32 }}>
@@ -9,16 +23,12 @@ export default function Footer({ c, setPage, isDark }) {
           <div style={{ fontFamily: FONT_HEAD, fontSize: 22, fontWeight: 700, color: c.text, marginBottom: 5 }}>Kylie Cruz</div>
           <div style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, marginBottom: 18 }}>CS Student · AI Safety · Waterloo, ON</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {[
-              { icon: isDark ? "📧" : "🐚", label: "kkylie.cruz@gmail.com",       href: "mailto:kkylie.cruz@gmail.com" },
-              { icon: isDark ? "🔗" : "🌊", label: "linkedin.com/in/kylie-cruz",  href: "https://linkedin.com/in/kylie-cruz" },
-              { icon: isDark ? "⭐" : "🦀", label: "github.com/kyliecruz",        href: "https://github.com/kyliecruz" },
-            ].map(({ icon, label, href }) => (
+            {contacts.map(({ img, label, href }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                 style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, display: "flex", alignItems: "center", gap: 7, transition: "color 0.15s" }}
                 onMouseEnter={e => e.currentTarget.style.color = c.accent}
                 onMouseLeave={e => e.currentTarget.style.color = c.muted}>
-                {icon} {label}
+                {ico(img)} {label}
               </a>
             ))}
           </div>
@@ -56,7 +66,9 @@ export default function Footer({ c, setPage, isDark }) {
       {/* Bottom bar */}
       <div style={{ maxWidth: 920, margin: "0 auto", paddingTop: 22, borderTop: `1px solid ${c.border}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
         <span style={{ fontFamily: FONT_BODY, fontSize: 12, color: c.muted }}>© 2026 · Kylie Cruz</span>
-        <span style={{ fontFamily: FONT_BODY, fontSize: 12, color: c.muted }}>{isDark ? "🌌 Space Mode" : "🏖️ Beach Mode"}</span>
+        <span style={{ fontFamily: FONT_BODY, fontSize: 12, color: c.muted, display: "flex", alignItems: "center", gap: 5 }}>
+          {ico(isDark ? imgPurpleStar : imgWave)} {isDark ? "Space Mode" : "Beach Mode"}
+        </span>
       </div>
     </footer>
   );

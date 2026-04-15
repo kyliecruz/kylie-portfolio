@@ -1,5 +1,9 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal, PageHeader } from "../components/Shared";
+import { Reveal, PageHeader, Icon } from "../components/Shared";
+import {
+  imgWave, imgSeashell, imgIsland, imgDolphin,
+  imgPurpleRocket, imgPurpleStar, imgPurpleUfo, imgPurpleSparkle,
+} from "../assets";
 
 export default function About({ c, isDark }) {
   return (
@@ -29,7 +33,7 @@ export default function About({ c, isDark }) {
           </Reveal>
           <div style={{ flex: 1 }}>
             <Reveal delay={0.1}>
-              <h2 style={{ fontFamily: FONT_HEAD, fontSize: 30, color: c.text, marginBottom: 14 }}>Hi, I'm Kylie {isDark ? "🚀" : "👋"}</h2>
+              <h2 style={{ fontFamily: FONT_HEAD, fontSize: 30, color: c.text, marginBottom: 14 }}>Hi, I'm Kylie <Icon src={isDark ? imgPurpleRocket : imgWave} size={28} style={{ marginLeft: 2 }} /></h2>
               <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, lineHeight: 1.82, marginBottom: 20 }}>
                 I'm a Computer Science (Honours) student at Wilfrid Laurier University focused on AI safety, machine learning, and security-minded engineering. I started working toward an AI safety career in December 2025, and I'm particularly interested in building reliable systems and understanding how technical decisions shape real-world risk.
               </p>
@@ -45,14 +49,14 @@ export default function About({ c, isDark }) {
         {/* ── Cards ── */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 18, marginBottom: 72 }}>
           {[
-            { icon: isDark ? "🔭" : "🧠", title: "Technical Interests",   text: "AI safety engineering, evaluation & testing, reliability, and security-minded ML. Practical, measurable work grounded in real-world failure modes." },
-            { icon: isDark ? "🌌" : "🌊", title: "Community & Leadership", text: "Founded WAIA to build a Waterloo-region hub for AI safety and governance. Focused on making it easy for beginners to get started." },
-            { icon: isDark ? "⚗️" : "🔬", title: "Experience",            text: "ML data + research support (internship at AMX Research Lab), student leadership, and hands-on operations work at PhysioSage Rehab." },
-            { icon: isDark ? "🛸" : "🧭", title: "Building Toward",       text: "Long-term: red-team/security + safety engineering roles. Short-term: stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
+            { icon: isDark ? imgPurpleSparkle : imgDolphin,  title: "Technical Interests",   text: "AI safety engineering, evaluation & testing, reliability, and security-minded ML. Practical, measurable work grounded in real-world failure modes." },
+            { icon: isDark ? imgPurpleStar   : imgWave,     title: "Community & Leadership", text: "Founded WAIA to build a Waterloo-region hub for AI safety and governance. Focused on making it easy for beginners to get started." },
+            { icon: isDark ? imgPurpleRocket : imgSeashell, title: "Experience",             text: "ML data + research support (internship at AMX Research Lab), student leadership, and hands-on operations work at PhysioSage Rehab." },
+            { icon: isDark ? imgPurpleUfo    : imgIsland,   title: "Building Toward",        text: "Long-term: red-team/security + safety engineering roles. Short-term: stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 16, padding: "26px", height: "100%", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>
-                <div style={{ fontSize: 26, marginBottom: 10 }}>{item.icon}</div>
+                <div style={{ marginBottom: 10 }}><Icon src={item.icon} size={28} /></div>
                 <h3 style={{ fontFamily: FONT_HEAD, fontSize: 18, color: c.text, marginBottom: 8 }}>{item.title}</h3>
                 <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, lineHeight: 1.7 }}>{item.text}</p>
               </div>

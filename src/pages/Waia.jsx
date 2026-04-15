@@ -1,5 +1,9 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal } from "../components/Shared";
+import { Reveal, Icon } from "../components/Shared";
+import {
+  imgWave, imgSeashell, imgIsland,
+  imgPurpleRocket, imgPurpleStar, imgPurpleUfo,
+} from "../assets";
 
 export default function Waia({ c, isDark }) {
   return (
@@ -83,13 +87,13 @@ export default function Waia({ c, isDark }) {
             <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, textAlign: "center", marginBottom: 36, position: "relative" }}>A simple path — without being overwhelming.</p>
             <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
               {[
-                { step: "01", icon: isDark ? "🚀" : "👋", label: "Start", text: "Intro sessions in plain language plus realistic next steps." },
-                { step: "02", icon: isDark ? "📡" : "📚", label: "Learn", text: "Reading groups focused on understanding over impressing." },
-                { step: "03", icon: isDark ? "⚗️" : "🧪", label: "Build", text: "Beginner-friendly projects that teach evaluation instincts." },
+                { step: "01", icon: isDark ? imgPurpleRocket : imgWave,     label: "Start", text: "Intro sessions in plain language plus realistic next steps." },
+                { step: "02", icon: isDark ? imgPurpleStar   : imgSeashell, label: "Learn", text: "Reading groups focused on understanding over impressing." },
+                { step: "03", icon: isDark ? imgPurpleUfo    : imgIsland,   label: "Build", text: "Beginner-friendly projects that teach evaluation instincts." },
               ].map((item, i) => (
                 <div key={i} style={{ flex: 1, minWidth: 140, textAlign: "center", padding: "0 18px" }}>
                   <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 500, color: c.accent, letterSpacing: "0.15em", marginBottom: 8, textTransform: "uppercase" }}>{item.step}</div>
-                  <div style={{ fontSize: 28, marginBottom: 10 }}>{item.icon}</div>
+                  <div style={{ marginBottom: 10 }}><Icon src={item.icon} size={30} /></div>
                   <div style={{ fontFamily: FONT_HEAD, fontSize: 17, color: c.text, marginBottom: 6 }}>{item.label}</div>
                   <div style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, lineHeight: 1.65 }}>{item.text}</div>
                 </div>
