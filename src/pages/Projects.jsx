@@ -8,7 +8,7 @@ const PROJECTS = [
     desc: "Rule-based loan approval demo showing proxy bias, overconfidence-style outputs, and brittleness from hard thresholds.",
     tags: ["Python", "AI Safety", "Governance"],
     url: "https://github.com/kyliecruz/ai-failure-demo",
-    stripe: "#D4603A",
+    stripe: "#EBB2A3",
     spaceStripe: "#F472B6",
   },
   {
@@ -16,7 +16,7 @@ const PROJECTS = [
     desc: "Lightweight CSV audit that reports representation and acceptance rates by group and flags large outcome gaps.",
     tags: ["Python", "Fairness", "Auditing"],
     url: "https://github.com/kyliecruz/dataset-bias-checker",
-    stripe: "#1B7A6E",
+    stripe: "#94B6C3",
     spaceStripe: "#3DBDAA",
   },
   {
@@ -24,7 +24,7 @@ const PROJECTS = [
     desc: "Toy governance simulator that scores policy choices across risk, accountability, innovation, and compliance cost (0–100).",
     tags: ["Python", "Policy", "Governance"],
     url: "https://github.com/kyliecruz/ai-policy-simulator",
-    stripe: "#4A72B8",
+    stripe: "#BEB5B4",
     spaceStripe: "#818CF8",
   },
   {
@@ -32,7 +32,7 @@ const PROJECTS = [
     desc: "Toy prediction model that outputs PASS/FAIL + confidence and explains limitations, omitted variables, and misuse risk.",
     tags: ["Python", "Interpretability", "AI Risk"],
     url: "https://github.com/kyliecruz/toy-failure-model-demo",
-    stripe: "#7A5BBF",
+    stripe: "#D5D9DC",
     spaceStripe: "#A78BFA",
   },
 ];

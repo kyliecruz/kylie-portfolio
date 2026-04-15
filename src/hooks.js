@@ -53,7 +53,7 @@ export function useGlobalStyles() {
       .float { animation: float 5s ease-in-out infinite; }
       @keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
       .shimmer-text {
-        background: linear-gradient(90deg, #1B7A6E, #D4603A, #1B7A6E);
+        background: linear-gradient(90deg, #74B8B0, #E8B2A4, #74B8B0);
         background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
