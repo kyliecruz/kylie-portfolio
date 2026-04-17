@@ -1,3 +1,19 @@
+// ── Waia.jsx — Waterloo AI Association page ───────────────────────────────────
+// Sections (top to bottom):
+//   Header          — logo, tag pills, title, description, link to WAIA site
+//   Mission/Approach cards — 2 side-by-side cards with brief descriptions
+//   "What WAIA is"  — paragraph description
+//   Pillars         — 3 cards: Learning, Community, Projects
+//   "From curious to confident" — 3-step path: Start → Learn → Build
+//   CTA button      — second link to the WAIA website
+//
+// To update the WAIA website URL: find "v0-waterloo-ai-association.vercel.app"
+//   (appears twice — in the header button and the bottom CTA)
+// To update the tag pills: edit the array in the header section
+// To edit a pillar card: find the pillars array and change the matching object's text
+// To edit the "curious to confident" steps: find the steps array and edit the text fields
+// To update the logo: replace public/waia-logo.png
+
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, Icon } from "../components/Shared";
 import {

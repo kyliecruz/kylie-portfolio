@@ -1,6 +1,22 @@
-import { useMemo } from "react";
+// ── Stars.jsx — background decorations for both themes ────────────────────────
+// Space (dark) mode components:
+//   Stars         — 140 twinkling stars + purple nebula clouds (fixed, full-page)
+//   ShootingStars — animated falling stars + small twinkling dots (fixed by default,
+//                   or contained=true for section-scoped use)
+//   Planet        — purple planet with orbit ring (fixed by default, or use
+//                   overrideStyle to embed it inside a section at custom size/position)
+//
+// Beach (light) mode components:
+//   BeachScene    — animated ocean waves + seagulls (absolute, anchors to section bottom)
+//                   Props: showWaves/showBirds toggle each layer; birdYOffset shifts birds up/down;
+//                   idSuffix prevents gradient ID collisions when two instances are on the same page
+//   BeachDeco     — fixed-position coral sun + teal ellipse glow; isHome=true hides the sun
+//                   (the home page renders its own sun per-section instead)
+//
+// Usage: Stars and BeachDeco are rendered globally in App.jsx.
+//        ShootingStars, Planet, and BeachScene are used inside specific page sections.
 
-// Background decoration components for both themes
+import { useMemo } from "react";
 
 // ── Stars background (space mode, all pages) ─────────────────────────────────
 export function Stars() {

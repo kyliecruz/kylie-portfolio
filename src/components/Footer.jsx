@@ -1,3 +1,12 @@
+// ── Footer.jsx — site footer with contact info and page links ─────────────────
+// Three-column layout: name/contact | Pages | Links
+// On mobile (≤680px) the columns stack vertically via the .footer-row class.
+//
+// To update contact info: edit the `contacts` array below
+// To add/remove a page link: edit the Pages column array (same as Nav PAGES)
+// To add an external link: add to the Links column array
+// To update the copyright year: find "© 2026" below and change it
+
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import {
   imgTealEmail, imgPurpleEmail,
@@ -9,6 +18,7 @@ import {
 const ico = (src) => <img src={src} alt="" style={{ width: 15, height: 15, verticalAlign: "middle", flexShrink: 0 }} />;
 
 export default function Footer({ c, setPage, isDark }) {
+  // ── Contact links — edit these to update email, LinkedIn, GitHub ─────────────
   const contacts = [
     { img: isDark ? imgPurpleEmail   : imgTealEmail,   label: "kkylie.cruz@gmail.com",      href: "mailto:kkylie.cruz@gmail.com" },
     { img: isDark ? imgPurpleLinkedin : imgTealLinkedin, label: "linkedin.com/in/kylie-cruz", href: "https://linkedin.com/in/kylie-cruz" },

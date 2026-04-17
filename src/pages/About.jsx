@@ -1,3 +1,17 @@
+// ── About.jsx — About Me page ─────────────────────────────────────────────────
+// Sections (top to bottom):
+//   PageHeader      — page label + title (from Shared.jsx)
+//   Bio + photo     — headshot, contact links, intro paragraph, and tag pills
+//   Cards grid      — 4 cards: Technical Interests, Community & Leadership, Experience, Building Toward
+//   Timeline        — vertical timeline of key dates
+//
+// To update the bio text: find the <p> under "Hi, I'm Kylie" and edit it
+// To update the tag pills: edit the array passed to .map() right after the bio paragraph
+// To edit a card: find the cards array and edit the matching object's `text` or `items`
+// To add a card: add an object to the cards array (max 4 keeps the 2-col grid clean)
+// To add/remove a timeline entry: edit the array passed to the timeline .map()
+// To update contact links (email, LinkedIn, GitHub): edit the array in the photo column
+
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, PageHeader, Icon } from "../components/Shared";
 import {

@@ -1,7 +1,37 @@
+// ── Custom hooks ──────────────────────────────────────────────────────────────
+// useScrollReveal  — animates elements into view as the user scrolls
+// useGlobalStyles  — loads Google Fonts and injects all shared CSS classes once
+//
+// CSS class reference (injected by useGlobalStyles, usable on any element):
+//   .pill          — rounded tag chip (used for labels, dates, tech tags)
+//   .btn-fill      — solid filled button
+//   .btn-ghost     — transparent outlined button
+//   .card-lift     — card that rises on hover
+//   .nav-lnk       — nav link with underline-on-active
+//   .social-pill   — pill-shaped social media link
+//   .hf0–.hf4      — staggered hero fade-in animation classes (hf0 first, hf4 last)
+//   .float         — gentle floating up-and-down animation
+//   .shimmer-text      — animated gradient shimmer (beach/teal version)
+//   .shimmer-text-space — animated gradient shimmer (space/purple version)
+//   .orbit         — orbiting dot animation (used on the planet component)
+//   .hide-mobile   — hides element on screens ≤680px
+//   .show-mobile   — shows element (flex) only on screens ≤680px
+//   .hero-section  — overrides applied at 900px and 680px to shrink the hero
+//   .about-row     — flex row that stacks vertically on mobile
+//   .about-grid    — 2-col grid that collapses to 1-col on mobile
+//   .proj-grid     — 2-col project grid that collapses on mobile
+//   .cards-row     — flex row of cards that stacks on mobile
+//   .cur-row       — "Currently" section row that stacks on mobile
+//   .footer-row    — footer flex row that stacks on mobile
+//   .hero-btns     — hero CTA buttons that stack vertically on mobile
+//   .section-pad   — padding shorthand overridden at mobile breakpoint
+
 import { useState, useEffect, useRef } from "react";
 import { FONT_BODY, FONT_MONO } from "./themes";
 
 // ── Scroll-reveal: returns [ref, isVisible] ───────────────────────────────────
+// Attach `ref` to any element; `isVisible` flips true once it enters the viewport.
+// Used by the <Reveal> component in Shared.jsx — you don't need this hook directly.
 export function useScrollReveal() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -19,6 +49,10 @@ export function useScrollReveal() {
 }
 
 // ── Injects Google Fonts + global utility CSS once on mount ──────────────────
+// Called once in App.jsx. Adds a <link> for Google Fonts and a <style> tag
+// with all shared utility classes. Everything below is CSS-in-JS injected at runtime.
+// To add a new global class: add it inside the style.textContent template string.
+// To change a breakpoint: find the @media block and update the px value.
 export function useGlobalStyles() {
   useEffect(() => {
     const link = document.createElement("link");

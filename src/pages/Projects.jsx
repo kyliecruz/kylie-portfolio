@@ -1,8 +1,24 @@
+// ── Projects.jsx — Projects page ──────────────────────────────────────────────
+// Displays a 2-column grid of project cards, each linking to a GitHub repo.
+// Below the grid is a "More on GitHub" CTA linking to the GitHub profile.
+//
+// To add a project: add an object to the PROJECTS array below with these fields:
+//   title       — project name
+//   desc        — 1–2 sentence description shown on the card
+//   tags        — array of strings shown as tech/topic pills
+//   url         — link to the GitHub repo (opens in new tab)
+//   stripe      — top accent bar color for beach/light mode (use a light/muted hex)
+//   spaceStripe — top accent bar color for space/dark mode (use a vivid hex)
+//
+// To remove a project: delete its object from the PROJECTS array
+// To reorder projects: reorder the objects (first in array = top-left card)
+// To update the GitHub profile link: find "github.com/kyliecruz" at the bottom
+
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, PageHeader, Icon } from "../components/Shared";
 import { imgTealWave, imgPurpleShootingStar } from "../assets";
 
-// ── Add or edit your projects here ───────────────────────────────────────────
+// ── Add or edit projects here ─────────────────────────────────────────────────
 const PROJECTS = [
   {
     title: "AI Failure Modes Demo",

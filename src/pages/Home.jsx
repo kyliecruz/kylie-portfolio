@@ -1,3 +1,18 @@
+// ── Home.jsx — landing page ────────────────────────────────────────────────────
+// Sections (top to bottom):
+//   Hero          — name, tagline, CTA buttons, social links, wave/shooting stars
+//   Currently     — bullet list of what you're up to right now
+//   WAIA preview  — 3 feature cards + "About WAIA" button
+//   Contact strip — "Say hello" / "Transmit a signal" with parallax birds/stars
+//
+// To edit the hero tagline: find the <p> with fontStyle: "italic" in the Hero section
+// To edit the hero body text: find the <p> below it (shorter paragraph)
+// To edit the CTA buttons: find the <div className="hf3 hero-btns">
+// To update the Currently list: edit the array of strings inside the "Currently" section
+// To update the WAIA preview cards: edit the array in the WAIA preview section
+// To update contact text or social links: edit the Contact strip section
+//   (social link URLs and email live in src/components/Shared.jsx → SocialLinks)
+
 import { useState, useRef, useEffect } from "react";
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, Wave, SocialLinks, Icon } from "../components/Shared";
@@ -8,10 +23,13 @@ import {
 } from "../assets";
 
 export default function Home({ setPage, c, isDark }) {
+  // titleHoverX — tracks mouse X % over the name to create a spotlight gradient on hover
   const [titleHoverX, setTitleHoverX] = useState(null);
   const contactRef = useRef(null);
+  // parallaxY — used to move birds (beach) and space decorations at 15% scroll speed
   const [parallaxY, setParallaxY] = useState(0);
 
+  // Scroll listener: updates parallaxY so the contact section decorations drift slowly
   useEffect(() => {
     const el = contactRef.current;
     if (!el) return;
@@ -103,6 +121,7 @@ export default function Home({ setPage, c, isDark }) {
       </section>
 
       {/* ── Currently ── */}
+      {/* To add or remove a bullet: edit the array of strings below */}
       <section className="section-pad" style={{ background: c.bg, padding: "56px 32px 80px", position: "relative", marginTop: 0 }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <Reveal>
@@ -120,6 +139,7 @@ export default function Home({ setPage, c, isDark }) {
               </h2>
             </Reveal>
             <div style={{ flex: 1 }}>
+              {/* ── Currently bullets — edit this array to update what's shown ── */}
               {[
                 "2nd year CS (Hons) at Wilfrid Laurier University",
                 "Founder & President, Waterloo AI Association",

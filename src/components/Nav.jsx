@@ -1,7 +1,21 @@
+// ── Nav.jsx — sticky top navigation bar ───────────────────────────────────────
+// Renders the brand name, page links, and the beach/space theme toggle button.
+// On mobile (≤680px) the links collapse into a hamburger menu.
+//
+// To add a new nav link:
+//   1. Add ["pageid", "Label"] to the PAGES array below
+//   2. Make sure the matching route exists in App.jsx
+//   3. The link will appear in both desktop nav and mobile dropdown automatically
+//
+// To change the brand name or logo icon: edit the Brand button below
+// To change the theme toggle icons: edit imgTealMoon / imgPurpleSun imports
+
 import { useState } from "react";
 import { FONT_HEAD, FONT_BODY } from "../themes";
 import { imgTealHibiscus, imgPurpleSparkle, imgTealMoon, imgPurpleSun } from "../assets";
 
+// ── Page list — drives both the desktop nav links and the mobile dropdown ─────
+// Order here = display order in the nav. Each entry: ["route-id", "Display Label"]
 const PAGES = [["home","Home"],["about","About"],["projects","Projects"],["waia","WAIA"],["blog","Blog"]];
 
 export default function Nav({ page, setPage, isDark, setIsDark, c }) {

@@ -1,4 +1,19 @@
-// Beach
+// ── Image assets ─────────────────────────────────────────────────────────────
+// All icons/images used across the site are imported here and re-exported
+// so pages only need one import line, e.g.:
+//   import { imgTealHibiscus, imgPurpleRocket } from "../assets"
+//
+// Naming convention:
+//   imgTeal___   → coloured teal version (used in Beach/light mode)
+//   imgPurple___ → coloured purple version (used in Space/dark mode)
+//   img___       → original/uncoloured version (mostly unused in UI)
+//
+// To add a new icon:
+//   1. Drop the .png file into src/assets/beach/, space/, or contact/
+//   2. Add an export line below following the same pattern
+//   3. Import it by name wherever you need it
+
+// ── Beach icons (teal versions used in light mode) ────────────────────────────
 export { default as imgSun }           from "./beach/sun.png";
 export { default as imgHibiscus }      from "./beach/hibiscus.png";
 export { default as imgWave }          from "./beach/wave.png";
@@ -15,7 +30,7 @@ export { default as imgTealIsland }    from "./beach/teal island.png";
 export { default as imgTealTurtle }    from "./beach/teal turtle.png";
 export { default as imgTealDolphin }   from "./beach/teal dolphin.png";
 
-// Space
+// ── Space icons (purple versions used in dark mode) ───────────────────────────
 export { default as imgPurpleSun }          from "./space/purple sun.png";
 export { default as imgMoon }               from "./space/moon.png";
 export { default as imgPurpleMoon }         from "./space/purple moon.png";
@@ -32,7 +47,7 @@ export { default as imgPurpleStar }         from "./space/purple star.png";
 export { default as imgUfo }                from "./space/ufo.png";
 export { default as imgPurpleUfo }          from "./space/purple ufo.png";
 
-// Contact
+// ── Contact icons ─────────────────────────────────────────────────────────────
 export { default as imgEmail }          from "./contact/email.png";
 export { default as imgTealEmail }      from "./contact/teal email.png";
 export { default as imgPurpleEmail }    from "./contact/purple email.png";

@@ -1,4 +1,11 @@
-// Shared UI components used across multiple pages
+// ── Shared.jsx — reusable UI components ──────────────────────────────────────
+// These components are used across multiple pages. Import from here, not re-create.
+//
+//   Icon        — renders an image as an inline icon
+//   Reveal      — wraps any content in a scroll-triggered fade-in animation
+//   Wave        — SVG wave divider used between sections in beach mode
+//   PageHeader  — standard page header (About, Projects, Blog, WAIA all use this)
+//   SocialLinks — email, LinkedIn, GitHub pill links (used in hero + contact section)
 import { useScrollReveal } from "../hooks";
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import {
@@ -65,6 +72,8 @@ export function PageHeader({ label, title, subtitle, c, isDark }) {
 }
 
 // ── Social link pills ─────────────────────────────────────────────────────────
+// To add a new social link: add an entry to the `links` array below
+// To update an email or URL: edit the `href` value in the matching entry
 export function SocialLinks({ c, large, isDark = false }) {
   const links = [
     { imgSrc: isDark ? imgPurpleEmail   : imgTealEmail,    label: "Email",    href: "mailto:kkylie.cruz@gmail.com" },

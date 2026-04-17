@@ -1,9 +1,31 @@
+// ── Blog.jsx — Blog listing and post reader ───────────────────────────────────
+// The blog is fully self-contained in this file — no separate files per post.
+//
+// To add a new blog post:
+//   1. Add an object to the POSTS array below with these fields:
+//        date      — e.g. "Apr 2026"
+//        readTime  — e.g. "5 min read"
+//        tags      — array of strings, e.g. ["AI Safety", "Community"]
+//        title     — post title shown in the list and at the top of the post
+//        desc      — short summary shown on the list card
+//        subtitle  — shown as italic text at the top of the full post (can match desc)
+//        body      — array of block objects (see supported types below)
+//   2. Save — the post appears at the top of the list automatically
+//
+// Body block types:
+//   { type: "p",          text: "Paragraph text." }
+//   { type: "h2",         text: "Section heading" }
+//   { type: "blockquote", text: "A pull quote." }
+//   { type: "ul",         items: ["item 1", "item 2"] }
+//
+// New posts should go at the TOP of the POSTS array so they appear first in the list.
+
 import { useState, useEffect } from "react";
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, PageHeader, Icon } from "../components/Shared";
 import { imgTealWave, imgPurpleShootingStar, imgPurpleStar, imgTealSeashell } from "../assets";
 
-// ── Add new blog posts here ───────────────────────────────────────────────────
+// ── Add new blog posts here — newest first ────────────────────────────────────
 const POSTS = [
   {
     date: "Jan 2026",
