@@ -39,7 +39,7 @@ export function Stars() {
 
 // ── Shooting stars (space mode, home hero + contact section) ─────────────────
 // contained=true → position:absolute (scoped to nearest positioned ancestor)
-export function ShootingStars({ contained = false }) {
+export function ShootingStars({ contained = false, maxStars = 6 }) {
   // Steep downward trajectories — large y-drop, small x-shift
   const shots = [
     { x1: "88%", y1: "2%",  x2: "74%", y2: "52%", delay: "0s",   dur: "2.8s" },
@@ -48,7 +48,7 @@ export function ShootingStars({ contained = false }) {
     { x1: "95%", y1: "10%", x2: "80%", y2: "56%", delay: "4.8s", dur: "2.0s" },
     { x1: "50%", y1: "1%",  x2: "36%", y2: "42%", delay: "6.2s", dur: "3.0s" },
     { x1: "82%", y1: "18%", x2: "68%", y2: "62%", delay: "8.0s", dur: "2.4s" },
-  ];
+  ].slice(0, maxStars);
   return (
     <div style={{ position: contained ? "absolute" : "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
       <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>

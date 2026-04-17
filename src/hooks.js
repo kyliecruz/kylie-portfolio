@@ -79,6 +79,8 @@ export function useGlobalStyles() {
         .hero-section { min-height: calc(100vh - 70px) !important; }
       }
       @media (max-width:680px) {
+        .hero-section { min-height: unset !important; padding-top: 40px !important; }
+        .hero-content { padding-bottom: 60px !important; }
         .about-row { flex-direction: column !important; }
         .about-grid { grid-template-columns: 1fr !important; }
         .proj-grid { grid-template-columns: 1fr !important; }

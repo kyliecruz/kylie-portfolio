@@ -87,7 +87,7 @@ export default function Waia({ c, isDark }) {
             {isDark && <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, #1D104040 0%, transparent 70%)", pointerEvents: "none" }} />}
             <h2 style={{ fontFamily: FONT_HEAD, fontSize: 26, color: c.text, marginBottom: 6, textAlign: "center", position: "relative" }}>From curious to confident</h2>
             <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, textAlign: "center", marginBottom: 36, position: "relative" }}>A simple path — without being overwhelming.</p>
-            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
+            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", rowGap: 28, position: "relative" }}>
               {[
                 { step: "01", icon: isDark ? imgPurpleRocket : imgTealDolphin,  label: "Start", text: "Intro sessions in plain language plus realistic next steps." },
                 { step: "02", icon: isDark ? imgPurpleStar   : imgTealSeashell, label: "Learn", text: "Reading groups focused on understanding over impressing." },

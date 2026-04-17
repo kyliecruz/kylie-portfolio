@@ -54,13 +54,26 @@ export default function About({ c, isDark }) {
             { icon: isDark ? imgPurpleUfo          : imgTealTurtle,    title: "Technical Interests",    text: "AI safety engineering, evaluation & testing, reliability, and security-minded ML. Practical, measurable work grounded in real-world failure modes." },
             { icon: isDark ? imgPurpleStar         : imgTealSeashell,  title: "Community & Leadership", text: "Founded WAIA to build a Waterloo-region hub for AI safety and governance. Focused on making it easy for beginners to get started." },
             { icon: isDark ? imgPurpleShootingStar : imgTealWave,      title: "Experience",             text: "ML data + research support (internship at AMX Research Lab), student leadership, and hands-on operations work at PhysioSage Rehab." },
-            { icon: isDark ? imgPurpleRocket       : imgTealDolphin,   title: "Building Toward",        text: "Long-term: red-team/security + safety engineering roles. Short-term: stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
+            { icon: isDark ? imgPurpleRocket       : imgTealDolphin,   title: "Building Toward",        items: [
+                { label: "Long-term",  text: "Red-team/security + safety engineering roles." },
+                { label: "Short-term", text: "Stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
+              ]},
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 16, padding: "26px", height: "100%", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>
                 <div style={{ marginBottom: 10 }}><Icon src={item.icon} size={28} /></div>
                 <h3 style={{ fontFamily: FONT_HEAD, fontSize: 18, color: c.text, marginBottom: 8 }}>{item.title}</h3>
-                <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, lineHeight: 1.7 }}>{item.text}</p>
+                {item.items ? (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                    {item.items.map((it, j) => (
+                      <div key={j} style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, lineHeight: 1.7 }}>
+                        <span style={{ color: c.accent, fontWeight: 600 }}>{it.label}: </span>{it.text}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, lineHeight: 1.7 }}>{item.text}</p>
+                )}
               </div>
             </Reveal>
           ))}

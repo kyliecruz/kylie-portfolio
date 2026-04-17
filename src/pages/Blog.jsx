@@ -7,6 +7,7 @@ import { imgTealWave, imgPurpleShootingStar, imgPurpleStar, imgTealSeashell } fr
 const POSTS = [
   {
     date: "Jan 2026",
+    readTime: "3 min read",
     tags: ["AI Safety", "Community"],
     title: "Why AI Safety Needs Student Builders",
     desc: "Reflections on starting early, building community, and learning governance alongside technical work.",
@@ -27,6 +28,7 @@ const POSTS = [
   },
   {
     date: "Jan 2026",
+    readTime: "4 min read",
     tags: ["WAIA", "Community"],
     title: "Launching the Waterloo AI Association",
     desc: "Promoting responsible, ethical, and impactful AI across the Waterloo region.",
@@ -75,6 +77,9 @@ function PostDetail({ post, onBack, c, isDark }) {
               <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>
                 <img src={isDark ? imgPurpleStar : imgTealSeashell} alt="" style={{ width: 16, height: 16, marginRight: 0, verticalAlign: "middle" }} /> {post.date}
               </span>
+              <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>
+                {post.readTime}
+              </span>
               {post.tags.map(tag => (
                 <span key={tag} className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>{tag}</span>
               ))}
@@ -84,7 +89,13 @@ function PostDetail({ post, onBack, c, isDark }) {
             <h1 style={{ fontFamily: FONT_HEAD, fontSize: "clamp(32px,5vw,52px)", color: c.text, lineHeight: 1.1, marginBottom: 16 }}>{post.title}</h1>
           </Reveal>
           <Reveal delay={0.15}>
-            <p style={{ fontFamily: FONT_HEAD, fontStyle: "italic", fontSize: 18, color: c.muted, lineHeight: 1.65 }}>{post.subtitle}</p>
+            <p style={{ fontFamily: FONT_HEAD, fontStyle: "italic", fontSize: 18, color: c.muted, lineHeight: 1.65, marginBottom: 24 }}>{post.subtitle}</p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <img src="/kylie-headshot.jpeg" alt="Kylie Cruz" style={{ width: 38, height: 38, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+              <span style={{ fontFamily: FONT_BODY, fontSize: 14, fontWeight: 500, color: c.text }}>Kylie Cruz</span>
+            </div>
           </Reveal>
         </div>
       </div>
@@ -123,7 +134,7 @@ function PostDetail({ post, onBack, c, isDark }) {
 
         <Reveal>
           <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, marginTop: 48, paddingTop: 32, borderTop: `1px solid ${c.border}` }}>
-            — <span style={{ color: c.accent, fontWeight: 600 }}>Kylie Cruz</span>
+            <span style={{ color: c.accent, fontWeight: 600 }}>Kylie Cruz</span>
           </p>
         </Reveal>
       </div>
@@ -156,7 +167,7 @@ export default function Blog({ c, isDark }) {
               {isDark && <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${c.accent}, ${c.coral})`, boxShadow: `0 0 12px ${c.accent}` }} />}
               {!isDark && <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${c.accent}, ${c.coral})` }} />}
               <div style={{ fontFamily: FONT_MONO, fontSize: 11, color: c.accent, fontWeight: 500, marginBottom: 12, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                <img src={isDark ? imgPurpleStar : imgTealSeashell} alt="" style={{ width: 16, height: 16, marginRight: 0, verticalAlign: "middle" }} /> {post.date}
+                <img src={isDark ? imgPurpleStar : imgTealSeashell} alt="" style={{ width: 16, height: 16, marginRight: 0, verticalAlign: "middle" }} /> {post.date} · {post.readTime}
               </div>
               <h2 style={{ fontFamily: FONT_HEAD, fontSize: 23, color: c.text, marginBottom: 10, lineHeight: 1.3 }}>{post.title}</h2>
               <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, lineHeight: 1.75, marginBottom: 16 }}>{post.desc}</p>

@@ -50,7 +50,7 @@ export default function Home({ setPage, c, isDark }) {
           </>
         )}
 
-        <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative", paddingBottom: 120 }}>
+        <div className="hero-content" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative", paddingBottom: 120 }}>
           <div className="hf0" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: c.accentLight, border: `1px solid ${c.accentBorder}`, borderRadius: 999, padding: "5px 16px", marginBottom: 28, fontSize: 13, color: c.accent, fontFamily: FONT_MONO }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: c.accent, display: "inline-block", boxShadow: isDark ? `0 0 8px ${c.accent}` : "none" }} />
             CS Student · Waterloo, ON
@@ -82,7 +82,7 @@ export default function Home({ setPage, c, isDark }) {
             Exploring ways to reduce existential risks through AI safety & governance.
           </p>
 
-          <p className="hf2" style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, lineHeight: 1.78, maxWidth: 480, margin: "0 auto 38px" }}>
+          <p className="hf2" style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, lineHeight: 1.7, maxWidth: 480, margin: "0 auto 38px" }}>
             Computer science student at Wilfrid Laurier University passionate about building and evaluating trustworthy, safe, and reliable AI systems.
           </p>
 
@@ -147,7 +147,7 @@ export default function Home({ setPage, c, isDark }) {
             <div style={{ textAlign: "center", marginBottom: 48 }}>
               <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, marginBottom: 14, display: "inline-block", textTransform: "uppercase", letterSpacing: "0.08em", fontSize: 11, fontFamily: FONT_MONO }}>Community</span>
               <h2 style={{ fontFamily: FONT_HEAD, fontSize: "clamp(28px,4vw,42px)", color: c.text, marginBottom: 12 }}>Waterloo AI Association</h2>
-              <p style={{ fontFamily: FONT_BODY, color: c.muted, fontSize: 15, maxWidth: 460, margin: "0 auto" }}>A student community bridging technical AI safety and governance in the Waterloo region.</p>
+              <p style={{ fontFamily: FONT_BODY, color: c.muted, fontSize: 15, lineHeight: 1.7, maxWidth: 460, margin: "0 auto" }}>A student community bridging technical AI safety and governance in the Waterloo region.</p>
             </div>
           </Reveal>
           <div className="cards-row" style={{ display: "flex", gap: 18, marginBottom: 40 }}>
@@ -184,11 +184,8 @@ export default function Home({ setPage, c, isDark }) {
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", transform: `translateY(${parallaxY}px)` }}>
           {!isDark && <BeachScene idSuffix="cb" showWaves={false} birdYOffset={-35} />}
           {isDark && <>
-            <ShootingStars contained />
-            {/* Smaller planet, tucked to the right; hidden on mobile to avoid text overlap */}
-            <div className="hide-mobile">
-              <Planet overrideStyle={{ position: "absolute", right: "6%", top: "calc(50% - 44px)", width: 88, height: 88 }} />
-            </div>
+            <ShootingStars contained maxStars={3} />
+            <Planet overrideStyle={{ position: "absolute", right: "6%", top: "calc(50% + 10px)", width: 60, height: 60 }} />
           </>}
         </div>
         {/* Waves only — outside parallax so they always anchor to section bottom with no gap */}
