@@ -73,7 +73,7 @@ function PostDetail({ post, onBack, c, isDark }) {
           <Reveal delay={0.05}>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
               <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>
-                {isDark ? "◈" : "~"} {post.date}
+                <img src={isDark ? imgPurpleStar : imgTealSeashell} alt="" style={{ width: 16, height: 16, marginRight: 0, verticalAlign: "middle" }} /> {post.date}
               </span>
               {post.tags.map(tag => (
                 <span key={tag} className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>{tag}</span>
@@ -170,8 +170,8 @@ export default function Blog({ c, isDark }) {
             {isDark && <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, #1A104060 0%, transparent 70%)", pointerEvents: "none" }} />}
             <p style={{ fontFamily: FONT_HEAD, fontStyle: "italic", fontSize: 21, color: c.text, marginBottom: 7, position: "relative" }}>
               {isDark
-                ? <>Transmission incoming... <Icon src={imgPurpleShootingStar} size={18} style={{ marginLeft: 2 }} /></>
-                : <>More coming soon <Icon src={imgTealWave} size={18} style={{ marginLeft: 2 }} /></>
+                ? <>Transmission incoming... <Icon src={imgPurpleShootingStar} size={28} style={{ marginLeft: 2 }} /></>
+                : <>More coming soon... <Icon src={imgTealWave} size={28} style={{ marginLeft: 2 }} /></>
               }
             </p>
             <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, position: "relative" }}>Writing on AI safety, evaluation, and governance tradeoffs.</p>

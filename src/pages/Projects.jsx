@@ -73,8 +73,8 @@ export default function Projects({ c, isDark }) {
             {isDark && <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, #1A104060 0%, transparent 70%)", pointerEvents: "none" }} />}
             <p style={{ fontFamily: FONT_HEAD, fontStyle: "italic", fontSize: 22, color: c.text, marginBottom: 7, position: "relative" }}>
               {isDark
-                ? <>More in the void <Icon src={imgPurpleShootingStar} size={18} style={{ marginLeft: 2 }} /></>
-                : <>More on GitHub <Icon src={imgTealWave} size={18} style={{ marginLeft: 2 }} /></>
+                ? <>More in the void <Icon src={imgPurpleShootingStar} size={28} style={{ marginLeft: 2 }} /></>
+                : <>More on GitHub <Icon src={imgTealWave} size={28} style={{ marginLeft: 2 }} /></>
               }
             </p>
             <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, marginBottom: 22, position: "relative" }}>All projects are open source and available to explore.</p>

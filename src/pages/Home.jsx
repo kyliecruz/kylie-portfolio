@@ -198,7 +198,7 @@ export default function Home({ setPage, c, isDark }) {
         <div style={{ maxWidth: 600, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <Reveal>
             <h2 style={{ fontFamily: FONT_HEAD, fontSize: "clamp(26px,4vw,38px)", color: c.text, marginBottom: 10 }}>
-              {isDark ? "Transmit a signal" : "Say hello"} <Icon src={isDark ? imgPurpleShootingStar : imgTealWave} size={26} style={{ marginLeft: 4 }} />
+              {isDark ? "Transmit a signal" : "Say hello"} <Icon src={isDark ? imgPurpleShootingStar : imgTealWave} size={40} style={{ marginLeft: 4 }} />
             </h2>
             <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, marginBottom: 28, lineHeight: 1.7 }}>
               {isDark ? "Always open to connect on AI safety, red-teaming, and research opportunities." : "Always happy to connect on AI safety, research, and opportunities."}
