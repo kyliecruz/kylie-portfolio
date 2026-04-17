@@ -1,5 +1,6 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal, PageHeader } from "../components/Shared";
+import { Reveal, PageHeader, Icon } from "../components/Shared";
+import { imgTealWave, imgPurpleShootingStar } from "../assets";
 
 // ── Add or edit your projects here ───────────────────────────────────────────
 const PROJECTS = [
@@ -71,7 +72,10 @@ export default function Projects({ c, isDark }) {
           <div style={{ textAlign: "center", padding: "42px", background: c.bgAlt, borderRadius: 20, border: `1px solid ${c.border}`, position: "relative", overflow: "hidden" }}>
             {isDark && <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, #1A104060 0%, transparent 70%)", pointerEvents: "none" }} />}
             <p style={{ fontFamily: FONT_HEAD, fontStyle: "italic", fontSize: 22, color: c.text, marginBottom: 7, position: "relative" }}>
-              {isDark ? "More in the void ✦" : "More on GitHub 🐚"}
+              {isDark
+                ? <>More in the void <Icon src={imgPurpleShootingStar} size={18} style={{ marginLeft: 2 }} /></>
+                : <>More on GitHub <Icon src={imgTealWave} size={18} style={{ marginLeft: 2 }} /></>
+              }
             </p>
             <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, marginBottom: 22, position: "relative" }}>All projects are open source and available to explore.</p>
             <a href="https://github.com/kyliecruz" target="_blank" rel="noopener noreferrer" className="btn-fill"

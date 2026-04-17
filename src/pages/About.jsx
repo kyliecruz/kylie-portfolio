@@ -1,8 +1,10 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, PageHeader, Icon } from "../components/Shared";
 import {
-  imgTealWave, imgTealSeashell, imgTealIsland, imgTealDolphin,
-  imgPurpleRocket, imgPurpleStar, imgPurpleUfo, imgPurpleSparkle,
+  imgTealHibiscus, imgTealDolphin, imgTealSeashell, imgTealTurtle, imgTealWave, imgTealIsland,
+  imgTealGithub, imgTealLinkedin, imgTealEmail,
+  imgPurpleSparkle, imgPurpleRocket, imgPurpleStar, imgPurpleUfo, imgPurpleShootingStar, imgPurplePlanet,
+  imgPurpleGithub, imgPurpleLinkedin, imgPurpleEmail,
 } from "../assets";
 
 export default function About({ c, isDark }) {
@@ -18,22 +20,22 @@ export default function About({ c, isDark }) {
               style={{ width: 196, height: 196, borderRadius: 20, objectFit: "cover", border: `3px solid ${c.border}`, display: "block", marginBottom: 14, boxShadow: isDark ? `0 0 32px ${c.accent}30` : "0 8px 32px rgba(0,0,0,0.10)" }} />
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {[
-                { label: "GitHub",   href: "https://github.com/kyliecruz" },
-                { label: "LinkedIn", href: "https://linkedin.com/in/kylie-cruz" },
-                { label: "Email",    href: "mailto:kkylie.cruz@gmail.com" },
-              ].map(({ label, href }) => (
+                { label: "Email",    href: "mailto:kkylie.cruz@gmail.com",        icon: isDark ? imgPurpleEmail    : imgTealEmail   },
+                { label: "LinkedIn", href: "https://linkedin.com/in/kylie-cruz",  icon: isDark ? imgPurpleLinkedin : imgTealLinkedin },
+                { label: "GitHub",   href: "https://github.com/kyliecruz",        icon: isDark ? imgPurpleGithub   : imgTealGithub  },
+              ].map(({ label, href, icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                  style={{ textAlign: "center", padding: "8px 12px", borderRadius: 10, background: c.bgAlt, border: `1px solid ${c.border}`, fontFamily: FONT_BODY, fontSize: 13, fontWeight: 600, color: c.muted, transition: "color 0.15s, border-color 0.15s" }}
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 7, textAlign: "center", padding: "8px 12px", borderRadius: 10, background: c.bgAlt, border: `1px solid ${c.border}`, fontFamily: FONT_BODY, fontSize: 13, fontWeight: 600, color: c.muted, transition: "color 0.15s, border-color 0.15s" }}
                   onMouseEnter={e => { e.currentTarget.style.color = c.accent; e.currentTarget.style.borderColor = c.accent; }}
                   onMouseLeave={e => { e.currentTarget.style.color = c.muted; e.currentTarget.style.borderColor = c.border; }}>
-                  {label} ↗
+                  <Icon src={icon} size={14} /> {label} ↗
                 </a>
               ))}
             </div>
           </Reveal>
           <div style={{ flex: 1 }}>
             <Reveal delay={0.1}>
-              <h2 style={{ fontFamily: FONT_HEAD, fontSize: 30, color: c.text, marginBottom: 14 }}>Hi, I'm Kylie <Icon src={isDark ? imgPurpleRocket : imgWave} size={28} style={{ marginLeft: 2 }} /></h2>
+              <h2 style={{ fontFamily: FONT_HEAD, fontSize: 30, color: c.text, marginBottom: 14 }}>Hi, I'm Kylie <Icon src={isDark ? imgPurpleSparkle : imgTealHibiscus} size={40} style={{ marginLeft: 2 }} /></h2>
               <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, lineHeight: 1.82, marginBottom: 20 }}>
                 I'm a Computer Science (Honours) student at Wilfrid Laurier University focused on AI safety, machine learning, and security-minded engineering. I started working toward an AI safety career in December 2025, and I'm particularly interested in building reliable systems and understanding how technical decisions shape real-world risk.
               </p>
@@ -47,12 +49,12 @@ export default function About({ c, isDark }) {
         </div>
 
         {/* ── Cards ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 18, marginBottom: 72 }}>
+        <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 18, marginBottom: 72 }}>
           {[
-            { icon: isDark ? imgPurpleSparkle : imgTealDolphin,  title: "Technical Interests",   text: "AI safety engineering, evaluation & testing, reliability, and security-minded ML. Practical, measurable work grounded in real-world failure modes." },
-            { icon: isDark ? imgPurpleStar   : imgTealWave,     title: "Community & Leadership", text: "Founded WAIA to build a Waterloo-region hub for AI safety and governance. Focused on making it easy for beginners to get started." },
-            { icon: isDark ? imgPurpleRocket : imgTealSeashell, title: "Experience",             text: "ML data + research support (internship at AMX Research Lab), student leadership, and hands-on operations work at PhysioSage Rehab." },
-            { icon: isDark ? imgPurpleUfo    : imgTealIsland,   title: "Building Toward",        text: "Long-term: red-team/security + safety engineering roles. Short-term: stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
+            { icon: isDark ? imgPurpleUfo          : imgTealTurtle,    title: "Technical Interests",    text: "AI safety engineering, evaluation & testing, reliability, and security-minded ML. Practical, measurable work grounded in real-world failure modes." },
+            { icon: isDark ? imgPurpleStar         : imgTealSeashell,  title: "Community & Leadership", text: "Founded WAIA to build a Waterloo-region hub for AI safety and governance. Focused on making it easy for beginners to get started." },
+            { icon: isDark ? imgPurpleShootingStar : imgTealWave,      title: "Experience",             text: "ML data + research support (internship at AMX Research Lab), student leadership, and hands-on operations work at PhysioSage Rehab." },
+            { icon: isDark ? imgPurpleRocket       : imgTealDolphin,   title: "Building Toward",        text: "Long-term: red-team/security + safety engineering roles. Short-term: stronger fundamentals, better projects, and exposure to evaluation & governance tradeoffs." },
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 16, padding: "26px", height: "100%", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>

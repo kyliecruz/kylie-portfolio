@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FONT_HEAD, FONT_BODY } from "../themes";
-import { imgTealHibiscus, imgPurpleSparkle } from "../assets";
+import { imgTealHibiscus, imgPurpleSparkle, imgTealMoon, imgPurpleSun } from "../assets";
 
 const PAGES = [["home","Home"],["about","About"],["projects","Projects"],["waia","WAIA"],["blog","Blog"]];
 
@@ -15,7 +15,7 @@ export default function Nav({ page, setPage, isDark, setIsDark, c }) {
       <div style={{ padding: "0 24px", height: 60, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Brand */}
         <button onClick={() => navigate("home")} style={{ background: "none", border: "none", fontFamily: FONT_HEAD, fontSize: 20, fontWeight: 700, color: c.text, letterSpacing: "-0.3px", whiteSpace: "nowrap", flexShrink: 0, cursor: "pointer" }}>
-          <img src={isBeach ? imgTealHibiscus : imgPurpleSparkle} alt="" style={{ width: 25, height: 25, verticalAlign: "middle", marginRight: 4 }} /> Kylie Cruz
+          <img src={isBeach ? imgTealHibiscus : imgPurpleSparkle} alt="" style={{ width: 30, height: 30, verticalAlign: "middle", marginRight: 4 }} /> Kylie Cruz
         </button>
 
         {/* Desktop nav links */}
@@ -27,17 +27,17 @@ export default function Nav({ page, setPage, isDark, setIsDark, c }) {
             </button>
           ))}
           <button onClick={() => setIsDark(!isDark)}
-            style={{ background: c.bgAlt, border: `1px solid ${c.border}`, borderRadius: 10, padding: "6px 12px", fontSize: 15, color: c.text, transition: "all 0.2s", cursor: "pointer" }}
+            style={{ background: c.bgAlt, border: `1px solid ${c.border}`, borderRadius: 10, padding: "6px 12px", fontSize: 15, color: c.text, transition: "all 0.2s", cursor: "pointer", display: "flex", alignItems: "center" }}
             title={isDark ? "Switch to Beach mode" : "Switch to Space mode"}>
-            {isDark ? "🏖️" : "🌌"}
+            <img src={isDark ? imgPurpleSun : imgTealMoon} alt="" style={{ width: 18, height: 18, verticalAlign: "middle" }} />
           </button>
         </div>
 
         {/* Mobile: theme toggle + hamburger */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }} className="show-mobile">
           <button onClick={() => setIsDark(!isDark)}
-            style={{ background: c.bgAlt, border: `1px solid ${c.border}`, borderRadius: 10, padding: "6px 10px", fontSize: 15, color: c.text, cursor: "pointer" }}>
-            {isDark ? "🏖️" : "🌌"}
+            style={{ background: c.bgAlt, border: `1px solid ${c.border}`, borderRadius: 10, padding: "6px 10px", fontSize: 15, color: c.text, cursor: "pointer", display: "flex", alignItems: "center" }}>
+            <img src={isDark ? imgPurpleSun : imgTealMoon} alt="" style={{ width: 18, height: 18, verticalAlign: "middle" }} />
           </button>
           <button onClick={() => setMenuOpen(o => !o)} aria-label="Toggle menu"
             style={{ background: "none", border: `1px solid ${c.border}`, borderRadius: 10, padding: "6px 10px", color: c.text, cursor: "pointer", fontSize: 18, lineHeight: 1 }}>

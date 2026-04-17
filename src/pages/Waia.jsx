@@ -1,8 +1,10 @@
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import { Reveal, Icon } from "../components/Shared";
 import {
-  imgTealWave, imgTealSeashell, imgTealIsland,
-  imgPurpleRocket, imgPurpleStar, imgPurpleUfo,
+  imgTealDolphin, imgTealSeashell, imgTealTurtle, imgTealWave, imgTealHibiscus, imgTealSun, imgTealIsland,
+  imgPurpleRocket, imgPurpleStar, imgPurpleUfo, imgPurpleShootingStar, imgPurpleSparkle, imgPurpleMoon, imgPurplePlanet,
+  imgTealMoon,
+  imgPurpleSun
 } from "../assets";
 
 export default function Waia({ c, isDark }) {
@@ -14,7 +16,7 @@ export default function Waia({ c, isDark }) {
         <div style={{ position: "relative" }}>
           <Reveal>
             <img src="/waia-logo.png" alt="WAIA Logo"
-              style={{ width: 80, height: 80, objectFit: "contain", borderRadius: 18, marginBottom: 20, border: `2px solid ${c.border}`, boxShadow: isDark ? `0 0 24px ${c.accent}40` : "none" }}
+              style={{ width: 80, height: 80, objectFit: "contain", marginBottom: 20, filter: isDark ? `drop-shadow(0 0 14px ${c.accent})` : "none" }}
               onError={e => { e.target.style.display = "none"; }} />
           </Reveal>
           <Reveal delay={0.1}>
@@ -41,12 +43,12 @@ export default function Waia({ c, isDark }) {
         {/* ── Mission + Approach ── */}
         <div style={{ display: "flex", gap: 20, marginBottom: 64, flexWrap: "wrap" }}>
           {[
-            { icon: "🎯", title: "Mission",  text: "Make AI safety + governance approachable in Waterloo, and help students build the skills + clarity to contribute responsibly." },
-            { icon: "🧭", title: "Approach", text: "Beginner-friendly entry points, real projects, and honest discussions about tradeoffs — bridging technical work and policy realities." },
+            { iconBeach: imgTealHibiscus, iconDark: imgPurpleSparkle,   title: "Mission",  text: "Make AI safety + governance approachable in Waterloo, and help students build the skills + clarity to contribute responsibly." },
+            { iconBeach: imgTealIsland,   iconDark: imgPurplePlanet,    title: "Approach", text: "Beginner-friendly entry points, real projects, and honest discussions about tradeoffs — bridging technical work and policy realities." },
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.1} style={{ flex: 1, minWidth: 230 }}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 18, padding: "28px", height: "100%", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>
-                <div style={{ fontSize: 26, marginBottom: 12 }}>{item.icon}</div>
+                <div style={{ marginBottom: 12 }}><Icon src={isDark ? item.iconDark : item.iconBeach} size={28} /></div>
                 <h3 style={{ fontFamily: FONT_HEAD, fontSize: 20, color: c.text, marginBottom: 10 }}>{item.title}</h3>
                 <p style={{ fontFamily: FONT_BODY, fontSize: 14, color: c.muted, lineHeight: 1.72 }}>{item.text}</p>
               </div>
@@ -65,13 +67,13 @@ export default function Waia({ c, isDark }) {
         {/* ── Pillars ── */}
         <div className="cards-row" style={{ display: "flex", gap: 16, marginBottom: 64 }}>
           {[
-            { icon: isDark ? "🔭" : "🧠", title: "Learning",   text: "Intro sessions, reading groups, and discussion nights that make AI safety approachable." },
-            { icon: isDark ? "🌌" : "🎤", title: "Community",  text: "Guest speakers, workshops, and meetups connecting Waterloo students to the wider AI safety ecosystem." },
-            { icon: isDark ? "🛰️" : "🛠️", title: "Projects",  text: "Beginner-friendly projects — evaluations, audits, demos — to build real skills and portfolio proof." },
+            { iconBeach: imgTealSun,   iconDark: imgPurpleSun,           title: "Learning",  text: "Intro sessions, reading groups, and discussion nights that make AI safety approachable." },
+            { iconBeach: imgTealWave,  iconDark: imgPurpleShootingStar,  title: "Community", text: "Guest speakers, workshops, and meetups connecting Waterloo students to the wider AI safety ecosystem." },
+            { iconBeach: imgTealMoon,  iconDark: imgPurpleMoon,          title: "Projects",  text: "Beginner-friendly projects — evaluations, audits, demos — to build real skills and portfolio proof." },
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.1} style={{ flex: 1 }}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 16, padding: "24px", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>
-                <div style={{ fontSize: 24, marginBottom: 10 }}>{item.icon}</div>
+                <div style={{ marginBottom: 10 }}><Icon src={isDark ? item.iconDark : item.iconBeach} size={26} /></div>
                 <h3 style={{ fontFamily: FONT_HEAD, fontSize: 17, color: c.text, marginBottom: 8 }}>{item.title}</h3>
                 <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, lineHeight: 1.68 }}>{item.text}</p>
               </div>
@@ -87,9 +89,9 @@ export default function Waia({ c, isDark }) {
             <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, textAlign: "center", marginBottom: 36, position: "relative" }}>A simple path — without being overwhelming.</p>
             <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
               {[
-                { step: "01", icon: isDark ? imgPurpleRocket : imgTealWave,     label: "Start", text: "Intro sessions in plain language plus realistic next steps." },
+                { step: "01", icon: isDark ? imgPurpleRocket : imgTealDolphin,  label: "Start", text: "Intro sessions in plain language plus realistic next steps." },
                 { step: "02", icon: isDark ? imgPurpleStar   : imgTealSeashell, label: "Learn", text: "Reading groups focused on understanding over impressing." },
-                { step: "03", icon: isDark ? imgPurpleUfo    : imgTealIsland,   label: "Build", text: "Beginner-friendly projects that teach evaluation instincts." },
+                { step: "03", icon: isDark ? imgPurpleUfo    : imgTealTurtle,   label: "Build", text: "Beginner-friendly projects that teach evaluation instincts." },
               ].map((item, i) => (
                 <div key={i} style={{ flex: 1, minWidth: 140, textAlign: "center", padding: "0 18px" }}>
                   <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 500, color: c.accent, letterSpacing: "0.15em", marginBottom: 8, textTransform: "uppercase" }}>{item.step}</div>

@@ -53,26 +53,34 @@ export function useGlobalStyles() {
       .float { animation: float 5s ease-in-out infinite; }
       @keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
       .shimmer-text {
-        background: linear-gradient(90deg, #74B8B0, #E8B2A4, #74B8B0);
+        display: inline-block;
+        padding: 0.05em 0.02em 0.1em;
+        background: linear-gradient(90deg, #74B8B0, #74B8B0 35%, #E69C8A 50%, #74B8B0 65%, #74B8B0);
         background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        animation: shimmer 4s linear infinite;
+        animation: shimmer 6s linear infinite;
       }
       .shimmer-text-space {
-        background: linear-gradient(90deg, #A78BFA, #F472B6, #818CF8, #A78BFA);
+        display: inline-block;
+        padding: 0.05em 0.02em 0.1em;
+        background: linear-gradient(90deg, #A78BFA, #A78BFA 35%, #F472B6 50%, #A78BFA 65%, #A78BFA);
         background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        animation: shimmer 4s linear infinite;
+        animation: shimmer 6s linear infinite;
       }
       @keyframes orbit { from{transform:rotate(0deg) translateX(18px) rotate(0deg)} to{transform:rotate(360deg) translateX(18px) rotate(-360deg)} }
       .orbit { animation: orbit 8s linear infinite; }
       .show-mobile { display: none !important; }
+      @media (max-width:900px) {
+        .hero-section { min-height: calc(100vh - 70px) !important; }
+      }
       @media (max-width:680px) {
         .about-row { flex-direction: column !important; }
+        .about-grid { grid-template-columns: 1fr !important; }
         .proj-grid { grid-template-columns: 1fr !important; }
         .cards-row { flex-direction: column !important; }
         .cur-row { flex-direction: column !important; gap: 20px !important; }
@@ -80,6 +88,9 @@ export function useGlobalStyles() {
         .hide-mobile { display: none !important; }
         .show-mobile { display: flex !important; }
         .hero-btns { flex-direction: column !important; align-items: center !important; }
+        .section-pad { padding: 48px 20px !important; }
+        .nav-lnk { padding: 10px 8px !important; min-height: 44px; }
+        .btn-fill, .btn-ghost { min-height: 44px; }
       }
     `;
     document.head.appendChild(style);

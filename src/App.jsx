@@ -36,7 +36,7 @@ export default function App() {
   const pageContent = (
     <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: c.bg, color: c.text, minHeight: "100vh", transition: "background 0.5s, color 0.4s", position: "relative" }}>
       {isDark && <Stars />}
-      {!isDark && <BeachDeco />}
+      {!isDark && <BeachDeco isHome={page === "home"} />}
       <div style={{ position: "relative", zIndex: 1 }}>
         <Nav page={page} setPage={navigate} isDark={isDark} setIsDark={setIsDark} c={c} />
         {page === "home"     && <Home     setPage={navigate} c={c} isDark={isDark} />}
@@ -51,8 +51,8 @@ export default function App() {
 
   return (
     <ClickSpark
-      variant={isDark ? "spark" : "splash"}
-      sparkColor="#A78BFA"
+      variant="spark"
+      sparkColor={isDark ? "#A78BFA" : "#5EC8BC"}
       sparkSize={12}
       sparkRadius={20}
       sparkCount={10}
