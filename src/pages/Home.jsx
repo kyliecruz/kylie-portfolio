@@ -32,8 +32,8 @@ export default function Home({ setPage, c, isDark }) {
         background: isDark
           ? "radial-gradient(ellipse at 60% 0%, #1A1050 0%, #060818 60%)"
           : `linear-gradient(160deg, ${c.bgAlt} 0%, ${c.bg} 60%)`,
-        padding: "100px 32px 0", overflow: "hidden",
-        minHeight: isDark ? 580 : 620,
+        padding: "80px 32px 0", overflow: "hidden",
+        minHeight: 620,
         display: "flex", flexDirection: "column", justifyContent: "flex-end",
       }}>
         {!isDark && (
@@ -56,7 +56,7 @@ export default function Home({ setPage, c, isDark }) {
             CS Student · Waterloo, ON
           </div>
 
-          <h1 className="hf1" style={{ fontFamily: FONT_HEAD, fontSize: "clamp(56px,9vw,96px)", fontWeight: 700, color: c.text, lineHeight: 1.03, letterSpacing: "-3px", marginBottom: 40 }}>
+          <h1 className="hf1" style={{ fontFamily: FONT_HEAD, fontSize: "clamp(56px,9vw,96px)", fontWeight: 700, color: c.text, lineHeight: 1.03, letterSpacing: "-3px", marginBottom: 30 }}>
             <span
               className={titleHoverX === null ? (isDark ? "shimmer-text-space" : "shimmer-text") : ""}
               onMouseMove={(e) => {
@@ -78,8 +78,8 @@ export default function Home({ setPage, c, isDark }) {
             >Kylie Cruz</span>
           </h1>
 
-          <p className="hf2" style={{ fontFamily: FONT_HEAD, fontStyle: "italic", fontSize: "clamp(16px,2.5vw,21px)", color: c.muted, lineHeight: 1.6, maxWidth: 700, margin: "0 auto clamp(28px, 5vw, 64px)" }}>
-            {isDark ? "Mapping the frontier of AI safety — one red-team at a time." : "Exploring ways to reduce existential risks through AI safety & governance."}
+          <p className="hf2" style={{ fontFamily: FONT_HEAD, fontStyle: "italic", fontSize: "clamp(16px,2.5vw,21px)", color: c.muted, lineHeight: 1.6, maxWidth: 700, margin: "0 auto 38px" }}>
+            Exploring ways to reduce existential risks through AI safety & governance.
           </p>
 
           <p className="hf2" style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, lineHeight: 1.78, maxWidth: 480, margin: "0 auto 38px" }}>
@@ -90,20 +90,20 @@ export default function Home({ setPage, c, isDark }) {
             <button className="btn-fill" onClick={() => setPage("projects")} style={{ background: c.accent, color: "#fff", boxShadow: isDark ? `0 0 24px ${c.accent}50` : "none" }}>
               <Icon src={isDark ? imgSparkle : imgHibiscus} size={24} style={{ marginRight: 2 }} /> View Projects
             </button>
-            <button className="btn-ghost" onClick={() => setPage("about")} style={{ border: `1.5px solid ${c.border}`, color: c.text }}>About Me</button>
+            <button className="btn-ghost" onClick={() => setPage("about")} style={{ border: `1.5px solid ${c.border}`, color: c.text, background: c.bg }}>About Me</button>
           </div>
 
-          <div className="hf4">
+          <div className="hf4" style={{ marginBottom: "clamp(20px,4vw,60px)" }}>
             <SocialLinks c={c} isDark={isDark} />
           </div>
         </div>
 
         {!isDark && <Wave fill={c.bg} />}
-        {isDark && <div style={{ height: 20 }} />}
+        {isDark && <div style={{ height: 24 }} />}
       </section>
 
       {/* ── Currently ── */}
-      <section className="section-pad" style={{ background: c.bg, padding: "56px 32px 80px", position: "relative", marginTop: 14 }}>
+      <section className="section-pad" style={{ background: c.bg, padding: "56px 32px 80px", position: "relative", marginTop: 0 }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 40 }}>

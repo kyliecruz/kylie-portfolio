@@ -142,7 +142,7 @@ export function BeachScene({ idSuffix = "", showWaves = true, showBirds = true, 
     // scaling the wave up to fill height rather than shrinking to viewport-width proportions
     // position: absolute anchors to the hero section (position: relative + overflow: hidden),
     // so waves are always visible and correctly clipped regardless of viewport size
-    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "clamp(120px, 20vw, 220px)", pointerEvents: "none", overflow: "hidden" }}>
+    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "clamp(180px, 20vw, 280px)", pointerEvents: "none", overflow: "hidden" }}>
       <svg viewBox="0 0 1440 220" xmlns="http://www.w3.org/2000/svg"
         style={{ width: "100%", height: "100%", display: "block" }} preserveAspectRatio="xMidYMax slice" overflow="hidden">
         {showWaves && (
