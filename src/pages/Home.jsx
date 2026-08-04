@@ -141,7 +141,6 @@ export default function Home({ setPage, c, isDark }) {
                 "2nd year CS (Hons) at Wilfrid Laurier University",
                 "Founder & President, Waterloo AI Association",
                 "Outreach Coordinator, Laurier Computing Society",
-                "Planning an SF AI safety trip for July 2026",
                 "Targeting red-teaming, evaluation & safety engineering roles",
               ].map((item, i) => (
                 <Reveal key={i} delay={0.1 + i * 0.08}>

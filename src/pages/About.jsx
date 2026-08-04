@@ -24,7 +24,7 @@ import {
 export default function About({ c, isDark }) {
   return (
     <div>
-      <PageHeader label={isDark ? "// about" : "~ biography"} title="About Me" c={c} isDark={isDark} />
+      <PageHeader label={isDark ? "// biography" : "~ biography"} title="About Me" c={c} isDark={isDark} />
 
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "68px 32px" }}>
         {/* ── Bio + photo ── */}
