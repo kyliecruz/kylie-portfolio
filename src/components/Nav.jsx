@@ -1,4 +1,4 @@
-// ── Nav.jsx — sticky top navigation bar ───────────────────────────────────────
+// ── Nav.jsx: sticky top navigation bar ────────────────────────────────────────
 // Renders the brand name, page links, and the beach/space theme toggle button.
 // On mobile (≤680px) the links collapse into a hamburger menu.
 //
@@ -14,7 +14,7 @@ import { useState } from "react";
 import { FONT_HEAD, FONT_BODY } from "../themes";
 import { imgTealHibiscus, imgPurpleSparkle, imgTealMoon, imgPurpleSun } from "../assets";
 
-// ── Page list — drives both the desktop nav links and the mobile dropdown ─────
+// ── Page list: drives both the desktop nav links and the mobile dropdown ──────
 // Order here = display order in the nav. Each entry: ["route-id", "Display Label"]
 const PAGES = [["home","Home"],["about","About"],["projects","Projects"],["waia","WAIA"],["blog","Blog"]];
 

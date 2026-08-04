@@ -1,37 +1,38 @@
 // ── Custom hooks ──────────────────────────────────────────────────────────────
-// useScrollReveal  — animates elements into view as the user scrolls
-// useGlobalStyles  — loads Google Fonts and injects all shared CSS classes once
+// useScrollReveal: animates elements into view as the user scrolls
+// useGlobalStyles: loads Google Fonts and injects all shared CSS classes once
 //
 // CSS class reference (injected by useGlobalStyles, usable on any element):
-//   .pill          — rounded tag chip (used for labels, dates, tech tags)
-//   .btn-fill      — solid filled button
-//   .btn-ghost     — transparent outlined button
-//   .card-lift     — card that rises on hover
-//   .nav-lnk       — nav link with underline-on-active
-//   .social-pill   — pill-shaped social media link
-//   .hf0–.hf4      — staggered hero fade-in animation classes (hf0 first, hf4 last)
-//   .float         — gentle floating up-and-down animation
-//   .shimmer-text      — animated gradient shimmer (beach/teal version)
-//   .shimmer-text-space — animated gradient shimmer (space/purple version)
-//   .orbit         — orbiting dot animation (used on the planet component)
-//   .hide-mobile   — hides element on screens ≤680px
-//   .show-mobile   — shows element (flex) only on screens ≤680px
-//   .hero-section  — overrides applied at 900px and 680px to shrink the hero
-//   .about-row     — flex row that stacks vertically on mobile
-//   .about-grid    — 2-col grid that collapses to 1-col on mobile
-//   .proj-grid     — 2-col project grid that collapses on mobile
-//   .cards-row     — flex row of cards that stacks on mobile
-//   .cur-row       — "Currently" section row that stacks on mobile
-//   .footer-row    — footer flex row that stacks on mobile
-//   .hero-btns     — hero CTA buttons that stack vertically on mobile
-//   .section-pad   — padding shorthand overridden at mobile breakpoint
+//   .btn-fill:     solid filled button
+//   .btn-ghost:    transparent outlined button
+//   .card-lift:    card that rises on hover
+//   .nav-lnk:      nav link with underline-on-active
+//   .social-pill:  pill-shaped social media link
+//   .hf0–.hf4:     staggered hero fade-in animation classes (hf0 first, hf4 last)
+//   .float:        gentle floating up-and-down animation
+//   .shimmer-text:     animated gradient shimmer (beach/teal version)
+//   .shimmer-text-space: animated gradient shimmer (space/purple version)
+//   .orbit:        orbiting dot animation (used on the planet component)
+//   .hide-mobile:  hides element on screens ≤680px
+//   .show-mobile:  shows element (flex) only on screens ≤680px
+//   .hero-section: overrides applied at 900px and 680px to shrink the hero
+//   .about-row:    flex row that stacks vertically on mobile
+//   .about-grid:   2-col grid that collapses to 1-col on mobile
+//   .proj-grid:    2-col project grid that collapses on mobile
+//   .flow-row:     project diagram flow (steps side by side; stacks on mobile)
+//   .flow-arrow:   arrow between diagram steps (rotates to point down on mobile)
+//   .cards-row:    flex row of cards that stacks on mobile
+//   .cur-row:      "Currently" section row that stacks on mobile
+//   .footer-row:   footer flex row that stacks on mobile
+//   .hero-btns:    hero CTA buttons that stack vertically on mobile
+//   .section-pad:  padding shorthand overridden at mobile breakpoint
 
 import { useState, useEffect, useRef } from "react";
 import { FONT_BODY, FONT_MONO } from "./themes";
 
 // ── Scroll-reveal: returns [ref, isVisible] ───────────────────────────────────
 // Attach `ref` to any element; `isVisible` flips true once it enters the viewport.
-// Used by the <Reveal> component in Shared.jsx — you don't need this hook directly.
+// Used by the <Reveal> component in Shared.jsx, so you don't need this hook directly.
 export function useScrollReveal() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -65,7 +66,6 @@ export function useGlobalStyles() {
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       a { text-decoration: none; color: inherit; }
       button { font-family: inherit; cursor: pointer; }
-      .pill { display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; }
       .btn-fill { display: inline-flex; align-items: center; gap: 7px; padding: 12px 26px; border-radius: 10px; font-size: 14px; font-weight: 600; border: none; font-family: ${FONT_BODY}; transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s; text-decoration: none; letter-spacing: 0.01em; }
       .btn-fill:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
       .btn-ghost { display: inline-flex; align-items: center; gap: 7px; padding: 11px 24px; border-radius: 10px; font-size: 14px; font-weight: 500; background: transparent; font-family: ${FONT_BODY}; transition: transform 0.18s, background 0.18s; text-decoration: none; }
@@ -118,6 +118,8 @@ export function useGlobalStyles() {
         .about-row { flex-direction: column !important; }
         .about-grid { grid-template-columns: 1fr !important; }
         .proj-grid { grid-template-columns: 1fr !important; }
+        .flow-row { flex-direction: column !important; }
+        .flow-arrow { transform: rotate(90deg); padding: 2px 0 !important; }
         .cards-row { flex-direction: column !important; }
         .cur-row { flex-direction: column !important; gap: 20px !important; }
         .footer-row { flex-direction: column !important; gap: 28px !important; }

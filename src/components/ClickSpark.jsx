@@ -121,7 +121,7 @@ const ClickSpark = ({
     return () => cancelAnimationFrame(animId);
   }, [easeFunc]);
 
-  // ── Permanent global click listener — reads live values via refs ────────────
+  // ── Permanent global click listener: reads live values via refs ─────────────
   useEffect(() => {
     const handleClick = (e) => {
       const x   = e.clientX;
@@ -140,7 +140,7 @@ const ClickSpark = ({
         );
 
       } else {
-        // splash — ripple rings + arcing droplets
+        // splash: ripple rings + arcing droplets
         particlesRef.current.push(
           { type: "ring", x, y, startTime: now,      maxRadius: 44, color: "#74B8B0", duration: 540 },
           { type: "ring", x, y, startTime: now + 90, maxRadius: 68, color: "#A8D8D4", duration: 680 },
@@ -165,7 +165,7 @@ const ClickSpark = ({
     // capture: true so it fires before any stopPropagation in page content
     window.addEventListener("click", handleClick, { capture: true });
     return () => window.removeEventListener("click", handleClick, { capture: true });
-  }, []); // empty deps — registered once, lives for the component lifetime
+  }, []); // empty deps: registered once, lives for the component lifetime
 
   return (
     <>

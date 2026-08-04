@@ -1,19 +1,19 @@
-// ── About.jsx — About Me page ─────────────────────────────────────────────────
+// ── About.jsx: About Me page ──────────────────────────────────────────────────
 // Sections (top to bottom):
-//   PageHeader      — page label + title (from Shared.jsx)
-//   Bio + photo     — headshot, contact links, intro paragraph, and tag pills
-//   Cards grid      — 4 cards: Technical Interests, Community & Leadership, Experience, Building Toward
-//   Timeline        — vertical timeline of key dates
+//   PageHeader:     page label + title (from Shared.jsx)
+//   Bio + photo:    headshot, contact links, intro paragraph, and topic tags
+//   Cards grid:     4 cards: Technical Interests, Community & Leadership, Experience, Building Toward
+//   Timeline:       vertical timeline of key dates
 //
 // To update the bio text: find the <p> under "Hi, I'm Kylie" and edit it
-// To update the tag pills: edit the array passed to .map() right after the bio paragraph
+// To update the topic tags: edit the `items` array on the MetaLine after the bio paragraph
 // To edit a card: find the cards array and edit the matching object's `text` or `items`
 // To add a card: add an object to the cards array (max 4 keeps the 2-col grid clean)
 // To add/remove a timeline entry: edit the array passed to the timeline .map()
 // To update contact links (email, LinkedIn, GitHub): edit the array in the photo column
 
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal, PageHeader, Icon } from "../components/Shared";
+import { Reveal, PageHeader, MetaLine, Icon } from "../components/Shared";
 import {
   imgTealHibiscus, imgTealDolphin, imgTealSeashell, imgTealTurtle, imgTealWave, imgTealIsland,
   imgTealGithub, imgTealLinkedin, imgTealEmail,
@@ -51,13 +51,10 @@ export default function About({ c, isDark }) {
             <Reveal delay={0.1}>
               <h2 style={{ fontFamily: FONT_HEAD, fontSize: 30, color: c.text, marginBottom: 14 }}>Hi, I'm Kylie <Icon src={isDark ? imgPurpleSparkle : imgTealHibiscus} size={40} style={{ marginLeft: 2 }} /></h2>
               <p style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, lineHeight: 1.82, marginBottom: 20 }}>
-                I'm a Computer Science (Honours) student at Wilfrid Laurier University focused on AI safety, machine learning, and security-minded engineering. I started working toward an AI safety career in December 2025, and I'm particularly interested in building reliable systems and understanding how technical decisions shape real-world risk.
+                I'm a Computer Science (Honours) student at Wilfrid Laurier University, focused on AI safety, machine learning, and security-minded engineering. I started working toward an AI safety career in December 2025, and I'm particularly interested in building reliable systems and understanding how technical decisions shape real-world risk.
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {["BSc CS @ Laurier", "WAIA Founder", "EAG SF 2026 Volunteer", "AI Safety (Dec 2025 →)"].map(tag => (
-                  <span key={tag} className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_BODY }}>{tag}</span>
-                ))}
-              </div>
+              <MetaLine c={c} size={12}
+                items={["BSc CS @ Laurier", "WAIA Founder", "EAG SF 2026 Volunteer", "AI Safety since Dec 2025"]} />
             </Reveal>
           </div>
         </div>
@@ -100,7 +97,7 @@ export default function About({ c, isDark }) {
           </h2>
         </Reveal>
         {[
-          { date: "Apr 2029", label: "Expected graduation — BSc CS (Hons)", note: "Wilfrid Laurier University" },
+          { date: "Apr 2029", label: "Expected graduation: BSc CS (Hons)", note: "Wilfrid Laurier University" },
           { date: "Feb 2026", label: "Volunteered at EA Global San Francisco", note: "EAG SF 2026" },
           { date: "Jan 2026", label: "Founded Waterloo AI Association (WAIA)", note: "Founder & President" },
           { date: "Dec 2025", label: "Started focused AI safety career-building", note: "Current direction" },

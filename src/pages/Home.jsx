@@ -1,9 +1,9 @@
-// ── Home.jsx — landing page ────────────────────────────────────────────────────
+// ── Home.jsx: landing page ─────────────────────────────────────────────────────
 // Sections (top to bottom):
-//   Hero          — name, tagline, CTA buttons, social links, wave/shooting stars
-//   Currently     — bullet list of what you're up to right now
-//   WAIA preview  — 3 feature cards + "About WAIA" button
-//   Contact strip — "Say hello" / "Transmit a signal" with parallax birds/stars
+//   Hero:         name, tagline, CTA buttons, social links, wave/shooting stars
+//   Currently:    bullet list of what you're up to right now
+//   WAIA preview: 3 feature cards + "About WAIA" button
+//   Contact strip: "Say hello" / "Transmit a signal" with parallax birds/stars
 //
 // To edit the hero tagline: find the <p> with fontStyle: "italic" in the Hero section
 // To edit the hero body text: find the <p> below it (shorter paragraph)
@@ -15,7 +15,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal, Wave, SocialLinks, Icon } from "../components/Shared";
+import { Reveal, Wave, SocialLinks, SectionLabel, Icon } from "../components/Shared";
 import { BeachScene, ShootingStars, Planet } from "../components/Stars";
 import {
   imgHibiscus, imgTealDolphin, imgTealSeashell, imgTealTurtle, imgTealWave,
@@ -23,10 +23,10 @@ import {
 } from "../assets";
 
 export default function Home({ setPage, c, isDark }) {
-  // titleHoverX — tracks mouse X % over the name to create a spotlight gradient on hover
+  // titleHoverX: tracks mouse X % over the name to create a spotlight gradient on hover
   const [titleHoverX, setTitleHoverX] = useState(null);
   const contactRef = useRef(null);
-  // parallaxY — used to move birds (beach) and space decorations at 15% scroll speed
+  // parallaxY: used to move birds (beach) and space decorations at 15% scroll speed
   const [parallaxY, setParallaxY] = useState(0);
 
   // Scroll listener: updates parallaxY so the contact section decorations drift slowly
@@ -69,8 +69,7 @@ export default function Home({ setPage, c, isDark }) {
         )}
 
         <div className="hero-content" style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative", paddingBottom: 120 }}>
-          <div className="hf0" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: c.accentLight, border: `1px solid ${c.accentBorder}`, borderRadius: 999, padding: "5px 16px", marginBottom: 28, fontSize: 13, color: c.accent, fontFamily: FONT_MONO }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: c.accent, display: "inline-block", boxShadow: isDark ? `0 0 8px ${c.accent}` : "none" }} />
+          <div className="hf0" style={{ marginBottom: 28, fontSize: 13, color: c.accent, fontFamily: FONT_MONO, letterSpacing: "0.06em" }}>
             CS Student · Waterloo, ON
           </div>
 
@@ -101,7 +100,7 @@ export default function Home({ setPage, c, isDark }) {
           </p>
 
           <p className="hf2" style={{ fontFamily: FONT_BODY, fontSize: 15, color: c.muted, lineHeight: 1.7, maxWidth: 480, margin: "0 auto 38px" }}>
-            Computer science student at Wilfrid Laurier University passionate about building and evaluating trustworthy, safe, and reliable AI systems.
+            Computer science student at Wilfrid Laurier University, passionate about building and evaluating trustworthy, safe, and reliable AI systems.
           </p>
 
           <div className="hf3 hero-btns" style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginBottom: 20 }}>
@@ -126,9 +125,7 @@ export default function Home({ setPage, c, isDark }) {
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 40 }}>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 11, fontWeight: 500, color: c.accent, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                {isDark ? "// currently" : "~ currently"}
-              </span>
+              <SectionLabel c={c}>{isDark ? "// currently" : "~ currently"}</SectionLabel>
               <div style={{ flex: 1, height: 1, background: c.border }} />
             </div>
           </Reveal>
@@ -139,12 +136,12 @@ export default function Home({ setPage, c, isDark }) {
               </h2>
             </Reveal>
             <div style={{ flex: 1 }}>
-              {/* ── Currently bullets — edit this array to update what's shown ── */}
+              {/* ── Currently bullets: edit this array to update what's shown ── */}
               {[
                 "2nd year CS (Hons) at Wilfrid Laurier University",
                 "Founder & President, Waterloo AI Association",
                 "Outreach Coordinator, Laurier Computing Society",
-                "Planning SF AI safety trip — July 2026",
+                "Planning an SF AI safety trip for July 2026",
                 "Targeting red-teaming, evaluation & safety engineering roles",
               ].map((item, i) => (
                 <Reveal key={i} delay={0.1 + i * 0.08}>
@@ -165,7 +162,7 @@ export default function Home({ setPage, c, isDark }) {
         <div style={{ maxWidth: 900, margin: "0 auto", position: "relative" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, marginBottom: 14, display: "inline-block", textTransform: "uppercase", letterSpacing: "0.08em", fontSize: 11, fontFamily: FONT_MONO }}>Community</span>
+              <SectionLabel c={c} style={{ marginBottom: 14 }}>Community</SectionLabel>
               <h2 style={{ fontFamily: FONT_HEAD, fontSize: "clamp(28px,4vw,42px)", color: c.text, marginBottom: 12 }}>Waterloo AI Association</h2>
               <p style={{ fontFamily: FONT_BODY, color: c.muted, fontSize: 15, lineHeight: 1.7, maxWidth: 460, margin: "0 auto" }}>A student community bridging technical AI safety and governance in the Waterloo region.</p>
             </div>
@@ -195,12 +192,12 @@ export default function Home({ setPage, c, isDark }) {
 
       {/* ── Contact strip ── */}
       <section ref={contactRef} className="section-pad" style={{ background: c.bg, padding: "72px 32px", borderTop: `1px solid ${c.border}`, position: "relative", overflow: "hidden" }}>
-        {/* Sun — static, doesn't parallax so it never pulls away from the section */}
+        {/* Sun: static, doesn't parallax so it never pulls away from the section */}
         {!isDark && (
           <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
             background: "radial-gradient(circle 200px at 88% 50%, rgba(240,144,122,0.38) 0%, rgba(244,176,154,0.18) 50%, transparent 100%)" }} />
         )}
-        {/* Parallax layer — birds (beach) and space decorations move at 15% scroll speed */}
+        {/* Parallax layer: birds (beach) and space decorations move at 15% scroll speed */}
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", transform: `translateY(${parallaxY}px)` }}>
           {!isDark && <BeachScene idSuffix="cb" showWaves={false} birdYOffset={-35} />}
           {isDark && <>
@@ -208,7 +205,7 @@ export default function Home({ setPage, c, isDark }) {
             <Planet overrideStyle={{ position: "absolute", right: "6%", top: "calc(50% + 10px)", width: 60, height: 60 }} />
           </>}
         </div>
-        {/* Waves only — outside parallax so they always anchor to section bottom with no gap */}
+        {/* Waves only, outside parallax so they always anchor to section bottom with no gap */}
         {!isDark && <BeachScene idSuffix="contact" showBirds={false} />}
 
         {/* Content sits above decoration layer */}

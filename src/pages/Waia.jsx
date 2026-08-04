@@ -1,21 +1,21 @@
-// ── Waia.jsx — Waterloo AI Association page ───────────────────────────────────
+// ── Waia.jsx: Waterloo AI Association page ────────────────────────────────────
 // Sections (top to bottom):
-//   Header          — logo, tag pills, title, description, link to WAIA site
-//   Mission/Approach cards — 2 side-by-side cards with brief descriptions
-//   "What WAIA is"  — paragraph description
-//   Pillars         — 3 cards: Learning, Community, Projects
-//   "From curious to confident" — 3-step path: Start → Learn → Build
-//   CTA button      — second link to the WAIA website
+//   Header:                      logo, topic tags, title, description, link to WAIA site
+//   Mission/Approach cards:      2 side-by-side cards with brief descriptions
+//   "What WAIA is":              paragraph description
+//   Pillars:                     3 cards for Learning, Community, Projects
+//   "From curious to confident": 3-step path (Start → Learn → Build)
+//   CTA button:                  second link to the WAIA website
 //
 // To update the WAIA website URL: find "v0-waterloo-ai-association.vercel.app"
-//   (appears twice — in the header button and the bottom CTA)
-// To update the tag pills: edit the array in the header section
+//   (appears twice: in the header button and the bottom CTA)
+// To update the topic tags: edit the array in the header section
 // To edit a pillar card: find the pillars array and change the matching object's text
 // To edit the "curious to confident" steps: find the steps array and edit the text fields
 // To update the logo: replace public/waia-logo.png
 
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal, Icon } from "../components/Shared";
+import { Reveal, MetaLine, Icon } from "../components/Shared";
 import {
   imgTealDolphin, imgTealSeashell, imgTealTurtle, imgTealWave, imgTealHibiscus, imgTealSun, imgTealIsland,
   imgPurpleRocket, imgPurpleStar, imgPurpleUfo, imgPurpleShootingStar, imgPurpleSparkle, imgPurpleMoon, imgPurplePlanet,
@@ -36,16 +36,13 @@ export default function Waia({ c, isDark }) {
               onError={e => { e.target.style.display = "none"; }} />
           </Reveal>
           <Reveal delay={0.1}>
-            <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap", marginBottom: 20 }}>
-              {["AI Safety", "AI Governance", "Student Builders", "Waterloo Region"].map(t => (
-                <span key={t} className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>{t}</span>
-              ))}
-            </div>
+            <MetaLine c={c} style={{ marginBottom: 20 }}
+              items={["AI Safety", "AI Governance", "Student Builders", "Waterloo Region"]} />
           </Reveal>
           <Reveal delay={0.15}>
             <h1 style={{ fontFamily: FONT_HEAD, fontSize: "clamp(30px,5vw,52px)", color: c.text, marginBottom: 14 }}>Waterloo AI Association</h1>
             <p style={{ fontFamily: FONT_BODY, fontSize: 16, color: c.muted, maxWidth: 480, margin: "0 auto 28px", lineHeight: 1.75 }}>
-              A student-led community in the Waterloo region focused on AI safety & governance — beginner-friendly, seriously skills-focused.
+              A student-led community in the Waterloo region focused on AI safety and governance: beginner-friendly and seriously skills-focused.
             </p>
             <a href="https://v0-waterloo-ai-association.vercel.app/" target="_blank" rel="noopener noreferrer"
               className="btn-fill" style={{ background: c.accent, color: "#fff", boxShadow: isDark ? `0 0 24px ${c.accent}50` : "none" }}>
@@ -60,7 +57,7 @@ export default function Waia({ c, isDark }) {
         <div style={{ display: "flex", gap: 20, marginBottom: 64, flexWrap: "wrap" }}>
           {[
             { iconBeach: imgTealHibiscus, iconDark: imgPurpleSparkle,   title: "Mission",  text: "Make AI safety + governance approachable in Waterloo, and help students build the skills + clarity to contribute responsibly." },
-            { iconBeach: imgTealIsland,   iconDark: imgPurplePlanet,    title: "Approach", text: "Beginner-friendly entry points, real projects, and honest discussions about tradeoffs — bridging technical work and policy realities." },
+            { iconBeach: imgTealIsland,   iconDark: imgPurplePlanet,    title: "Approach", text: "Beginner-friendly entry points, real projects, and honest discussions about tradeoffs, bridging technical work and policy realities." },
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.1} style={{ flex: 1, minWidth: 230 }}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 18, padding: "28px", height: "100%", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>
@@ -85,7 +82,7 @@ export default function Waia({ c, isDark }) {
           {[
             { iconBeach: imgTealSun,   iconDark: imgPurpleSun,           title: "Learning",  text: "Intro sessions, reading groups, and discussion nights that make AI safety approachable." },
             { iconBeach: imgTealWave,  iconDark: imgPurpleShootingStar,  title: "Community", text: "Guest speakers, workshops, and meetups connecting Waterloo students to the wider AI safety ecosystem." },
-            { iconBeach: imgTealMoon,  iconDark: imgPurpleMoon,          title: "Projects",  text: "Beginner-friendly projects — evaluations, audits, demos — to build real skills and portfolio proof." },
+            { iconBeach: imgTealMoon,  iconDark: imgPurpleMoon,          title: "Projects",  text: "Beginner-friendly projects (evaluations, audits, demos) to build real skills and portfolio proof." },
           ].map((item, i) => (
             <Reveal key={i} delay={i * 0.1} style={{ flex: 1 }}>
               <div className="card-lift" style={{ background: c.card, border: `1px solid ${c.border}`, borderRadius: 16, padding: "24px", boxShadow: isDark ? `0 4px 20px ${c.shadow}` : "none" }}>
@@ -102,7 +99,7 @@ export default function Waia({ c, isDark }) {
           <div style={{ background: c.bgAlt, borderRadius: 22, padding: "44px 40px", marginBottom: 48, position: "relative", overflow: "hidden" }}>
             {isDark && <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, #1D104040 0%, transparent 70%)", pointerEvents: "none" }} />}
             <h2 style={{ fontFamily: FONT_HEAD, fontSize: 26, color: c.text, marginBottom: 6, textAlign: "center", position: "relative" }}>From curious to confident</h2>
-            <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, textAlign: "center", marginBottom: 36, position: "relative" }}>A simple path — without being overwhelming.</p>
+            <p style={{ fontFamily: FONT_BODY, fontSize: 13, color: c.muted, textAlign: "center", marginBottom: 36, position: "relative" }}>A simple path, without being overwhelming.</p>
             <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", rowGap: 28, position: "relative" }}>
               {[
                 { step: "01", icon: isDark ? imgPurpleRocket : imgTealDolphin,  label: "Start", text: "Intro sessions in plain language plus realistic next steps." },

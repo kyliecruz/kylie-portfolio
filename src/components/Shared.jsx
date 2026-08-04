@@ -1,11 +1,13 @@
-// ── Shared.jsx — reusable UI components ──────────────────────────────────────
+// ── Shared.jsx: reusable UI components ───────────────────────────────────────
 // These components are used across multiple pages. Import from here, not re-create.
 //
-//   Icon        — renders an image as an inline icon
-//   Reveal      — wraps any content in a scroll-triggered fade-in animation
-//   Wave        — SVG wave divider used between sections in beach mode
-//   PageHeader  — standard page header (About, Projects, Blog, WAIA all use this)
-//   SocialLinks — email, LinkedIn, GitHub pill links (used in hero + contact section)
+//   Icon:         renders an image as an inline icon
+//   Reveal:       wraps any content in a scroll-triggered fade-in animation
+//   Wave:         SVG wave divider used between sections in beach mode
+//   SectionLabel: small uppercase mono label above a heading ("~ work", "// about")
+//   MetaLine:     inline list of tags/dates joined by a middot separator
+//   PageHeader:   standard page header (About, Projects, Blog, WAIA all use this)
+//   SocialLinks:  email, LinkedIn, GitHub links (used in hero + contact section)
 import { useScrollReveal } from "../hooks";
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
 import {
@@ -47,6 +49,28 @@ export function Wave({ fill, flip }) {
   );
 }
 
+// ── Section label ─────────────────────────────────────────────────────────────
+// Small uppercase mono text that sits above a heading, e.g. "~ work" / "// work".
+export function SectionLabel({ children, c, style = {} }) {
+  return (
+    <div style={{ fontFamily: FONT_MONO, fontSize: 11, fontWeight: 500, color: c.accent, letterSpacing: "0.12em", textTransform: "uppercase", ...style }}>
+      {children}
+    </div>
+  );
+}
+
+// ── Meta line ─────────────────────────────────────────────────────────────────
+// Inline list of tags, dates, or topics joined by a middot, e.g.
+//   Python · AI Safety · Governance
+// `tone` picks the colour: "accent" for topic tags, "muted" for secondary info.
+export function MetaLine({ items = [], c, tone = "accent", size = 11, style = {} }) {
+  return (
+    <div style={{ fontFamily: FONT_MONO, fontSize: size, color: tone === "accent" ? c.accent : c.muted, letterSpacing: "0.05em", lineHeight: 1.7, ...style }}>
+      {items.filter(Boolean).join("  ·  ")}
+    </div>
+  );
+}
+
 // ── Page header (used by About, Projects, Blog, WAIA) ─────────────────────────
 export function PageHeader({ label, title, subtitle, c, isDark }) {
   return (
@@ -56,7 +80,7 @@ export function PageHeader({ label, title, subtitle, c, isDark }) {
       )}
       <div style={{ position: "relative" }}>
         <Reveal>
-          <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, marginBottom: 16, display: "inline-block", textTransform: "uppercase", letterSpacing: "0.08em", fontSize: 11, fontFamily: FONT_MONO }}>{label}</span>
+          <SectionLabel c={c} style={{ marginBottom: 16 }}>{label}</SectionLabel>
         </Reveal>
         <Reveal delay={0.1}>
           <h1 style={{ fontFamily: FONT_HEAD, fontSize: "clamp(38px,5vw,62px)", color: c.text, marginBottom: subtitle ? 14 : 0, lineHeight: 1.1 }}>{title}</h1>

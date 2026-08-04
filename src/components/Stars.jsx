@@ -1,17 +1,17 @@
-// ── Stars.jsx — background decorations for both themes ────────────────────────
+// ── Stars.jsx: background decorations for both themes ─────────────────────────
 // Space (dark) mode components:
-//   Stars         — 140 twinkling stars + purple nebula clouds (fixed, full-page)
-//   ShootingStars — animated falling stars + small twinkling dots (fixed by default,
-//                   or contained=true for section-scoped use)
-//   Planet        — purple planet with orbit ring (fixed by default, or use
-//                   overrideStyle to embed it inside a section at custom size/position)
+//   Stars:         140 twinkling stars + purple nebula clouds (fixed, full-page)
+//   ShootingStars: animated falling stars + small twinkling dots (fixed by default,
+//                  or contained=true for section-scoped use)
+//   Planet:        purple planet with orbit ring (fixed by default, or use
+//                  overrideStyle to embed it inside a section at custom size/position)
 //
 // Beach (light) mode components:
-//   BeachScene    — animated ocean waves + seagulls (absolute, anchors to section bottom)
-//                   Props: showWaves/showBirds toggle each layer; birdYOffset shifts birds up/down;
-//                   idSuffix prevents gradient ID collisions when two instances are on the same page
-//   BeachDeco     — fixed-position coral sun + teal ellipse glow; isHome=true hides the sun
-//                   (the home page renders its own sun per-section instead)
+//   BeachScene:    animated ocean waves + seagulls (absolute, anchors to section bottom)
+//                  Props: showWaves/showBirds toggle each layer; birdYOffset shifts birds up/down;
+//                  idSuffix prevents gradient ID collisions when two instances are on the same page
+//   BeachDeco:     fixed-position coral sun + teal ellipse glow; isHome=true hides the sun
+//                  (the home page renders its own sun per-section instead)
 //
 // Usage: Stars and BeachDeco are rendered globally in App.jsx.
 //        ShootingStars, Planet, and BeachScene are used inside specific page sections.
@@ -56,7 +56,7 @@ export function Stars() {
 // ── Shooting stars (space mode, home hero + contact section) ─────────────────
 // contained=true → position:absolute (scoped to nearest positioned ancestor)
 export function ShootingStars({ contained = false, maxStars = 6 }) {
-  // Steep downward trajectories — large y-drop, small x-shift
+  // Steep downward trajectories: large y-drop, small x-shift
   const shots = [
     { x1: "88%", y1: "2%",  x2: "74%", y2: "52%", delay: "0s",   dur: "2.8s" },
     { x1: "74%", y1: "0%",  x2: "58%", y2: "46%", delay: "1.4s", dur: "2.2s" },
@@ -89,7 +89,7 @@ export function ShootingStars({ contained = false, maxStars = 6 }) {
               <animate attributeName="x2" values={`${s.x1};${s.x2}`} dur={s.dur} begin={s.delay} repeatCount="indefinite" />
               <animate attributeName="y2" values={`${s.y1};${s.y2}`} dur={s.dur} begin={s.delay} repeatCount="indefinite" />
             </line>
-            {/* dot at x2 — the leading edge, falling downward */}
+            {/* dot at x2, the leading edge, falling downward */}
             <circle r="2.5" fill="#C4B5FD" opacity="0">
               <animate attributeName="cx" values={`${s.x1};${s.x2}`} dur={s.dur} begin={s.delay} repeatCount="indefinite" />
               <animate attributeName="cy" values={`${s.y1};${s.y2}`} dur={s.dur} begin={s.delay} repeatCount="indefinite" />

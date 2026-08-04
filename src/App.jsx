@@ -1,7 +1,7 @@
-// ── App.jsx — top-level router and layout ─────────────────────────────────────
+// ── App.jsx: top-level router and layout ──────────────────────────────────────
 // This file wires everything together. It owns:
 //   • Theme state (isDark): reads OS preference, toggleable via Nav
-//   • Page state (page): single-page routing — no URL changes, just state swaps
+//   • Page state (page): single-page routing with no URL changes, just state swaps
 //   • Global decorations: Stars (space) and BeachDeco (beach) render behind all content
 //   • ClickSpark: click particle effect that wraps the entire app
 //
@@ -30,6 +30,10 @@ import Blog from "./pages/Blog";
 
 export default function App() {
   const [page, setPage] = useState("home");
+  // Bumped on every nav click. Used as a `key` on Projects so that clicking
+  // "Projects" in the nav while inside a project collection resets it back to
+  // the collection hub instead of leaving you on the sub-page.
+  const [navKey, setNavKey] = useState(0);
   const [isDark, setIsDark] = useState(() => window.matchMedia("(prefers-color-scheme: dark)").matches);
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -43,12 +47,13 @@ export default function App() {
   // Switches page and scrolls back to top (slight delay so React re-renders first)
   const navigate = (id) => {
     setPage(id);
+    setNavKey(k => k + 1);
     setTimeout(() => window.scrollTo?.({ top: 0, behavior: "smooth" }), 10);
   };
 
   const pageContent = (
     <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: c.bg, color: c.text, minHeight: "100vh", transition: "background 0.5s, color 0.4s", position: "relative" }}>
-      {/* Fixed background decorations — sit at z=0, behind all page content (z=1) */}
+      {/* Fixed background decorations sit at z=0, behind all page content (z=1) */}
       {isDark && <Stars />}
       {/* isHome=true → BeachDeco skips its sun (home hero has its own per-section sun) */}
       {!isDark && <BeachDeco isHome={page === "home"} />}
@@ -56,7 +61,7 @@ export default function App() {
         <Nav page={page} setPage={navigate} isDark={isDark} setIsDark={setIsDark} c={c} />
         {page === "home"     && <Home     setPage={navigate} c={c} isDark={isDark} />}
         {page === "about"    && <About    c={c} isDark={isDark} />}
-        {page === "projects" && <Projects c={c} isDark={isDark} />}
+        {page === "projects" && <Projects key={navKey} c={c} isDark={isDark} />}
         {page === "waia"     && <Waia     c={c} isDark={isDark} />}
         {page === "blog"     && <Blog     c={c} isDark={isDark} />}
         <Footer c={c} setPage={navigate} isDark={isDark} />

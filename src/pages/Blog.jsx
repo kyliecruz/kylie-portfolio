@@ -1,16 +1,16 @@
-// ── Blog.jsx — Blog listing and post reader ───────────────────────────────────
-// The blog is fully self-contained in this file — no separate files per post.
+// ── Blog.jsx: Blog listing and post reader ────────────────────────────────────
+// The blog is fully self-contained in this file, with no separate files per post.
 //
 // To add a new blog post:
 //   1. Add an object to the POSTS array below with these fields:
-//        date      — e.g. "Apr 2026"
-//        readTime  — e.g. "5 min read"
-//        tags      — array of strings, e.g. ["AI Safety", "Community"]
-//        title     — post title shown in the list and at the top of the post
-//        desc      — short summary shown on the list card
-//        subtitle  — shown as italic text at the top of the full post (can match desc)
-//        body      — array of block objects (see supported types below)
-//   2. Save — the post appears at the top of the list automatically
+//        date:     e.g. "Apr 2026"
+//        readTime: e.g. "5 min read"
+//        tags:     array of strings, e.g. ["AI Safety", "Community"]
+//        title:    post title shown in the list and at the top of the post
+//        desc:     short summary shown on the list card
+//        subtitle: shown as italic text at the top of the full post (can match desc)
+//        body:     array of block objects (see supported types below)
+//   2. Save, and the post appears at the top of the list automatically
 //
 // Body block types:
 //   { type: "p",          text: "Paragraph text." }
@@ -22,10 +22,10 @@
 
 import { useState, useEffect } from "react";
 import { FONT_HEAD, FONT_BODY, FONT_MONO } from "../themes";
-import { Reveal, PageHeader, Icon } from "../components/Shared";
+import { Reveal, PageHeader, MetaLine, Icon } from "../components/Shared";
 import { imgTealWave, imgPurpleShootingStar, imgPurpleStar, imgTealSeashell } from "../assets";
 
-// ── Add new blog posts here — newest first ────────────────────────────────────
+// ── Add new blog posts here: newest first ─────────────────────────────────────
 const POSTS = [
   {
     date: "Jan 2026",
@@ -39,12 +39,12 @@ const POSTS = [
       { type: "p", text: "Students bring fresh perspectives, a willingness to experiment, and a collaborative spirit that is essential for tackling complex challenges. By engaging with AI safety early in their careers, students can contribute to building robust, trustworthy systems while also learning about the ethical and societal implications of their work." },
       { type: "h2", text: "Building Culture, Not Just Code" },
       { type: "p", text: "Student-led initiatives can foster a culture of responsibility and awareness around AI development. Through clubs, hackathons, and research projects, students can create communities that prioritize safety and ethics alongside technical innovation." },
-      { type: "blockquote", text: "The goal isn't to produce perfect researchers overnight — it's to make safety-minded thinking the default, not the exception." },
+      { type: "blockquote", text: "The goal isn't to produce perfect researchers overnight; it's to make safety-minded thinking the default, not the exception." },
       { type: "h2", text: "What I've Learned Building WAIA" },
       { type: "p", text: "In my own experience, founding the Waterloo AI Association (WAIA) has been an incredible journey of learning and growth. By bringing together like-minded peers, we have been able to explore AI safety topics, host discussions with experts, and work on projects that emphasize responsible AI development." },
-      { type: "p", text: "One thing that surprised me: the biggest barrier for most students isn't lack of interest — it's not knowing where to start. Lowering that entry point, making the material approachable, and creating space for honest questions has been the most valuable thing WAIA has done so far." },
+      { type: "p", text: "One thing that surprised me: the biggest barrier for most students isn't lack of interest; it's not knowing where to start. Lowering that entry point, making the material approachable, and creating space for honest questions have been the most valuable things WAIA has done so far." },
       { type: "h2", text: "Starting Early Matters" },
-      { type: "p", text: "Students are not just the future of AI — they are active participants in its present. The decisions being made today about how AI systems are built, evaluated, and deployed will shape the world these students graduate into. Getting involved now, even imperfectly, matters." },
+      { type: "p", text: "Students are not just the future of AI; they are active participants in its present. The decisions being made today about how AI systems are built, evaluated, and deployed will shape the world these students graduate into. Getting involved now, even imperfectly, matters." },
       { type: "p", text: "By embracing their role as builders and thinkers in the AI safety space, students can help ensure that AI technologies are developed in a manner that is safe, ethical, and beneficial for all." },
     ],
   },
@@ -62,11 +62,11 @@ const POSTS = [
       { type: "p", text: "WAIA aims to bridge the gap between technical innovation and policy awareness. Our focus is not limited to machine learning techniques alone, but also includes interpretability, evaluation, risk assessment, and the governance frameworks that shape how AI is developed and deployed in the real world." },
       { type: "blockquote", text: "Responsible AI requires both strong technical understanding and thoughtful engagement with ethics, regulation, and social context." },
       { type: "h2", text: "What We Do" },
-      { type: "p", text: "Through reading groups, speaker events, workshops, and open discussions, WAIA provides a space for students from computer science, engineering, policy, and related fields to learn collaboratively. We try to keep things beginner-friendly — you don't need to be an ML expert to care about how AI gets built and deployed." },
+      { type: "p", text: "Through reading groups, speaker events, workshops, and open discussions, WAIA provides a space for students from computer science, engineering, policy, and related fields to learn collaboratively. We try to keep things beginner-friendly. You don't need to be an ML expert to care about how AI gets built and deployed." },
       { type: "ul", items: [
         "Intro sessions that explain AI safety in plain language",
         "Reading groups focused on understanding over impressing",
-        "Beginner-friendly projects — evaluations, audits, and demos",
+        "Beginner-friendly projects: evaluations, audits, and demos",
         "Connections to the wider AI safety and governance ecosystem",
       ]},
       { type: "h2", text: "Community First" },
@@ -95,16 +95,9 @@ function PostDetail({ post, onBack, c, isDark }) {
             </button>
           </Reveal>
           <Reveal delay={0.05}>
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
-              <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>
-                <img src={isDark ? imgPurpleStar : imgTealSeashell} alt="" style={{ width: 16, height: 16, marginRight: 0, verticalAlign: "middle" }} /> {post.date}
-              </span>
-              <span className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>
-                {post.readTime}
-              </span>
-              {post.tags.map(tag => (
-                <span key={tag} className="pill" style={{ background: c.accentLight, color: c.accent, border: `1px solid ${c.accentBorder}`, fontFamily: FONT_MONO, fontSize: 11 }}>{tag}</span>
-              ))}
+            <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 20 }}>
+              <img src={isDark ? imgPurpleStar : imgTealSeashell} alt="" style={{ width: 16, height: 16, flexShrink: 0 }} />
+              <MetaLine c={c} items={[post.date, post.readTime, ...post.tags]} />
             </div>
           </Reveal>
           <Reveal delay={0.1}>
