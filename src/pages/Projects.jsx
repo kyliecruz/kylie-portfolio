@@ -13,7 +13,7 @@
 //   id:          internal key (any unique string)
 //   heading:     collection title in beach/light mode
 //   spaceHeading: collection title in space/dark mode
-//   label:       small uppercase label above the title (beach / space variants)
+//   label:       small uppercase chip above the title (beach / space variants)
 //   tagline:     1 sentence shown on the hub card
 //   blurb:       1–2 sentences shown at the top of the collection page
 //   iconBeach / iconDark: icon shown on the hub card
@@ -209,7 +209,7 @@ const COLLECTIONS = [
 
 // ── Flow diagram: "what this project does in a nutshell" ──────────────────────
 // Renders `diagram.steps` as boxes joined by arrows, then `diagram.outs` as a
-// line of outcomes fanning out of the flow. Stacks vertically on mobile
+// row of chips fanning out of the flow. Stacks vertically on mobile
 // (the .flow-row / .flow-arrow classes live in src/hooks.js).
 function FlowDiagram({ d, c, isDark }) {
   return (

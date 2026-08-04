@@ -24,7 +24,7 @@ import {
 export default function About({ c, isDark }) {
   return (
     <div>
-      <PageHeader label={isDark ? "// about" : "~ about"} title="About Me" c={c} isDark={isDark} />
+      <PageHeader label={isDark ? "// about" : "~ biography"} title="About Me" c={c} isDark={isDark} />
 
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "68px 32px" }}>
         {/* ── Bio + photo ── */}
@@ -54,7 +54,7 @@ export default function About({ c, isDark }) {
                 I'm a Computer Science (Honours) student at Wilfrid Laurier University, focused on AI safety, machine learning, and security-minded engineering. I started working toward an AI safety career in December 2025, and I'm particularly interested in building reliable systems and understanding how technical decisions shape real-world risk.
               </p>
               <MetaLine c={c} size={12}
-                items={["BSc CS @ Laurier", "WAIA Founder", "EAG SF 2026 Volunteer", "AI Safety since Dec 2025"]} />
+                items={["BSc CS @ Laurier", "WAIA Founder", "AI Safety since Dec 2025"]} />
             </Reveal>
           </div>
         </div>
